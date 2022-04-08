@@ -23,7 +23,12 @@
         "react/react-in-jsx-scope": "off",
         "eslint linebreak-style": [
             "off",
+            "windows"
+        ],
+        "eslint linebreak-style": [
+            "off",
             "unix"
         ],
+        "react/jsx-props-no-spreading": "off",
     }
 }
