@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
+import { CustomRadioButton } from "../UI/CustomRadioButton/CustomRadioButton";
 
 export const getStaticProps = async () => {
 
@@ -34,7 +35,7 @@ export default function Test({ imagesStrapi }) {
             <img src={img}></img>
           </div>
         ))}
-
+        <CustomRadioButton />
       </div>
       <div>{count}</div>
       <button onClick={() => setCount(count => count + 1)}>increment</button>
