@@ -3,6 +3,7 @@ import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
 import { CustomRadioButton } from "./UI/CustomRadioButton/CustomRadioButton";
 import { CustomDropDown } from "./UI/CustomDropDown/CustomDropDown";
+import { CustomButton } from "./UI/CustomButton/CustomButton";
 
 export const getStaticProps = async () => {
 
@@ -45,6 +46,7 @@ export default function Test({ imagesStrapi }) {
       <div>{count}</div>
       <button onClick={() => setCount(count => count + 1)}>increment</button>
       <CustomDropDown label={'test'} buttonsLabels={['1', '2', '3']} />
+      <CustomButton label={'test2'} onClick={() => { }} />
     </div>
   );
 }

@@ -3,12 +3,13 @@ import upArrow from '../../../public/images/CustomDropDown/arrowUp.svg'
 import downArrow from '../../../public/images/CustomDropDown/arrowDown.svg'
 import { CustomRadioButton } from "../CustomRadioButton/CustomRadioButton"
 
-export const CustomDropDown = ({ label, buttonsLabels }) => {
+export const CustomDropDown = ({ label, buttonsLabels, handleValue }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [radioValue, setRadioValue] = useState('')
 
   const handleRadioValue = (value) => {
     setRadioValue(value)
+    handleValue(value)
   }
 
   console.log(isOpen)
