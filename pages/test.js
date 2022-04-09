@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
 
@@ -22,6 +22,8 @@ export const getStaticProps = async () => {
 }
 
 export default function Test({ imagesStrapi }) {
+  const [count, setCount] = useState(0)
+
   return (
     <div>
       <Head>
@@ -32,7 +34,10 @@ export default function Test({ imagesStrapi }) {
             <img src={img}></img>
           </div>
         ))}
+
       </div>
+      <div>{count}</div>
+      <button onClick={() => setCount(count => count + 1)}>increment</button>
     </div>
   );
 }
