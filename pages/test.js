@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
-import { CustomRadioButton } from "../UI/CustomRadioButton/CustomRadioButton";
+import { CustomRadioButton } from "./UI/CustomRadioButton/CustomRadioButton";
 
 export const getStaticProps = async () => {
 
@@ -25,6 +25,10 @@ export const getStaticProps = async () => {
 export default function Test({ imagesStrapi }) {
   const [count, setCount] = useState(0)
 
+  const CustomRadioButtonHandler = (value) => {
+    setCount(value)
+  }
+
   return (
     <div>
       <Head>
@@ -35,7 +39,7 @@ export default function Test({ imagesStrapi }) {
             <img src={img}></img>
           </div>
         ))}
-        <CustomRadioButton />
+        <CustomRadioButton handleValue={CustomRadioButtonHandler} buttonsLabels={['5л', '10л', '13л']} />
       </div>
       <div>{count}</div>
       <button onClick={() => setCount(count => count + 1)}>increment</button>
