@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
-import { CustomRadioButton } from "./UI/CustomRadioButton/CustomRadioButton";
-import { CustomDropDown } from "./UI/CustomDropDown/CustomDropDown";
-import { CustomButton } from "./UI/CustomButton/CustomButton";
+import { CustomRadioButton } from "./UI/customRadioButton/CustomRadioButton";
+import { CustomDropDown } from "./UI/customDropDown/CustomDropDown";
+import { CustomButton } from "./UI/customButton/CustomButton";
+import { CustomLink } from "./UI/customLink/customLink";
 
 export const getStaticProps = async () => {
 
@@ -47,6 +48,7 @@ export default function Test({ imagesStrapi }) {
       <button onClick={() => setCount(count => count + 1)}>increment</button>
       <CustomDropDown label={'test'} buttonsLabels={['1', '2', '3']} />
       <CustomButton label={'test2'} onClick={() => { }} />
+      <CustomLink label={'test'} />
     </div>
   );
 }

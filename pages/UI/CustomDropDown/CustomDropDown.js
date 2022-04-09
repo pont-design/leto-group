@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import upArrow from '../../../public/images/CustomDropDown/arrowUp.svg'
 import downArrow from '../../../public/images/CustomDropDown/arrowDown.svg'
-import { CustomRadioButton } from "../CustomRadioButton/CustomRadioButton"
+import { CustomRadioButton } from "../customRadioButton/CustomRadioButton"
 
 export const CustomDropDown = ({ label, buttonsLabels, handleValue }) => {
   const [isOpen, setIsOpen] = useState(false)
