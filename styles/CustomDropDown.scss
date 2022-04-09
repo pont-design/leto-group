@@ -1,0 +1,61 @@
+@import './variables.scss';
+
+.drop-down__button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  line-height: 24px;
+  border: 1px solid $gray5;
+  border-radius: 20px;
+  user-select: none;
+}
+
+.drop-down__button_open {
+  background-color: white;
+}
+
+.drop-down__button_close {
+  background-color: $gray100;
+}
+
+.drop-down__custom-radio {
+  position: absolute;
+  top: 5rem;
+}
+
+.dropdown__wrapper {
+  position: relative;
+}
+
+.dropdown__label {
+  align-items: center;
+}
+
+.dropdown__label_down svg {
+  transition: transform 0.3s ease-in;
+  transform: rotate(0.5turn);
+}
+
+.dropdown__label_up svg {
+  transition: transform 0.3s ease-in;
+}
+
+.dropdown__text {
+  margin-right: 5.2rem;
+}
+
+.custom-radio-button_open {
+}
+
+.custom-radio-button_close {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.custom-radio-button_open {
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
