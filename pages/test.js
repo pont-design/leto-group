@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
-import { CustomRadioButton } from "./UI/customRadioButton/CustomRadioButton";
-import { CustomDropDown } from "./UI/customDropDown/CustomDropDown";
-import { CustomButton } from "./UI/customButton/CustomButton";
-import { CustomLink } from "./UI/customLink/customLink";
+import { CustomRadioButton } from "../components/UI/customRadioButton/CustomRadioButton";
+import { CustomDropDown } from "../components/UI/customDropDown/CustomDropDown";
+import { CustomButton } from "../components/UI/customButton/CustomButton";
+import { CustomLink } from "../components/UI/customLink/customLink";
 
 export const getStaticProps = async () => {
 

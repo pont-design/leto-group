@@ -1,9 +1,5 @@
 @import './variables.scss';
 
-.drop-down__arrow-img {
-  margin-left: 5.5rem;
-}
-
 .drop-down__button {
   display: inline-block;
   cursor: pointer;
@@ -29,4 +25,37 @@
 
 .dropdown__wrapper {
   position: relative;
+}
+
+.dropdown__label {
+  align-items: center;
+}
+
+.dropdown__label_down svg {
+  transition: transform 0.3s ease-in;
+  transform: rotate(0.5turn);
+}
+
+.dropdown__label_up svg {
+  transition: transform 0.3s ease-in;
+}
+
+.dropdown__text {
+  margin-right: 5.2rem;
+}
+
+.custom-radio-button_open {
+}
+
+.custom-radio-button_close {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.custom-radio-button_open {
+  visibility: visible;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
 }
