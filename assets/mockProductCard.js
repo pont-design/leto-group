@@ -18,6 +18,7 @@ export const mockProductCard = {
   },
   similar: [
     {
+      id: 1,
       image: '/public/img/product-image.jpg',
       name: 'Жидкий яичный белок пастеризованный охлажденный',
       desc: '1кг жидкого белка пастеризованного охлажденного заменяет 35 – 38 белков свежих яиц',
@@ -37,6 +38,7 @@ export const mockProductCard = {
       },
     },
     {
+      id: 2,
       image: '/public/img/product-image.jpg',
       name: 'Жидкий яичный белок пастеризованный охлажденный',
       desc: '1кг жидкого белка пастеризованного охлажденного заменяет 35 – 38 белков свежих яиц',
@@ -56,6 +58,7 @@ export const mockProductCard = {
       },
     },
     {
+      id: 3,
       image: '/public/img/product-image.jpg',
       name: 'Жидкий яичный белок пастеризованный охлажденный',
       desc: '1кг жидкого белка пастеризованного охлажденного заменяет 35 – 38 белков свежих яиц',

@@ -12,12 +12,16 @@ export default function productCrad() {
   function addParametrs() {
     const indicatorsArr = Object.entries(mockProductCard.indicators);
 
-    return indicatorsArr.map((el) => (
-      <div className="product-card__parametrs-item">
-        <p className="product-card__parametr-name text1">{el[0]}</p>
-        <p className="product-card__parametr-desc text1">{el[1]}</p>
+    return (
+      <div className="product-card__parametrs-table">
+        {indicatorsArr.map((el) => (
+          <div className="product-card__parametrs-item">
+            <p className="product-card__parametr-name text1">{el[0]}</p>
+            <p className="product-card__parametr-desc text1">{el[1]}</p>
+          </div>
+        ))}
       </div>
-    ));
+    );
   }
 
   return (
@@ -51,6 +55,12 @@ export default function productCrad() {
             <CustomAccordion
               title={'Описание'}
               content={mockProductCard.description}
+              style={{
+                borderTop: '1px solid #e4e4e7',
+                borderBottom: '1px solid #e4e4e7',
+                padding: '16px 0',
+                margin: '16px 0',
+              }}
             />
             <CustomAccordion
               title={'Упаковка'}
@@ -63,12 +73,18 @@ export default function productCrad() {
         <h5>Показатели</h5>
         {addParametrs()}
       </div>
+
       <div className="product-card__similar">
         <h3>Может такое возьмёте?</h3>
         <div className="product-card__similar-list">
           {mockProductCard.similar.map((el) => {
             return (
-              <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+              <BaseCard
+                key={el.id}
+                img={mockBaseCard.src}
+                name={el.name}
+                gost={el.gost}
+              />
             );
           })}
         </div>
