@@ -1,7 +1,20 @@
-import '../styles/globals.css';
+import '../styles/base.scss';
+import '../styles/global.scss';
 
-function MyApp({ Component }) {
-  return <Component />;
+import '../styles/CustomRadioButtonStyle.scss';
+import '../styles/CustomDropDown.scss';
+import '../styles/CustomButton.scss';
+import '../styles/CustomLink.scss';
+import '../styles/productCard.scss';
+import '../styles/CustomAccordeonStyles.scss';
+import '../styles/BaseCardStyles.scss';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <div className="container">
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default MyApp;

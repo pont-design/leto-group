@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.customLink-label_default {
+  text-decoration: underline;
+  color: $green;
+  margin-right: 0.8rem;
+}
+
+.customLink-label_hover {
+  text-decoration: none;
+  color: $orange;
+  margin-right: 0.8rem;
+}

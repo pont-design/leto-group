@@ -1,0 +1,31 @@
+@import './variables.scss';
+
+.form-radio-btn {
+  display: flex;
+}
+.form-radio-btn input[type='radio'] {
+  display: none;
+}
+.form-radio-btn label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  line-height: 24px;
+  border: 1px solid $gray5;
+  border-radius: 20px;
+  user-select: none;
+  margin-right: 1.2rem;
+}
+
+.form-radio-btn input[type='radio']:checked + label {
+  border: 1px solid $orange;
+}
+
+.form-radio-btn label:hover {
+  border: 1px solid $orange;
+}
+
+.form-radio-btn input[type='radio']:disabled + label {
+  background: #efefef;
+  color: #666;
+}

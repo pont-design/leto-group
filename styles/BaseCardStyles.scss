@@ -1,0 +1,15 @@
+@import './variables.scss';
+
+.base-card__img {
+  max-width: 451px;
+  max-height: 494px;
+  background-color: $gray50;
+}
+
+.base-card__text {
+  margin-top: 2rem;
+}
+
+.base-card__name {
+  margin-top: 0.4rem;
+}
