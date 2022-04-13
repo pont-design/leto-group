@@ -3,11 +3,13 @@ import { Header } from "../Components/Common/Header";
 import '../styles/base.scss';
 import '../styles/global.scss';
 
+import '../styles/productCard.scss';
+import '../styles/catalog.scss';
+
 import '../styles/CustomRadioButtonStyle.scss';
 import '../styles/CustomDropDown.scss';
 import '../styles/CustomButton.scss';
 import '../styles/CustomLink.scss';
-import '../styles/productCard.scss';
 import '../styles/CustomAccordeonStyles.scss';
 import '../styles/BaseCardStyles.scss';
 import '../styles/CustomOutlinedButton.scss'
