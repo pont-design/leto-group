@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CustomRadioButton } from "../customRadioButton/CustomRadioButton"
+import { CustomRadioButton } from "../CustomRadioButton/CustomRadioButton"
 
 export const CustomDropDown = ({ label, buttonsLabels, handleValue }) => {
   const [isOpen, setIsOpen] = useState(false)

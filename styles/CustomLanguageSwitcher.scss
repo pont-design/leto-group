@@ -1,0 +1,23 @@
+@import './variables.scss';
+
+.custom-language-switcher {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.custom-language-switch {
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: 4rem;
+  transition: all 0.3s ease-in;
+}
+
+.custom-language-switch_active {
+  border: 1px solid $gray900;
+  color: $gray900;
+}
+
+.custom-language-switch_disabled {
+  border: 1px solid $gray400;
+  color: $gray400;
+}

@@ -1,12 +1,12 @@
-import { CustomAccordion } from '../../components/CustomAccordeon';
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { mockProductCard } from '../../assets/mockProductCard';
 
-import { CustomButton } from '../UI/CustomButton/CustomButton';
-import { CustomRadioButton } from '../UI/CustomRadioButton/CustomRadioButton';
-import { BaseCard } from '../UI/BaseCard/BaseCard';
+import { CustomButton } from '../../components/UI/CustomButton/CustomButton';
+import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
+import { BaseCard } from '../../components/BaseCard/BaseCard';
 
-import mockProduct from '../../public/img/mockProduct.jpg';
-import mockBaseCard from '../../public/img/mockBaseCard.jpg';
+import mockProduct from '../../public/images/ProductCard/mockProduct.jpg';
+import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
 export default function productCrad() {
   function addParametrs() {

@@ -3,6 +3,8 @@ import logoLeto from '../../public/images/header/logoLeto.svg'
 import logoSanovo from '../../public/images/header/logoSanovo.svg'
 
 import Link from 'next/link'
+import { CustomOutlinedButton } from "../UI/CustomOutlinedButton/CustomOutlinedButton"
+import { CustomLanguageSwitcher } from "../UI/CustomLanguageSwitcher/CustomLanguageSwitcher"
 
 export const Header = () => {
   const links = [{ label: 'Продукция', link: 'production' },
@@ -14,7 +16,7 @@ export const Header = () => {
   { label: 'Контакты', link: 'contacts' }]
 
   return (
-    <section className="header__wrapper">
+    <header className="header__wrapper">
       <img src={logoLeto.src} />
       <img src={logoSanovo.src} />
       <div>
@@ -28,8 +30,9 @@ export const Header = () => {
         <span>
           <a href="tel:+78005553535">+7 800 555 35 35</a>
         </span>
-        <button></button>
+        <CustomOutlinedButton label='Оставить заявку' isButtonSmall={true} />
+        <CustomLanguageSwitcher />
       </div>
-    </section>
+    </header>
   )
 }
