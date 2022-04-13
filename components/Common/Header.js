@@ -7,32 +7,36 @@ import { CustomOutlinedButton } from "../UI/CustomOutlinedButton/CustomOutlinedB
 import { CustomLanguageSwitcher } from "../UI/CustomLanguageSwitcher/CustomLanguageSwitcher"
 
 export const Header = () => {
-  const links = [{ label: 'Продукция', link: 'production' },
-  { label: 'Продукция', link: 'production' },
-  { label: 'О компании', link: 'about' },
-  { label: 'Качество', link: 'quality' },
-  { label: 'Технология', link: 'technology' },
-  { label: 'Вакансии', link: 'vacancy' },
-  { label: 'Контакты', link: 'contacts' }]
+  const links = [
+    { label: 'Продукция', link: 'production' },
+    { label: 'О компании', link: 'about' },
+    { label: 'Качество', link: 'quality' },
+    { label: 'Технология', link: 'technology' },
+    { label: 'Вакансии', link: 'vacancy' },
+    { label: 'Контакты', link: 'contacts' }]
 
   return (
-    <header className="header__wrapper">
-      <img src={logoLeto.src} />
-      <img src={logoSanovo.src} />
-      <div>
-        {links.map(link => (
-          <Link href={link.link}>
-            {link.label}
-          </Link>
-        ))}
+    <div className="header__outline-wrapper">
+      <div className="container">
+        <header className="header__wrapper">
+          <img src={logoLeto.src} />
+          <img className="header__sanovo-label" src={logoSanovo.src} />
+          <ul className="header__links">
+            {links.map(link => (
+              <li className="link-text" key={link.label}>
+                <Link href={link.link}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="header__controls-panel">
+            <a className="btn-text-2" href="tel:+78005553535">+7 800 555 35 35</a>
+            <CustomOutlinedButton label='Оставить заявку' isButtonSmall={true} />
+            <CustomLanguageSwitcher />
+          </div>
+        </header>
       </div>
-      <div>
-        <span>
-          <a href="tel:+78005553535">+7 800 555 35 35</a>
-        </span>
-        <CustomOutlinedButton label='Оставить заявку' isButtonSmall={true} />
-        <CustomLanguageSwitcher />
-      </div>
-    </header>
+    </div>
   )
 }

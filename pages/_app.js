@@ -1,3 +1,5 @@
+import { Header } from "../Components/Common/Header";
+
 import '../styles/base.scss';
 import '../styles/global.scss';
 
@@ -10,13 +12,22 @@ import '../styles/CustomAccordeonStyles.scss';
 import '../styles/BaseCardStyles.scss';
 import '../styles/CustomOutlinedButton.scss'
 import '../styles/CustomLanguageSwitcher.scss'
+import '../styles/Header.scss'
+import '../styles/Header.scss'
+
+import { Footer } from "../components/Common/Footer";
+
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="container">
-      <Component {...pageProps} />
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <Component {...pageProps} />
+      </div>
+      <Footer />
+    </>
   );
 }
 
