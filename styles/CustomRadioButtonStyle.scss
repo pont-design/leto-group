@@ -3,10 +3,13 @@
 .form-radio-btn {
   display: flex;
 }
+
 .form-radio-btn input[type='radio'] {
   display: none;
 }
+
 .form-radio-btn label {
+  background-color: white;
   display: inline-block;
   cursor: pointer;
   padding: 0.8rem 2rem;
@@ -26,9 +29,4 @@
 .form-radio-btn label:hover {
   border: 1px solid $orange;
   transition: border 0.3s ease-in;
-}
-
-.form-radio-btn input[type='radio']:disabled + label {
-  background: #efefef;
-  color: #666;
 }

@@ -7,7 +7,7 @@ export const CustomLink = ({ label }) => {
 
   return (
     <div className="d-flex custom-link">
-      <p className="btn-link custom-link__text">{label}</p>
+      <a href="#" className="btn-link custom-link__text">{label}</a>
       {arrow}
     </div>
   )
