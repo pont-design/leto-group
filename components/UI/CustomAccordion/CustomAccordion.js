@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import accordionArrow from '../public/images/customAccordion/accordion-arrow.svg';
+import accordionArrow from '../../../public/images/CustomAccordion/accordion-arrow.svg';
 
 export const CustomAccordion = ({ title, content, style }) => {
   const [isActive, setIsActive] = useState(false);
