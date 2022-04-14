@@ -46,35 +46,36 @@ export default function productCrad() {
   };
 
   const addChosenFilter = () => {
-    return Object.entries(filterValue).map((el) =>
-      el[1] ? (
-        <div
-          key={el[0]}
-          onClick={() => removeFilter(el[0])}
-          className="catalog-page__chosen-filter"
-        >
-          <p className="tag-text">{el[1]}</p>
-          {removeFilterImg}
-        </div>
-      ) : (
-        ''
-      )
+    return Object.entries(filterValue).map(
+      (el) =>
+        el[1] && (
+          <div
+            key={el[0]}
+            onClick={() => removeFilter(el[0])}
+            className="catalog-page__chosen-filter"
+          >
+            <p className="tag-text">{el[1]}</p>
+            {removeFilterImg}
+          </div>
+        )
     );
   };
 
   const filterProducts = () => {
-    const applyiedFilters = Object.entries(filterValue).map((el) => el[1]);
-    console.log(applyiedFilters);
-    const test = [...mockCatalog];
-    const test1 = test.filter(
-      (el) =>
-        el.Категория === filterValue.Категория ||
-        el.Консистенция === filterValue.Консистенция
-    );
-    console.log(test1);
-  };
+    const filteredCatalog = [...mockCatalog];
 
-  filterProducts();
+    const applyiedFilters = Object.entries(filterValue);
+
+    for (let i = 0; i < applyiedFilters.length; i++) {
+      const filterKey = [applyiedFilters[i][0]];
+      if (filterValue[filterKey]) {
+        filteredCatalog = filteredCatalog.filter(
+          (el) => el[filterKey] === filterValue[filterKey]
+        );
+      }
+    }
+    return filteredCatalog;
+  };
 
   return (
     <section className="catalog-page">
@@ -93,7 +94,7 @@ export default function productCrad() {
         {addChosenFilter()}
       </div>
       <div className="catalog-page__products-list">
-        {mockCatalog.map((el) => (
+        {filterProducts().map((el) => (
           <BaseCard
             key={el.id}
             img={mockBaseCard.src}
