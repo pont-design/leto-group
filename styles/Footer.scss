@@ -1,0 +1,59 @@
+@import './variables.scss';
+
+.footer__outline-wrapper {
+  border-top: 1px solid $gray200;
+}
+
+.footer__contacts-wrapper {
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns:
+    calc(187 / 1464 * 1fr) calc(168 / 1464 * 1fr)
+    calc(357 / 1464 * 1fr) calc(569 / 1464 * 1fr) calc(183 / 1464 * 1fr);
+}
+
+.footer__contacts-list {
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: column;
+}
+
+.footer__contacts-list_contacts {
+  gap: 2.4rem;
+}
+
+.footer__contacts-list_logo {
+  align-items: flex-end;
+}
+
+.footer__contacts-list_logo_img {
+  height: 11rem;
+  width: 11rem;
+}
+
+.footer__contacts-list .footer__contacts-list_title {
+  margin-bottom: 0.8rem;
+}
+
+.footer__request-wrapper {
+  margin-top: 4rem;
+}
+
+.footer__request-button {
+  margin-top: 2.6rem;
+}
+
+.footer__mark-wrapper {
+  border-top: 1px solid $gray200;
+  margin-top: 6.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 6.2rem;
+}
+
+.footer__vk-logo {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}

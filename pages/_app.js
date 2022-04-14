@@ -13,7 +13,7 @@ import '../styles/BaseCardStyles.scss';
 import '../styles/CustomOutlinedButton.scss'
 import '../styles/CustomLanguageSwitcher.scss'
 import '../styles/Header.scss'
-import '../styles/Header.scss'
+import '../styles/Footer.scss'
 
 import { Footer } from "../components/Common/Footer";
 
