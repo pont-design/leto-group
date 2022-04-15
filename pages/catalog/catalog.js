@@ -18,6 +18,11 @@ export default function catalog() {
 
   const [productsAmount, setProductsAmount] = useState(null);
 
+  //TODO: refactor this
+  const [showInfo1, setShowInfo1] = useState(false);
+
+  console.log(showInfo1);
+
   const removeFilterImg = (
     <svg
       width="16"
@@ -113,6 +118,9 @@ export default function catalog() {
         filterValue={filterValue}
         setFilterValue={setFilterValue}
         setInProp={setInProp}
+        onClickOutside={() => {
+          setShowInfo1(false);
+        }}
       />
       {addChosenFilter()}
       {/* <div className="catalog-page__products-list"> */}

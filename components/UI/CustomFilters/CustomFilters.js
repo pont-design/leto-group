@@ -9,6 +9,7 @@ export const CustomFilters = ({
   filterValue,
   setFilterValue,
   setInProp,
+  onClickOutside,
 }) => {
   const test = () => {
     return filters.map((el) => (
@@ -19,6 +20,7 @@ export const CustomFilters = ({
         filterValue={filterValue}
         setFilterValue={setFilterValue}
         setInProp={setInProp}
+        onClickOutside={onClickOutside}
       />
     ));
   };

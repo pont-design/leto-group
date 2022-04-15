@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CustomRadioButton } from '../CustomRadioButton/CustomRadioButton';
 
 export const CustomDropDown = ({
@@ -7,9 +7,24 @@ export const CustomDropDown = ({
   filterValue,
   setFilterValue,
   setInProp,
+  onClickOutside,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [radioValue, setRadioValue] = useState('');
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!ref.current.contains(event.target)) {
+        closeDropDown();
+      }
+    };
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [onClickOutside]);
 
   const handleRadioValue = (value) => {
     setRadioValue(value);
@@ -17,9 +32,8 @@ export const CustomDropDown = ({
     setInProp(true);
   };
 
-  const closeDropDown = (e) => {
-    console.log(e.target);
-    setIsOpen(!isOpen);
+  const closeDropDown = () => {
+    setIsOpen(false);
   };
 
   const arrowImg = (
@@ -46,9 +60,9 @@ export const CustomDropDown = ({
     : 'custom-radio-button_close';
 
   return (
-    <div className="dropdown__wrapper">
+    <div ref={ref} className="dropdown__wrapper">
       <div
-        onClick={(e) => closeDropDown(e)}
+        onClick={() => setIsOpen(!isOpen)}
         className={`drop-down__button ${dropDownStatusStyle}`}
       >
         <div className={`d-flex dropdown__label ${arrowClasses}`}>
