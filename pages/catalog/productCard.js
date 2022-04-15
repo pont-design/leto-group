@@ -8,7 +8,7 @@ import { BaseCard } from '../../components/BaseCard/BaseCard';
 import mockProduct from '../../public/images/ProductCard/mockProduct.jpg';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
-export default function productCrad() {
+export default function productCard() {
   function addParametrs() {
     const indicatorsArr = Object.entries(mockProductCard.indicators);
 
@@ -25,7 +25,7 @@ export default function productCrad() {
   }
 
   return (
-    <div className="product-card">
+    <section className="product-card">
       <div className="product-card__main-info">
         <div className="product-card__image-block">
           <img
@@ -89,6 +89,6 @@ export default function productCrad() {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
