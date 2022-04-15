@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { CustomFilters } from '../../components/UI/CustomFilters/CustomFilters';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
@@ -7,11 +8,15 @@ import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { mockCatalog } from '../../assets/mockCatalog';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
-export default function productCrad() {
+export default function catalog() {
   const [filterValue, setFilterValue] = useState({
     Категория: '',
     Консистенция: '',
   });
+
+  const [inProp, setInProp] = useState(false);
+
+  const [productsAmount, setProductsAmount] = useState(null);
 
   const removeFilterImg = (
     <svg
@@ -27,7 +32,6 @@ export default function productCrad() {
       />
     </svg>
   );
-
   const downloadArrow = (
     <svg
       className="catalog-page__download-arrow"
@@ -39,33 +43,41 @@ export default function productCrad() {
       <path d="M5 20H19V18H5V20ZM19 9H15V3H9V9H5L12 16L19 9Z" />
     </svg>
   );
-
   const removeFilter = (label) => {
     setFilterValue({ ...filterValue, [label]: '' });
-    // console.log(label);
+    setInProp(false);
   };
 
   const addChosenFilter = () => {
-    return Object.entries(filterValue).map(
-      (el) =>
-        el[1] && (
-          <div
-            key={el[0]}
-            onClick={() => removeFilter(el[0])}
-            className="catalog-page__chosen-filter"
-          >
-            <p className="tag-text">{el[1]}</p>
-            {removeFilterImg}
-          </div>
-        )
+    return (
+      <TransitionGroup className="catalog-page__chosen-filters-list">
+        {Object.entries(filterValue).map(
+          (el) =>
+            el[1] && (
+              <CSSTransition
+                in={inProp}
+                timeout={300}
+                classNames="filter-transition"
+                unmountOnExit
+                key={el[0]}
+              >
+                <div
+                  onClick={() => removeFilter(el[0])}
+                  className="catalog-page__chosen-filter"
+                >
+                  <p className="tag-text">{el[1]}</p>
+                  {removeFilterImg}
+                </div>
+              </CSSTransition>
+            )
+        )}
+      </TransitionGroup>
     );
   };
 
   const filterProducts = () => {
     const filteredCatalog = [...mockCatalog];
-
     const applyiedFilters = Object.entries(filterValue);
-
     for (let i = 0; i < applyiedFilters.length; i++) {
       const filterKey = [applyiedFilters[i][0]];
       if (filterValue[filterKey]) {
@@ -74,7 +86,18 @@ export default function productCrad() {
         );
       }
     }
+
+    changeAmountOfProducts(filteredCatalog.length);
+
     return filteredCatalog;
+  };
+
+  const changeAmountOfProducts = (amount) => {
+    if (productsAmount === amount) {
+      return;
+    }
+
+    setProductsAmount(amount);
   };
 
   return (
@@ -86,23 +109,27 @@ export default function productCrad() {
         </a>
       </div>
       <CustomFilters
-        productsAmount={28}
+        productsAmount={productsAmount}
         filterValue={filterValue}
         setFilterValue={setFilterValue}
+        setInProp={setInProp}
       />
-      <div className="catalog-page__chosen-filters-list">
-        {addChosenFilter()}
-      </div>
-      <div className="catalog-page__products-list">
+      {addChosenFilter()}
+      {/* <div className="catalog-page__products-list"> */}
+      <TransitionGroup className="catalog-page__products-list">
         {filterProducts().map((el) => (
-          <BaseCard
+          <CSSTransition
             key={el.id}
-            img={mockBaseCard.src}
-            name={el.name}
-            gost={el.gost}
-          />
+            in={inProp}
+            timeout={300}
+            classNames="filter-transition"
+            unmountOnExit
+          >
+            <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+          </CSSTransition>
         ))}
-      </div>
+      </TransitionGroup>
+      {/* </div> */}
     </section>
   );
 }
