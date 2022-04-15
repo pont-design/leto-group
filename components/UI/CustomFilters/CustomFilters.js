@@ -8,24 +8,8 @@ export const CustomFilters = ({
   productsAmount,
   filterValue,
   setFilterValue,
+  setInProp,
 }) => {
-  // function getFilterItem() {
-  //   filters.map((el) => {
-  //     const test = Object.entries(el);
-  //     console.log(test);
-  //     return test.map((filter) => {
-  //       console.log(filter);
-  //       return (
-  //         <CustomDropDown
-  //           label={filter[0]}
-  //           buttonsLabels={filter[1]}
-  //           handleValue={console.log(1)}
-  //         />
-  //       );
-  //     });
-  //   });
-  // }
-
   const test = () => {
     return filters.map((el) => (
       <CustomDropDown
@@ -34,8 +18,26 @@ export const CustomFilters = ({
         buttonsLabels={el.categories}
         filterValue={filterValue}
         setFilterValue={setFilterValue}
+        setInProp={setInProp}
       />
     ));
+  };
+
+  const amountDeclination = (value, words) => {
+    value = Math.abs(value) % 100;
+    let num = value % 10;
+    if (value > 10 && value < 20) return words[2];
+    if (num > 1 && num < 5) return words[1];
+    if (num == 1) return words[0];
+    return words[2];
+  };
+
+  const addAmountOfProducts = (amount) => {
+    return `${productsAmount} ${amountDeclination(amount, [
+      'продукт',
+      'продукта',
+      'продуктов',
+    ])}`;
   };
 
   return (
@@ -43,7 +45,9 @@ export const CustomFilters = ({
       <div className="filter-container__filters">
         <p className="tag-text">Фильтры</p> {test()}
       </div>
-      <p className="tag-text filter-container__amount">{productsAmount}</p>
+      <p className="tag-text filter-container__amount">
+        {addAmountOfProducts(productsAmount)}
+      </p>
     </div>
   );
 };

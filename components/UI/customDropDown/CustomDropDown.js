@@ -6,6 +6,7 @@ export const CustomDropDown = ({
   buttonsLabels,
   filterValue,
   setFilterValue,
+  setInProp,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [radioValue, setRadioValue] = useState('');
@@ -13,7 +14,14 @@ export const CustomDropDown = ({
   const handleRadioValue = (value) => {
     setRadioValue(value);
     setFilterValue({ ...filterValue, [label]: value });
+    setInProp(true);
   };
+
+  const closeDropDown = (e) => {
+    console.log(e.target);
+    setIsOpen(!isOpen);
+  };
+
   const arrowImg = (
     <svg
       width="12"
@@ -40,9 +48,7 @@ export const CustomDropDown = ({
   return (
     <div className="dropdown__wrapper">
       <div
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
+        onClick={(e) => closeDropDown(e)}
         className={`drop-down__button ${dropDownStatusStyle}`}
       >
         <div className={`d-flex dropdown__label ${arrowClasses}`}>
