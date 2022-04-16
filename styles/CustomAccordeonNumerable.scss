@@ -16,32 +16,39 @@
 }
 
 .accordion-numerable-arrow_open svg {
+  transform: rotate(135deg);
   fill: $green;
   transition: all 0.3s ease-in;
 }
 
 .accordion-numerable-arrow_close svg {
-  transform: rotate(135deg);
   fill: $gray600;
   transition: all 0.3s ease-in;
 }
 
-.alert-enter {
+.accordion-tab-numerable__content {
+  margin-top: 1.2rem;
+  color: $gray700;
+}
+
+.accordion-tab-numerable__animation-enter {
   opacity: 0;
   transform: scale(0.9);
 }
 
-.alert-enter-active {
+.accordion-tab-numerable__animation-enter-active {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 300ms, transform 300ms;
 }
 
-.alert-exit {
+.accordion-tab-numerable__animation-exit {
   opacity: 1;
+  transform: scale(0.1);
+  transition: opacity 300ms, transform 300ms;
 }
 
-.alert-exit-active {
+.accordion-tab-numerable__animation-exit-active {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;

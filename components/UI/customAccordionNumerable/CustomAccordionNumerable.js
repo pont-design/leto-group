@@ -20,7 +20,7 @@ export const CustomAccordionNumerable = ({ list }) => {
 };
 
 const AccordionTab = ({ title, content, number }) => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   const [showMessage, setShowMessage] = useState(false);
 
@@ -43,20 +43,21 @@ const AccordionTab = ({ title, content, number }) => {
         <CSSTransition
           in={showMessage}
           timeout={300}
-          classNames="alert"
+          classNames="accordion-tab-numerable__animation"
           unmountOnExit
-          onEnter={() => setShowButton(false)}
-          onExited={() => setShowButton(true)}
         >
-          {isActive && (
-            <div className='accordion-tab-numerable__content'>
-              <p className="text-1">{content}</p>
-            </div>
-          )}
+          <div>
+            {isActive && (
+              <div className='accordion-tab-numerable__content'>
+                <p className="text-1 ">{content}</p>
+              </div>
+            )
+            }
+          </div>
         </CSSTransition>
       </div>
       <div className={classOfArrow}>
-        <div onClick={() => { setIsActive(!isActive) }}>
+        <div onClick={() => { setIsActive(!isActive); setShowMessage(!showMessage) }}>
           {arrow}
         </div>
       </div>
