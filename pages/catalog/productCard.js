@@ -25,7 +25,7 @@ export default function productCard() {
   }
 
   return (
-    <section className="product-card">
+    <section className="product-card container">
       <div className="product-card__main-info">
         <div className="product-card__image-block">
           <img
