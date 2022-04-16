@@ -8,6 +8,7 @@ import '../styles/CustomRadioButtonStyle.scss';
 import '../styles/CustomLink.scss';
 import '../styles/Catalog.scss';
 import '../styles/ProductCard.scss';
+import '../styles/CustomAccordeonNumerable.scss';
 import '../styles/CustomAccordeonStyles.scss';
 import '../styles/CustomButton.scss';
 import '../styles/CustomDropDown.scss';

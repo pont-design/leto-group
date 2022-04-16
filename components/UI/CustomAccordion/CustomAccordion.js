@@ -21,7 +21,7 @@ export const CustomAccordion = ({ title, content, style }) => {
       </div>
       {isActive && (
         <div className="accordion-content">
-          <p className="text1">{content}</p>
+          <p className="text-1">{content}</p>
         </div>
       )}
     </div>
