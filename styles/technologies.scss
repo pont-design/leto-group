@@ -10,7 +10,7 @@
   margin-top: 4rem;
   display: grid;
   column-gap: 2.4rem;
-  grid-template-columns: calc(810 / 1464 * 1fr) calc(564 / 1464 * 1fr);
+  grid-template-columns: 7fr 5fr;
 }
 
 .technologies__hero-img_img {
@@ -104,8 +104,8 @@
 }
 
 .technologies-sales_small {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 4.8rem;
+  padding-bottom: 4.8rem;
 }
 
 .technologies-sales_small_sales {
