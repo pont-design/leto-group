@@ -1,0 +1,48 @@
+@import './variables.scss';
+
+.accordion-tab-numerable {
+  gap: 2.8rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid $gray200;
+  border-bottom: 1px solid $gray200;
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.accordion-tab-numerable__arrow-container {
+  cursor: pointer;
+}
+
+.accordion-numerable-arrow_open svg {
+  fill: $green;
+  transition: all 0.3s ease-in;
+}
+
+.accordion-numerable-arrow_close svg {
+  transform: rotate(135deg);
+  fill: $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.alert-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+.alert-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

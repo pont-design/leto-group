@@ -7,6 +7,7 @@ import { CustomButton } from "../components/UI/CustomButton/CustomButton";
 import { CustomLink } from "../components/UI/CustomLink/customLink";
 import { CustomOutlinedButton } from "../components/UI/CustomOutlinedButton/CustomOutlinedButton";
 import { CustomLanguageSwitcher } from "../Components/UI/CustomLanguageSwitcher/CustomLanguageSwitcher";
+import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable";
 
 export const getStaticProps = async () => {
 
@@ -53,6 +54,7 @@ export default function Test({ imagesStrapi }) {
       <CustomLink label={'test'} />
       <CustomOutlinedButton isButtonSmall={false} label='Оставить заявку' />
       <CustomLanguageSwitcher />
+      <CustomAccordionNumerable list={[{ title: '123', content: '321' }, { title: '789', content: '3987' }]} />
     </div>
   );
 }
