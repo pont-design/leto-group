@@ -11,7 +11,6 @@ import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 export default function productCard() {
   function addParametrs() {
     const indicatorsArr = Object.entries(mockProductCard.indicators);
-    console.log(indicatorsArr);
 
     return (
       <div className="product-card__parametrs-table">

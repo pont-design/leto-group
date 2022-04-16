@@ -6,13 +6,15 @@ export const CustomDropDown = ({
   buttonsLabels,
   filterValue,
   setFilterValue,
-  setInProp,
   onClickOutside,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [radioValue, setRadioValue] = useState('');
 
   const ref = useRef(null);
+
+  const closeDropDown = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -27,13 +29,7 @@ export const CustomDropDown = ({
   }, [onClickOutside]);
 
   const handleRadioValue = (value) => {
-    setRadioValue(value);
     setFilterValue({ ...filterValue, [label]: value });
-    setInProp(true);
-  };
-
-  const closeDropDown = () => {
-    setIsOpen(false);
   };
 
   const arrowImg = (
