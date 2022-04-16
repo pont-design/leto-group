@@ -26,7 +26,7 @@ function technologies() {
         <h1>Технологии</h1>
       </div>
       <div className="technologies__hero-img">
-        <img className='technologies__hero-img_img' src={mockImage.src} alt='image name' />
+        <img className='technologies__hero-img_img ' src={mockImage.src} alt='image name' />
         <img className='technologies__hero-img_img' src={mockImage.src} alt='image name' />
       </div>
       <div className="technologies__quality-productivity">
