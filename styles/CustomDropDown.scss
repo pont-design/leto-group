@@ -1,5 +1,9 @@
 @import './variables.scss';
 
+.form-radio-btn label {
+  background-color: white;
+}
+
 .drop-down__button {
   display: inline-block;
   cursor: pointer;
@@ -42,9 +46,6 @@
 
 .dropdown__text {
   margin-right: 5.2rem;
-}
-
-.custom-radio-button_open {
 }
 
 .custom-radio-button_close {

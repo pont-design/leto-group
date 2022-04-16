@@ -32,6 +32,7 @@
 }
 
 .catalog-page__chosen-filters-list {
+  min-height: 6rem;
   border-top: 1px solid $gray200;
   padding-top: 1.6rem;
   display: flex;

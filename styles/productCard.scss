@@ -7,7 +7,7 @@
 .product-card__main-info {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 24px;
+  grid-column-gap: 2.4rem;
 }
 
 .product-card__image-block {
@@ -49,7 +49,7 @@
 .product-card__parametrs-item {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 24px;
+  grid-column-gap: 2.4rem;
   border-bottom: 1px solid $gray200;
   padding: 1.2rem 0;
 }
