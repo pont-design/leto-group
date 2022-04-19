@@ -12,7 +12,7 @@ export const CustomAccordionNumerable = ({ list }) => {
           key={el.title}
           title={el.title}
           content={el.content}
-          number={String(i).padStart(2, 0)}
+          number={String(i + 1).padStart(2, 0)}
         />
       })}
     </div>
@@ -49,17 +49,15 @@ const AccordionTab = ({ title, content, number }) => {
           <div>
             {isActive && (
               <div className='accordion-tab-numerable__content'>
-                <p className="text-1 ">{content}</p>
+                <p className="text-1">{content}</p>
               </div>
             )
             }
           </div>
         </CSSTransition>
       </div>
-      <div className={classOfArrow}>
-        <div onClick={() => { setIsActive(!isActive); setShowMessage(!showMessage) }}>
-          {arrow}
-        </div>
+      <div className={classOfArrow} onClick={() => { setIsActive(!isActive); setShowMessage(!showMessage) }}>
+        {arrow}
       </div>
     </div>
   )
