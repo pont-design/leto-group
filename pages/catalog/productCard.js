@@ -1,27 +1,31 @@
-import { CustomAccordion } from '../../components/CustomAccordeon';
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { mockProductCard } from '../../assets/mockProductCard';
 
-import { CustomButton } from '../UI/CustomButton/CustomButton';
-import { CustomRadioButton } from '../UI/CustomRadioButton/CustomRadioButton';
-import { BaseCard } from '../UI/BaseCard/BaseCard';
+import { CustomButton } from '../../components/UI/CustomButton/CustomButton';
+import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
+import { BaseCard } from '../../components/BaseCard/BaseCard';
 
-import mockProduct from '../../public/img/mockProduct.jpg';
-import mockBaseCard from '../../public/img/mockBaseCard.jpg';
+import mockProduct from '../../public/images/ProductCard/mockProduct.jpg';
+import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
-export default function productCrad() {
+export default function productCard() {
   function addParametrs() {
     const indicatorsArr = Object.entries(mockProductCard.indicators);
 
-    return indicatorsArr.map((el) => (
-      <div className="product-card__parametrs-item">
-        <p className="product-card__parametr-name text1">{el[0]}</p>
-        <p className="product-card__parametr-desc text1">{el[1]}</p>
+    return (
+      <div className="product-card__parametrs-table">
+        {indicatorsArr.map((el) => (
+          <div className="product-card__parametrs-item">
+            <p className="product-card__parametr-name text1">{el[0]}</p>
+            <p className="product-card__parametr-desc text1">{el[1]}</p>
+          </div>
+        ))}
       </div>
-    ));
+    );
   }
 
   return (
-    <div className="product-card">
+    <section className="product-card">
       <div className="product-card__main-info">
         <div className="product-card__image-block">
           <img
@@ -51,6 +55,12 @@ export default function productCrad() {
             <CustomAccordion
               title={'Описание'}
               content={mockProductCard.description}
+              style={{
+                borderTop: '1px solid #e4e4e7',
+                borderBottom: '1px solid #e4e4e7',
+                padding: '16px 0',
+                margin: '16px 0',
+              }}
             />
             <CustomAccordion
               title={'Упаковка'}
@@ -63,16 +73,22 @@ export default function productCrad() {
         <h5>Показатели</h5>
         {addParametrs()}
       </div>
+
       <div className="product-card__similar">
         <h3>Может такое возьмёте?</h3>
         <div className="product-card__similar-list">
           {mockProductCard.similar.map((el) => {
             return (
-              <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+              <BaseCard
+                key={el.id}
+                img={mockBaseCard.src}
+                name={el.name}
+                gost={el.gost}
+              />
             );
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

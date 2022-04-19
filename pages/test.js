@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
-import { CustomRadioButton } from "./UI/customRadioButton/CustomRadioButton";
-import { CustomDropDown } from "./UI/customDropDown/CustomDropDown";
-import { CustomButton } from "./UI/customButton/CustomButton";
-import { CustomLink } from "./UI/customLink/customLink";
+import { CustomRadioButton } from "../components/UI/CustomRadioButton/CustomRadioButton";
+import { CustomDropDown } from "../components/UI/CustomDropDown/CustomDropDown";
+import { CustomButton } from "../components/UI/CustomButton/CustomButton";
+import { CustomLink } from "../components/UI/CustomLink/customLink";
+import { CustomOutlinedButton } from "../components/UI/CustomOutlinedButton/CustomOutlinedButton";
+import { CustomLanguageSwitcher } from "../Components/UI/CustomLanguageSwitcher/CustomLanguageSwitcher";
 
 export const getStaticProps = async () => {
 
@@ -49,6 +51,8 @@ export default function Test({ imagesStrapi }) {
       <CustomDropDown label={'test'} buttonsLabels={['1', '2', '3']} />
       <CustomButton label={'test2'} onClick={() => { }} />
       <CustomLink label={'test'} />
+      <CustomOutlinedButton isButtonSmall={false} label='Оставить заявку' />
+      <CustomLanguageSwitcher />
     </div>
   );
 }

@@ -1,20 +1,20 @@
 @font-face {
   font-family: 'nunito_sansbold';
-  src: url('../public/fonts/NunitoSans-Bold.ttf') format('ttf'), format('ttf');
+  src: url('../public/fonts/NunitoSans-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'nunito_sansregular';
-  src: url('../public/fonts/NunitoSans-Regular.ttf') format('ttf');
+  src: url('../public/fonts/NunitoSans-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'nunito_sanssemibold';
-  src: url('../public/fonts/NunitoSans-SemiBold.ttf') format('ttf');
+  src: url('../public/fonts/NunitoSans-SemiBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -67,37 +67,37 @@ h6 {
   line-height: 120%;
 }
 
-.text1 {
+.text-1 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 2rem;
   line-height: 150%;
 }
 
-.text2 {
+.text-2 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 2.4rem;
   line-height: 150%;
 }
 
-.text3 {
+.text-3 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 4.8rem;
   line-height: 120%;
 }
 
-.text4 {
+.text-4 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 4rem;
   line-height: 130%;
 }
 
-.caption1 {
+.caption-1 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2.4rem;
   line-height: 150%;
 }
 
-.caption2 {
+.caption-2 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2rem;
   line-height: 150%;
@@ -109,7 +109,7 @@ h6 {
   line-height: 120%;
 }
 
-.btn-text2 {
+.btn-text-2 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 1.8rem;
   line-height: 120%;
@@ -151,6 +151,12 @@ h6 {
   line-height: 98px;
 }
 
+.text-numbers-big {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: 14.4rem;
+  line-height: 136%;
+}
+
 .d-flex {
   display: flex;
 }
@@ -159,4 +165,10 @@ h6 {
   max-width: 1464px;
   padding: 0 32px;
   margin: 0 auto;
+}
+
+button,
+button:active,
+button:focus {
+  outline: none;
 }

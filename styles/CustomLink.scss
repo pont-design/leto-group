@@ -1,13 +1,26 @@
 @import './variables.scss';
 
-.customLink-label_default {
-  text-decoration: underline;
-  color: $green;
-  margin-right: 0.8rem;
+.custom-link {
+  align-items: center;
 }
 
-.customLink-label_hover {
+.custom-link:hover .btn-link {
   text-decoration: none;
   color: $orange;
+}
+
+.custom-link__text {
   margin-right: 0.8rem;
+  color: $green;
+  text-decoration: underline;
+  transition: all 0.3s ease-in;
+}
+
+.custom-link svg {
+  fill: $green;
+  transition: fill 0.3s ease-in;
+}
+
+.custom-link:hover svg {
+  fill: $orange;
 }
