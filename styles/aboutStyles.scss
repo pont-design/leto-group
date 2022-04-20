@@ -31,7 +31,9 @@
 
 .about__eco-products {
   row-gap: 12rem;
-  margin-top: 14.4rem;
+  margin-top: 9.5rem;
+  padding-top: 4.8rem;
+  border-top: 1px solid $gray200;
 }
 
 .about__eco-products-heading {
@@ -92,7 +94,7 @@
   display: flex;
   align-items: start;
   gap: 20px;
-  padding-bottom: 2.4rem;
+  padding: 4.8rem 0;
   border-bottom: 1px solid $gray200;
 
   &:last-child {
@@ -109,6 +111,93 @@
   line-height: 19px;
 }
 
+.about__ideas-team {
+  margin-bottom: 2.4rem;
+}
+
 .about__ideas-img {
   grid-column: 8/13;
+}
+
+@media (max-width: 800px) {
+  .about {
+    margin-top: 4.8rem;
+    margin-bottom: 12rem;
+  }
+
+  .about__heading,
+  .about__eco-products,
+  .about__numbers {
+    display: block;
+  }
+
+  .about__heading-text {
+    margin-bottom: 3.2rem;
+  }
+
+  .about__heading-img {
+  }
+
+  .about__eco-products-caption {
+    margin-top: 1.6rem;
+  }
+
+  .about__numbers {
+    margin-top: 8rem;
+  }
+
+  .about__numbers-packaging,
+  .about__numbers-technology,
+  .about__numbers-square {
+    padding: 2rem 0;
+    text-align: start;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    border-right: none;
+  }
+
+  .about__ideas {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    column-gap: 0;
+  }
+
+  .about__ideas-text {
+    grid-column: 1/7;
+  }
+
+  .about__ideas-list {
+    margin-bottom: 4rem;
+  }
+
+  .about__ideas-item {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid $gray200;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .about__ideas-item-idx {
+    font-family: 'nunito_sansregular', sans-serif;
+    color: $orange;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .about__ideas-team {
+    margin-bottom: 2.4rem;
+  }
+
+  .about__ideas-img {
+    grid-column: 8/13;
+  }
 }

@@ -8,12 +8,7 @@ import { mockCatalog } from '../../assets/mockCatalog';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
 export default function Catalog() {
-
-  const productWordsDeclination = [
-    'продукт',
-    'продукта',
-    'продуктов',
-  ]
+  const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
 
   const [filterValue, setFilterValue] = useState({
     Категория: '',
@@ -21,7 +16,6 @@ export default function Catalog() {
   });
 
   const [inProp, setInProp] = useState(false);
-
 
   const downloadArrow = (
     <svg
@@ -47,10 +41,13 @@ export default function Catalog() {
         );
       }
     }
-    return filteredCatalog
+    return filteredCatalog;
   };
 
-  const filteredValues = useMemo(() => filterProducts(), [productWordsDeclination, filterValue])
+  const filteredValues = useMemo(
+    () => filterProducts(),
+    [productWordsDeclination, filterValue]
+  );
 
   return (
     <section className="catalog-page">
@@ -68,12 +65,14 @@ export default function Catalog() {
         setFilterValue={setFilterValue}
       />
 
-      {<AddChosenFilter
-        inProp={inProp}
-        filterValue={filterValue}
-        setInProp={setInProp}
-        setFilterValue={setFilterValue}
-      />}
+      {
+        <AddChosenFilter
+          inProp={inProp}
+          filterValue={filterValue}
+          setInProp={setInProp}
+          setFilterValue={setFilterValue}
+        />
+      }
 
       <TransitionGroup className="catalog-page__products-list">
         {filteredValues.map((el) => (
@@ -88,14 +87,16 @@ export default function Catalog() {
           </CSSTransition>
         ))}
       </TransitionGroup>
-
     </section>
   );
 }
 
-
-const AddChosenFilter = ({ inProp, filterValue, setInProp, setFilterValue }) => {
-
+const AddChosenFilter = ({
+  inProp,
+  filterValue,
+  setInProp,
+  setFilterValue,
+}) => {
   const removeFilterImg = (
     <svg
       width="16"

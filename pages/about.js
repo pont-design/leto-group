@@ -1,3 +1,5 @@
+import { CustomLink } from '../components/UI/customLink/CustomLink';
+
 import mainImage from '../public/images/AboutPage/about-main.jpg';
 import ideasImage from '../public/images/AboutPage/ideas.jpg';
 
@@ -54,10 +56,11 @@ export default function about() {
       <div className="about__ideas">
         <div className="about__ideas-text">
           {getCompanyList()}
-          <p className="text-1">
+          <p className="text-1 about__ideas-team">
             Наша команда имеет высокий уровень компетенции и дальше надо что-то
             дописать
           </p>
+          <CustomLink label="Наши процессы" />
         </div>
         <div className="about__ideas-img">
           <img src={ideasImage.src} alt="Ideas" />
