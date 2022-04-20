@@ -21,7 +21,7 @@ function technologies() {
     'Выстроенные по международным стандартам технологии и бизнес процессы ']
 
   return (
-    <section className="technologies">
+    <section className="technologies container">
       <div className="technologies__hero">
         <h1>Технологии</h1>
       </div>

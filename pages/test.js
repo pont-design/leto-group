@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import { StrapiServiceInstance } from "../Service/CMSAPI";
-import { CustomRadioButton } from "../components/UI/CustomRadioButton/CustomRadioButton";
-import { CustomDropDown } from "../components/UI/CustomDropDown/CustomDropDown";
-import { CustomButton } from "../components/UI/CustomButton/CustomButton";
-import { CustomLink } from "../components/UI/CustomLink/customLink";
-import { CustomOutlinedButton } from "../components/UI/CustomOutlinedButton/CustomOutlinedButton";
-import { CustomLanguageSwitcher } from "../Components/UI/CustomLanguageSwitcher/CustomLanguageSwitcher";
+import { CustomRadioButton } from "../components/UI/customRadioButton/CustomRadioButton";
+import { CustomDropDown } from "../components/UI/customDropDown/CustomDropDown";
+import { CustomButton } from "../components/UI/customButton/CustomButton";
+import { CustomLink } from "../components/UI/customLink/customLink";
+import { CustomOutlinedButton } from "../components/UI/customOutlinedButton/CustomOutlinedButton";
+import { CustomLanguageSwitcher } from "../components/UI/сustomLanguageSwitcher/CustomLanguageSwitcher";
+import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable";
+import { CustomSlider } from "../components/UI/customSlider/CustomSlider";
+
+
+import mockProduct from '../public/images/mock/mock-img-with-color.jpg';
 
 export const getStaticProps = async () => {
 
@@ -34,6 +39,9 @@ export default function Test({ imagesStrapi }) {
     setCount(value)
   }
 
+  const listSwiper = [{ imgSrc: mockProduct.src, description: <p>123</p> },
+  { imgSrc: mockProduct.src, description: <p>456</p> }]
+
   return (
     <div>
       <Head>
@@ -53,6 +61,7 @@ export default function Test({ imagesStrapi }) {
       <CustomLink label={'test'} />
       <CustomOutlinedButton isButtonSmall={false} label='Оставить заявку' />
       <CustomLanguageSwitcher />
+      <CustomAccordionNumerable list={[{ title: '123', content: '321' }, { title: '789', content: '3987' }]} />
     </div>
   );
 }
