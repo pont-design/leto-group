@@ -1,5 +1,4 @@
 import React from 'react'
-import { CustomAccordion } from "../components/UI/customAccordion/CustomAccordion"
 import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable"
 import { CustomLink } from "../components/UI/CustomLink/customLink"
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg'

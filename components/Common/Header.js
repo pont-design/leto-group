@@ -4,7 +4,7 @@ import logoSanovo from '../../public/images/header/logoSanovo.svg'
 
 import Link from 'next/link'
 import { CustomOutlinedButton } from "../UI/CustomOutlinedButton/CustomOutlinedButton"
-import { CustomLanguageSwitcher } from "../UI/CustomLanguageSwitcher/CustomLanguageSwitcher"
+import { CustomLanguageSwitcher } from "../UI/сustomLanguageSwitcher/CustomLanguageSwitcher"
 
 export const Header = () => {
   const links = [
