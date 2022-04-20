@@ -1,9 +1,28 @@
 import React from 'react'
 import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable"
 import { CustomLink } from "../components/UI/CustomLink/customLink"
+
+import { CustomSlider } from '../components/UI/customSlider/CustomSlider'
+
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg'
 
 function Quality() {
+
+  const description = <div className="certificates__slider-img-description">
+    <p className="text-2">Lorem Ipsum</p>
+    <p className="link-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+  </div>
+
+  const list = [{ imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description },
+  { imgSrc: mockImage.src, description }]
+
+
   return (
     <section className="container">
       <div className="quality-hero-text">
@@ -56,8 +75,15 @@ function Quality() {
           </div>
         </div>
       </div>
-
-
+      <div className="certificates">
+        <h2>Сертификаты</h2>
+        <CustomSlider list={list}
+          swiperWrapperStyle='quality-swiper-wrapper'
+          slideImgStyle='quality-swiper-slide'
+          spaceBetween={24}
+          slidesPerView={4.2}
+        />
+      </div>
     </section>
   )
 }

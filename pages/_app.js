@@ -5,12 +5,13 @@ import '../styles/base.scss';
 import '../styles/global.scss';
 
 import '../styles/CustomRadioButtonStyle.scss';
+import '../styles/CustomSlider.scss'
+import '../styles/CustomButton.scss';
 import '../styles/CustomLink.scss';
 import '../styles/Catalog.scss';
 import '../styles/QualityPage.scss';
 import '../styles/CustomAccordeonNumerable.scss';
 import '../styles/CustomAccordeonStyles.scss';
-import '../styles/CustomButton.scss';
 import '../styles/CustomDropDown.scss';
 import '../styles/CustomFiltersStyles.scss';
 import '../styles/CustomLanguageSwitcher.scss'
