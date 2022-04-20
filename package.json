@@ -15,12 +15,8 @@
     "next": "^12.1.4",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-<<<<<<< HEAD
-    "react-transition-group": "^4.4.2"
-=======
     "react-transition-group": "^4.4.2",
     "swiper": "^8.1.1"
->>>>>>> fc7b1f4 (feat: add custom slider)
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",

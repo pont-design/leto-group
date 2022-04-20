@@ -570,8 +570,6 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.8.7"
     csstype "^3.0.2"
 
-<<<<<<< HEAD
-=======
 dom7@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/dom7/-/dom7-4.0.4.tgz#8b68c5d8e5e2ed0fddb1cb93e433bc9060c8f3fb"
@@ -579,7 +577,6 @@ dom7@^4.0.4:
   dependencies:
     ssr-window "^4.0.0"
 
->>>>>>> fc7b1f4 (feat: add custom slider)
 electron-to-chromium@^1.4.84:
   version "1.4.106"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.106.tgz#e7a3bfa9d745dd9b9e597616cb17283cc349781a"
