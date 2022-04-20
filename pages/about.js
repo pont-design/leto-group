@@ -5,7 +5,7 @@ import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import mainImage from '../public/images/AboutPage/about-main.jpg';
 import ideasImage from '../public/images/AboutPage/ideas.jpg';
 
-import mockAboutFactorySlider from '../public/images/AboutPage/about-slider-big.jpg';
+import mockAboutFactorySlider from '../public/images/ProductCard/mockBaseCard.jpg';
 
 export default function about() {
   const companyIdeas = ['Развитие', 'Партнерство', 'Качество', 'Инновации'];
@@ -67,7 +67,7 @@ export default function about() {
   };
 
   return (
-    <div className="about">
+    <section className="about">
       <div className="container">
         <div className="about__heading">
           <h1 className="about__heading-text">
@@ -135,6 +135,6 @@ export default function about() {
           breakpointsObj={teamSliderBreakPoint}
         />
       </div>
-    </div>
+    </section>
   );
 }

@@ -29,9 +29,9 @@ import '../styles/Catalog.scss';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Component {...pageProps} />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
