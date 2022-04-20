@@ -6,16 +6,16 @@ import 'swiper/css';
 
 // type list = Array<{imgSrc : string, description: JSX}>
 
-export const CustomSwiper = ({ list, height, spaceBetween, slidesPerView, imgHeight }) => {
+export const CustomSlider = ({ list, swiperWrapperStyle, slideImgStyle, spaceBetween, slidesPerView, }) => {
   return (
     <Swiper
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
-      style={{ height }}
+      className={swiperWrapperStyle}
     >
       {list.map((slide) => {
         return <SwiperSlide  >
-          <img style={{ objectFit: 'cover', height: imgHeight, width: '100%' }}
+          <img className={['slider-slide-img', slideImgStyle].join(' ')}
             src={slide.imgSrc}
           />
           {slide.description}

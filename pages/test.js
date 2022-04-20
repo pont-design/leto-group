@@ -8,7 +8,7 @@ import { CustomLink } from "../components/UI/customLink/customLink";
 import { CustomOutlinedButton } from "../components/UI/customOutlinedButton/CustomOutlinedButton";
 import { CustomLanguageSwitcher } from "../components/UI/сustomLanguageSwitcher/CustomLanguageSwitcher";
 import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable";
-import { CustomSwiper } from "../components/UI/customSwiper/customSwiper";
+import { CustomSlider } from "../components/UI/customSlider/CustomSlider";
 
 
 import mockProduct from '../public/images/mock/mock-img-with-color.jpg';
@@ -62,7 +62,6 @@ export default function Test({ imagesStrapi }) {
       <CustomOutlinedButton isButtonSmall={false} label='Оставить заявку' />
       <CustomLanguageSwitcher />
       <CustomAccordionNumerable list={[{ title: '123', content: '321' }, { title: '789', content: '3987' }]} />
-      <CustomSwiper imgHeight={'150px'} list={listSwiper} height='200px' spaceBetween={20} slidesPerView={1} />
     </div>
   );
 }
