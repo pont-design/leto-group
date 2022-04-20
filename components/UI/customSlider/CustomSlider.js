@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -6,21 +6,41 @@ import 'swiper/css';
 
 // type list = Array<{imgSrc : string, description: JSX}>
 
-export const CustomSlider = ({ list, swiperWrapperStyle, slideImgStyle, spaceBetween, slidesPerView, }) => {
+export const CustomSlider = ({
+  list,
+  swiperWrapperStyle,
+  slideImgStyle,
+  breakpointsObj,
+}) => {
   return (
     <Swiper
-      spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
       className={swiperWrapperStyle}
+      breakpoints={{
+        320: {
+          slidesPerView: breakpointsObj.slidesPerViewXs,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: breakpointsObj.slidesPerViewMd,
+          spaceBetween: 20,
+        },
+        1280: {
+          slidesPerView: breakpointsObj.slidesPerViewXl,
+          spaceBetween: breakpointsObj.gapxl,
+        },
+      }}
     >
       {list.map((slide) => {
-        return <SwiperSlide  >
-          <img className={['slider-slide-img', slideImgStyle].join(' ')}
-            src={slide.imgSrc}
-          />
-          {slide.description}
-        </SwiperSlide>
+        return (
+          <SwiperSlide>
+            <img
+              className={['slider-slide-img', slideImgStyle].join(' ')}
+              src={slide.imgSrc}
+            />
+            {slide.description}
+          </SwiperSlide>
+        );
       })}
     </Swiper>
-  )
-}
+  );
+};

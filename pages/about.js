@@ -39,6 +39,20 @@ export default function about() {
     { imgSrc: mockAboutFactorySlider.src, description },
   ];
 
+  const factorySliderBreakPoint = {
+    gapxl: 40,
+    slidesPerViewXl: 1.5,
+    slidesPerViewMd: 1.5,
+    slidesPerViewXs: 1.5,
+  };
+
+  const teamSliderBreakPoint = {
+    gapxl: 24,
+    slidesPerViewXl: 3.5,
+    slidesPerViewMd: 2.5,
+    slidesPerViewXs: 1.2,
+  };
+
   const getCompanyList = () => {
     return (
       <ul className="about__ideas-list">
@@ -109,8 +123,7 @@ export default function about() {
           list={factorySliderContent}
           swiperWrapperStyle="about-design-factory-swiper-wrapper"
           slideImgStyle=""
-          spaceBetween={40}
-          slidesPerView={1.5}
+          breakpointsObj={factorySliderBreakPoint}
         />
       </div>
       <div className="about__team-slider">
@@ -119,8 +132,7 @@ export default function about() {
           list={teamSliderContent}
           swiperWrapperStyle="about__team-slider-wrapper"
           slideImgStyle="about__team-slider-img"
-          spaceBetween={24}
-          slidesPerView={3.5}
+          breakpointsObj={teamSliderBreakPoint}
         />
       </div>
     </div>
