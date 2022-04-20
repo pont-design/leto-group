@@ -16,8 +16,7 @@ import '../styles/CustomFiltersStyles.scss';
 import '../styles/CustomLanguageSwitcher.scss';
 import '../styles/CustomOutlinedButton.scss';
 import '../styles/CustomRadioButtonStyle.scss';
-import '../styles/ProductCard.scss';
-import '../styles/Technologies.scss';
+import '../styles/StatisticBlockStyles.scss';
 
 import '../styles/Footer.scss';
 import '../styles/Header.scss';
