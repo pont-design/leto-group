@@ -121,7 +121,8 @@ export default function about() {
       <div className="about__design-factories-slider">
         <CustomSlider
           list={factorySliderContent}
-          swiperWrapperStyle="about-design-factory-swiper-wrapper"
+          swiperWrapperStyle="about__design-factory-swiper-wrapper"
+          swiperItemStyles="about__design-factory-swiper-item"
           slideImgStyle=""
           breakpointsObj={factorySliderBreakPoint}
         />
@@ -131,6 +132,7 @@ export default function about() {
         <CustomSlider
           list={teamSliderContent}
           swiperWrapperStyle="about__team-slider-wrapper"
+          swiperItemStyles="about__team-slider-item"
           slideImgStyle="about__team-slider-img"
           breakpointsObj={teamSliderBreakPoint}
         />
