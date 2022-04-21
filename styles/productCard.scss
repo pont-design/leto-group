@@ -70,5 +70,5 @@
 .product-card__similar-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 2.4rem;
+  gap: 2.4rem;
 }

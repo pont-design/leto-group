@@ -176,9 +176,7 @@ h6 {
 }
 
 .container {
-  max-width: 1446px;
-  padding: 0 32px;
-  margin: 0 auto;
+  padding: 0 clamp(32px, 6.25vw, 150px);
 }
 
 button,

@@ -9,6 +9,7 @@ import 'swiper/css';
 export const CustomSlider = ({
   list,
   swiperWrapperStyle,
+  swiperItemStyles,
   slideImgStyle,
   breakpointsObj,
 }) => {
@@ -33,10 +34,12 @@ export const CustomSlider = ({
       {list.map((slide) => {
         return (
           <SwiperSlide>
-            <img
-              className={['slider-slide-img', slideImgStyle].join(' ')}
-              src={slide.imgSrc}
-            />
+            <div className={swiperItemStyles}>
+              <img
+                className={['slider-slide-img', slideImgStyle].join(' ')}
+                src={slide.imgSrc}
+              />
+            </div>
             {slide.description}
           </SwiperSlide>
         );
