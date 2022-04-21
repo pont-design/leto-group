@@ -61,6 +61,7 @@
 
 .technologies__equipment {
   margin-top: 16.4rem;
+  margin-bottom: 12.6rem;
 }
 
 .technologies__equipment-wrapper {
@@ -94,55 +95,6 @@
 .equipment-description-subtitle {
   margin-top: 1.2rem;
   color: $gray400;
-}
-
-.technologies-statistic {
-  margin-top: 12.6rem;
-  border-bottom: 1px solid $gray200;
-  border-top: 1px solid $gray200;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.technologies-sales__heading_small {
-  color: $green;
-}
-
-.technologies-sales__heading_big {
-  color: $green;
-}
-
-.technologies-sales_small {
-  padding-top: 4.8rem;
-  padding-bottom: 4.8rem;
-}
-
-.technologies-sales_small_sales {
-  border-bottom: 1px solid $gray200;
-  grid-column: 1 / 2;
-  grid-row-start: 1;
-}
-
-.technologies-sales_small_inovations {
-  grid-column: 1 / 2;
-  grid-row-start: 2;
-}
-
-.technologies-sales_big_area {
-  grid-column: 2 / 3;
-  grid-row: 1 / 3;
-}
-
-.technologies-sales_big_area {
-  border-left: 1px solid $gray200;
-}
-
-.technologies-sales_big {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .technologies__automation {

@@ -22,7 +22,13 @@
 html,
 body {
   font-size: 10px;
-  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 4px;
+  }
 }
 
 .h0 {
@@ -162,7 +168,7 @@ h6 {
 }
 
 .container {
-  max-width: 1464px;
+  max-width: 1446px;
   padding: 0 32px;
   margin: 0 auto;
 }
@@ -171,4 +177,92 @@ button,
 button:active,
 button:focus {
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .h0 {
+    font-family: 'nunito_sanssemibold', sans-serif;
+    font-size: 9.6rem;
+    line-height: 70%;
+  }
+
+  h1 {
+    font-size: 8rem;
+  }
+
+  h2 {
+    font-size: 7rem;
+  }
+
+  h3 {
+    font-size: 9rem;
+  }
+
+  h4 {
+    font-size: 6rem;
+  }
+
+  h5 {
+    font-size: 5rem;
+  }
+
+  h6 {
+    font-size: 4rem;
+  }
+
+  .text-1 {
+    font-size: 3.5rem;
+  }
+
+  .text-2 {
+    font-size: 4rem;
+    line-height: 150%;
+  }
+
+  .text-3 {
+    font-size: 8rem;
+  }
+
+  .caption-1 {
+    font-size: 4rem;
+  }
+
+  .caption-2 {
+    font-size: 4rem;
+  }
+
+  .btn-text {
+    font-size: 5rem;
+  }
+
+  .btn-link {
+    font-size: 5rem;
+  }
+
+  .link-text {
+    font-size: 3.5rem;
+  }
+
+  .card-caption {
+    font-size: 3.5rem;
+    line-height: 120%;
+  }
+
+  .tag-text {
+    font-size: 5rem;
+  }
+
+  .card-accard {
+    font-size: 5rem;
+  }
+
+  .text-numbers {
+    font-size: 10rem;
+    line-height: 13.75rem;
+  }
+
+  .text-numbers-big {
+    font-size: 10rem;
+    line-height: 13.75rem;
+  }
 }
