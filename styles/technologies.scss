@@ -25,11 +25,13 @@
 
 .technologies__hero-img_img {
   object-fit: cover;
+  height: 100%;
   width: 100%;
   max-height: 45.2rem;
 }
 
 .technologies__quality-productivity {
+  gap: 2rem;
   margin-top: 4.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -98,14 +100,15 @@
 }
 
 .technologies__automation {
-  max-width: calc(1124 / 1496 * 100%);
+  width: 100%;
+  border-bottom: 1px solid $gray200;
+  padding-bottom: 3.2rem;
+  margin-bottom: 6.4rem;
 }
 
 .technologies__automation_hero {
+  max-width: calc(1124 / 1496 * 100%);
   margin-top: 19.6rem;
-  border-bottom: 1px solid $gray200;
-  margin-bottom: 6.4rem;
-  padding-bottom: 3.2rem;
 }
 
 .technologies-advantages-wrapper {

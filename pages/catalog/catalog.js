@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { CustomFilters } from '../../components/UI/CustomFilters/CustomFilters';
+import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 
 import { mockCatalog } from '../../assets/mockCatalog';
@@ -50,7 +50,7 @@ export default function Catalog() {
   );
 
   return (
-    <section className="catalog-page">
+    <section className="catalog-page container">
       <div className="catalog-page__heading">
         <h1>Продукция</h1>
         <a className="catalog-page__download-link">
