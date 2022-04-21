@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
+import { CustomButton } from "../customButton/CustomButton";
 import { CustomTextArea } from "../customTextArea/CustomTextArea";
 import { CustomTextField } from "../customTextField/CustomTextField"
 
-export const CustomForm = () => {
+export const CustomForm = ({ buttonLabel }) => {
 
   const [formsData, setFormsData] = useState({});
 
   const submitForm = (e) => {
-    console.log(e)
-    console.log(1)
+    e.preventDefault()
   }
 
   const setCurrentFormData = (value, inputName) => {
@@ -16,7 +16,7 @@ export const CustomForm = () => {
   }
 
   return (
-    <form onSubmit={submitForm}>
+    <form className="custom-form-wrapper" >
       <CustomTextField
         inputName='name'
         placeholder='Ваше имя'
@@ -38,7 +38,9 @@ export const CustomForm = () => {
       <CustomTextArea inputName='message'
         placeholder='Ваш сообщение'
         isFullField={!!formsData['message']}
-        setCurrentFormData={setCurrentFormData} />
+        setCurrentFormData={setCurrentFormData}
+      />
+      <CustomButton styles='form-button' label={buttonLabel} onClick={(e) => { submitForm(e) }} />
     </form>
   )
 }
