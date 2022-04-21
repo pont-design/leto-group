@@ -19,6 +19,14 @@
   font-style: normal;
 }
 
+input {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
 html,
 body {
   font-size: 10px;

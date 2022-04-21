@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+.custom-text-area {
+  padding: 1.6rem;
+  overflow: hidden;
+  height: 17rem;
+  width: 100%;
+  color: $gray500;
+  border: 1px solid $gray300;
+}
+
+.custom-text-area:hover {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-area:active {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-area__full-field {
+  color: $gray900;
+  transition: all 0.3s ease-in;
+}

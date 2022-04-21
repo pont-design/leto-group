@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { CustomFilters } from '../../components/UI/CustomFilters/CustomFilters';
+import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 
 import { mockCatalog } from '../../assets/mockCatalog';
