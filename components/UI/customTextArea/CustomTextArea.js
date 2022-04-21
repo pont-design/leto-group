@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CustomTextArea = ({ inputName, placeholder, isFullField, setCurrentFormData }) => {
 
-  const textAreaStyles = `${isFullField && 'custom-text-area__full-field'} custom-text-area ' }`
+  const textAreaStyles = `${isFullField && 'custom-text-area__full-field'} custom-text-area text-1 ' }`
 
   return (
     <textarea placeholder={placeholder}
