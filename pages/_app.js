@@ -12,6 +12,7 @@ import '../styles/CustomLink.scss';
 import '../styles/Catalog.scss';
 import '../styles/ContactsStyles.scss'
 import '../styles/QualityPage.scss';
+import '../styles/StatisticBlockStyles.scss'
 import '../styles/CustomAccordeonNumerable.scss';
 import '../styles/CustomAccordeonStyles.scss';
 import '../styles/CustomDropDown.scss';

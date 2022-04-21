@@ -23,6 +23,13 @@ function Quality() {
   { imgSrc: mockImage.src, description }]
 
 
+  const qualitySliderBreakPoint = {
+    gapxl: 24,
+    slidesPerViewXl: 4.2,
+    slidesPerViewMd: 4.2,
+    slidesPerViewXs: 4.2,
+  };
+
   return (
     <>
       <section className="container">
@@ -85,8 +92,7 @@ function Quality() {
           <CustomSlider list={list}
             swiperWrapperStyle='quality-swiper-wrapper'
             slideImgStyle='quality-swiper-slide'
-            spaceBetween={24}
-            slidesPerView={4.2}
+            breakpointsObj={qualitySliderBreakPoint}
           />
         </div>
       </div >
