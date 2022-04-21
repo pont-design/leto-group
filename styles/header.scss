@@ -6,8 +6,14 @@
 
 .header__wrapper {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 8rem;
+}
+
+.header-links__wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .header__sanovo-label {
@@ -24,5 +30,4 @@
   gap: 2rem;
   display: flex;
   align-items: center;
-  margin-left: calc((140 / 1464) * 100%);
 }

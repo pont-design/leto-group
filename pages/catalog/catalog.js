@@ -50,7 +50,7 @@ export default function Catalog() {
   );
 
   return (
-    <section className="catalog-page">
+    <section className="catalog-page container">
       <div className="catalog-page__heading">
         <h1>Продукция</h1>
         <a className="catalog-page__download-link">
