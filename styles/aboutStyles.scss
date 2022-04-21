@@ -1,0 +1,227 @@
+@import './variables.scss';
+
+.about {
+  margin-top: 9.6rem;
+  margin-bottom: 20rem;
+}
+
+.about__heading,
+.about__eco-products,
+.about__numbers,
+.about__ideas,
+.about__design-factories {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 2.4rem;
+  grid-template-rows: repeat(2, auto);
+}
+
+.about__heading {
+  row-gap: 3.2rem;
+}
+
+.about__heading-text {
+  grid-column: 1/7;
+  grid-row: 1/2;
+}
+
+.about__heading-img {
+  grid-row: 2/3;
+  grid-column: 1/13;
+}
+
+.about__eco-products {
+  row-gap: 12rem;
+  margin-top: 9.5rem;
+  margin-bottom: 12.8rem;
+  padding-top: 4.8rem;
+  border-top: 1px solid $gray200;
+}
+
+.about__eco-products-heading {
+  grid-column: 1/8;
+  grid-row: 1/2;
+}
+
+.about__eco-products-caption {
+  grid-column: 8/13;
+  grid-row: 2/3;
+}
+
+.about__ideas {
+  margin-top: 16.4rem;
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+.about__ideas-text {
+  grid-column: 1/7;
+}
+
+.about__ideas-list {
+  margin-bottom: 4rem;
+}
+
+.about__ideas-item {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+  padding: 4.8rem 0;
+  border-bottom: 1px solid $gray200;
+
+  &:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.about__ideas-item-idx {
+  font-family: 'nunito_sansregular', sans-serif;
+  color: $orange;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.about__ideas-team {
+  margin-bottom: 2.4rem;
+}
+
+.about__ideas-img {
+  grid-column: 8/13;
+}
+
+.about__design-factories {
+  margin-top: 18rem;
+  grid-template-rows: auto;
+  row-gap: 1.6rem;
+}
+
+.about__design-factories-heading {
+  grid-column: 1/7;
+  grid-row: 1/2;
+}
+
+.about__design-factories-text {
+  grid-column: 1/12;
+  grid-row: 2/3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__design-factories-slider,
+.about__team-slider {
+  margin-top: 8rem;
+  padding: 0 32px;
+  margin-left: 0;
+  @media screen and (min-width: 1400px) {
+    margin-left: 6.25vw;
+    padding: 0 0;
+  }
+}
+
+.about-design-factory-swiper-wrapper,
+.about__team-slider-wrapper {
+}
+
+.about__team-slider {
+  margin-top: 16rem;
+}
+
+.about__team-slider-heading {
+  margin-bottom: 3.6rem;
+}
+
+.about__team-slider-img {
+  height: 52.8rem;
+}
+
+.about__team-slider-desc {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (max-width: 800px) {
+  .about {
+    margin-top: 4.8rem;
+    margin-bottom: 12rem;
+  }
+
+  .about__heading,
+  .about__eco-products,
+  .about__numbers {
+    display: block;
+  }
+
+  .about__heading-text {
+    margin-bottom: 3.2rem;
+  }
+
+  .about__heading-img {
+  }
+
+  .about__eco-products-caption {
+    margin-top: 1.6rem;
+  }
+
+  .about__numbers {
+    margin-top: 8rem;
+  }
+
+  .about__numbers-packaging,
+  .about__numbers-technology,
+  .about__numbers-square {
+    padding: 2rem 0;
+    text-align: start;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    border-right: none;
+  }
+
+  .about__ideas {
+    margin-top: 8rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    column-gap: 0;
+  }
+
+  .about__ideas-text {
+    grid-column: 1/7;
+  }
+
+  .about__ideas-list {
+    margin-bottom: 4rem;
+  }
+
+  .about__ideas-item {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    padding-bottom: 2.4rem;
+    border-bottom: 1px solid $gray200;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  .about__ideas-item-idx {
+    font-family: 'nunito_sansregular', sans-serif;
+    color: $orange;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .about__ideas-team {
+    margin-bottom: 2.4rem;
+  }
+
+  .about__ideas-img {
+    grid-column: 8/13;
+  }
+}
