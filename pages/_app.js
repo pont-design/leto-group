@@ -5,7 +5,9 @@ import '../styles/base.scss';
 import '../styles/global.scss';
 
 import '../styles/CustomRadioButtonStyle.scss';
-import '../styles/CustomSlider.scss';
+import '../styles/CustomSlider.scss'
+import '../styles/CustomTextArea.scss'
+import '../styles/CustomTextField.scss'
 import '../styles/CustomButton.scss';
 import '../styles/CustomLink.scss';
 import '../styles/QualityPage.scss';

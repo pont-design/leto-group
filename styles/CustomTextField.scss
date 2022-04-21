@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+.custom-text-field {
+  width: 100%;
+  padding: 1.6rem;
+  color: $gray500;
+  border: 1px solid $gray300;
+}
+
+.custom-text-field:hover {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-field:active {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-field__full-field {
+  color: $gray900;
+  transition: all 0.3s ease-in;
+}
