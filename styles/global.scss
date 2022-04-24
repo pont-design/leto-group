@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 @font-face {
   font-family: 'nunito_sansbold';
   src: url('../public/fonts/NunitoSans-Bold.ttf') format('truetype');
@@ -30,6 +32,7 @@ textarea {
 html,
 body {
   font-size: 10px;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -145,6 +148,7 @@ h6 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 1.6rem;
   line-height: 120%;
+  color: $gray500;
 }
 
 .tag-text {
@@ -163,6 +167,7 @@ h6 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 7.2rem;
   line-height: 98px;
+  color: $green;
 }
 
 .text-numbers-big {
@@ -183,6 +188,13 @@ button,
 button:active,
 button:focus {
   outline: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
 @media (max-width: 768px) {
@@ -270,5 +282,9 @@ button:focus {
   .text-numbers-big {
     font-size: 10rem;
     line-height: 13.75rem;
+  }
+
+  .container {
+    padding: 0 4rem;
   }
 }
