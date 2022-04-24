@@ -43,14 +43,14 @@ export default function about() {
     gapxl: 40,
     slidesPerViewXl: 1.5,
     slidesPerViewMd: 1.5,
-    slidesPerViewXs: 1.5,
+    slidesPerViewXs: 1.1,
   };
 
   const teamSliderBreakPoint = {
     gapxl: 24,
     slidesPerViewXl: 3.5,
     slidesPerViewMd: 2.5,
-    slidesPerViewXs: 1.2,
+    slidesPerViewXs: 1.1,
   };
 
   const getCompanyList = () => {
@@ -73,7 +73,13 @@ export default function about() {
           <h1 className="about__heading-text">
             Входим в топ-10 производителей яиц
           </h1>
-          <img className="about__heading-img" src={mainImage.src} alt="view" />
+          <div className="about__heading-img-wrapper">
+            <img
+              className="about__heading-img"
+              src={mainImage.src}
+              alt="view"
+            />
+          </div>
         </div>
         <div className="about__eco-products">
           <h2 className="about__eco-products-heading">
