@@ -13,3 +13,8 @@
 .custom-outlined-button_large {
   padding: 1.9rem 7.3rem;
 }
+
+
+.custom-outlined-button:hover {
+  border-color: $orange;
+}
