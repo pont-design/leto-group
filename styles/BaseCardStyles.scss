@@ -13,3 +13,13 @@
 .base-card__name {
   margin-top: 0.4rem;
 }
+
+@media (max-width: 768px) {
+  .base-card__text {
+    margin-top: 4rem;
+  }
+
+  .base-card__name {
+    margin-top: 0;
+  }
+}

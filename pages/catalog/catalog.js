@@ -53,7 +53,7 @@ export default function Catalog() {
     <section className="catalog-page container">
       <div className="catalog-page__heading">
         <h1>Продукция</h1>
-        <a className="catalog-page__download-link">
+        <a className="catalog-page__download-link btn-link">
           {downloadArrow} Скачать каталог
         </a>
       </div>
