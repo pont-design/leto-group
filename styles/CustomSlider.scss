@@ -4,3 +4,16 @@
   height: 100%;
   object-position: 50% 50%;
 }
+
+.custom-swiper-wrapper {
+  margin-left: clamp(32px, 6.25vw, 150px);
+}
+
+//MOBILE
+//MOBILE
+//MOBILE
+@media (max-width: 768px) {
+  .custom-swiper-wrapper {
+    margin-left: 0;
+  }
+}

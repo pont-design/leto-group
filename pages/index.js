@@ -108,7 +108,7 @@ function index() {
         </div>
       </div>
       <div className="start-page__production-block">
-        <h2 className="start-page__production-heading">Продукция</h2>
+        <h2 className="start-page__production-heading container">Продукция</h2>
         <CustomSlider
           list={productionSliderContent}
           breakpointsObj={productionSliderBreakPoint}
