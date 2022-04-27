@@ -34,7 +34,7 @@ import '../styles/StartPageStyles.scss';
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Component {...pageProps} />
       <Footer />
     </>
