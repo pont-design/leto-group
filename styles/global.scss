@@ -45,54 +45,63 @@ body {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 9.6rem;
   line-height: 70%;
+  color: #131313;
 }
 
 h1 {
   font-family: 'nunito_sansbold', sans-serif;
   font-size: 6.4rem;
   line-height: 100%;
+  color: $gray900;
 }
 
 h2 {
   font-family: 'nunito_sansbold', sans-serif;
   font-size: 4.8rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 h3 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 4.8rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 h4 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 3.6rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 h5 {
   font-family: 'nunito_sansbold', sans-serif;
   font-size: 3.2rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 h6 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2.4rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 .text-1 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 2rem;
   line-height: 150%;
+  color: $gray700;
 }
 
 .text-2 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 2.4rem;
   line-height: 150%;
+  color: $gray700;
 }
 
 .text-3 {
@@ -105,18 +114,21 @@ h6 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 4rem;
   line-height: 130%;
+  color: $gray900;
 }
 
 .caption-1 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2.4rem;
   line-height: 150%;
+  color: $gray900;
 }
 
 .caption-2 {
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2rem;
   line-height: 150%;
+  color: $gray900;
 }
 
 .btn-text {
@@ -154,6 +166,7 @@ h6 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: 2rem;
   line-height: 120%;
+  color: $gray900;
 }
 
 .card-accard {

@@ -27,6 +27,13 @@
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
   }
+
+  .start-page__main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
 }
 
 .start-page__about-block {
@@ -38,7 +45,8 @@
   }
 
   .start-page__about-caption {
-    grid-column: 9/12;
+    grid-column: 9/13;
+    padding-right: clamp(16px, 6vw, 96px);
 
     p {
       margin-bottom: 3.2rem;
@@ -70,6 +78,10 @@
       padding: 1.6rem 0;
       border-top: 1px solid $gray200;
 
+      .start-page__number-item-desc {
+        color: $about-page-text;
+      }
+
       &:last-child {
         border-bottom: 1px solid $gray200;
       }
@@ -89,6 +101,10 @@
 
     .start-page__production-slider-text {
       margin-top: 2rem;
+
+      .card-caption {
+        color: $gray3;
+      }
     }
   }
 
@@ -152,7 +168,7 @@
   }
 
   .start-page__last-block-img-wrapper {
-    grid-column: 8/13;
+    grid-column: 7/13;
   }
 }
 
