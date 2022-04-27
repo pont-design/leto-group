@@ -47,7 +47,7 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-            <ul className="footer__contacts-list">
+            <ul className="footer__contacts-list footer__contacts-list_help">
               <li className="footer__contacts-list_title">
                 <h6>{help.title}</h6>
               </li>
@@ -59,7 +59,13 @@ export const Footer = () => {
                 </li>
               ))}
             </ul>
-            <ul className="footer__contacts-list">
+            <div className="footer__request-wrapper_mobile">
+              <h5>Есть предложения? <br /> Оставьте заявку</h5>
+              <div className="footer__request-button">
+                <CustomOutlinedButton label="Оставить заявку" isButtonSmall={false} />
+              </div>
+            </div>
+            <ul className="footer__contacts-list footer__contacts-list_media">
               <li className="footer__contacts-list_title">
                 <h6>{media.title}</h6>
               </li>
