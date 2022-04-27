@@ -1,3 +1,7 @@
+.swiper {
+  padding-right: clamp(32px, 6.25vw, 150px) !important;
+}
+
 .slider-slide-img {
   object-fit: cover;
   width: 100%;
@@ -13,6 +17,10 @@
 //MOBILE
 //MOBILE
 @media (max-width: 768px) {
+  .swiper {
+    padding-right: 4rem;
+  }
+
   .custom-swiper-wrapper {
     margin-left: 0;
   }
