@@ -32,6 +32,13 @@
     display: inline;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid $gray900;
+    transition: all 0.3s ease-in;
+  }
+
+  .contacts-communication-links__block_email:hover {
+    color: $green;
+    border-bottom: 1px solid $green;
+    transition: all 0.3s ease-in;
   }
 }
 
