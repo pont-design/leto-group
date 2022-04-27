@@ -107,7 +107,6 @@
 
 .about__design-factories-slider {
   margin-top: 8rem;
-  margin-left: clamp(32px, 6.25vw, 150px);
 }
 
 .about__design-factory-swiper-item {
@@ -116,7 +115,6 @@
 
 .about__team-slider {
   margin-top: 16.1rem;
-  margin-left: clamp(32px, 6.25vw, 150px);
 
   .about__team-slider-item {
     height: clamp(420px, 33vw, 604px);

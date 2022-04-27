@@ -134,7 +134,7 @@ export default function about() {
         />
       </div>
       <div className="about__team-slider">
-        <h2 className="about__team-slider-heading">Команда</h2>
+        <h2 className="about__team-slider-heading container">Команда</h2>
         <CustomSlider
           list={teamSliderContent}
           swiperWrapperStyle="about__team-slider-wrapper"

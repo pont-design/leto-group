@@ -26,8 +26,8 @@ function Quality() {
   const qualitySliderBreakPoint = {
     gapxl: 24,
     slidesPerViewXl: 4.2,
-    slidesPerViewMd: 4.2,
-    slidesPerViewXs: 4.2,
+    slidesPerViewMd: 1.2,
+    slidesPerViewXs: 1.2,
   };
 
   return (
@@ -75,11 +75,16 @@ function Quality() {
                 <p className="text-1">
                   Все входное сырье и готовая продукция тестируется в собственной аккредитованной лаборатории, реализованной по самым современным стандартам и требованиям
                 </p>
-                <CustomLink label='Наши процессы' />
+                <div className="quality-process-description__content-linked_link">
+                  <CustomLink label='Наши процессы' />
+                </div>
               </div>
               <p className="text-1">
                 Контроль и управление всеми технологическими процессами с одного компьютера, а так же контроль за всеми процессами дистанционно
               </p>
+              <div className="quality-process-description__content-linked_link-mobile">
+                <CustomLink label='Наши процессы' />
+              </div>
             </div>
           </div>
         </div>

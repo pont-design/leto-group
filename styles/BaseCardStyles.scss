@@ -1,8 +1,12 @@
 @import './variables.scss';
 
+.base-card {
+  display: flex;
+  flex-direction: column;
+}
+
 .base-card__img {
   width: 100%;
-  max-height: 494px;
   background-color: $gray50;
 }
 

@@ -27,16 +27,16 @@ import '../styles/Header.scss';
 
 import '../styles/ProductCard.scss';
 import '../styles/Technologies.scss';
-import '../styles/aboutStyles.scss';
+import '../styles/AboutStyles.scss';
 import '../styles/Сatalog.scss';
 import '../styles/StartPageStyles.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <Component {...pageProps} />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
