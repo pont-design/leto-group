@@ -140,7 +140,8 @@
 // MOBILE
 @media (max-width: 768px) {
   .technologies__hero {
-    padding: 12rem 0;
+    padding-bottom: 12rem;
+    padding-top: 0;
   }
 
   .technologies__hero-img {

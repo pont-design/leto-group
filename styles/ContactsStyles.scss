@@ -70,7 +70,8 @@
 @media (max-width: 768px) {
   .contacts-hero {
     display: block;
-    padding: 12rem 0;
+    padding-bottom: 12rem;
+    padding-top: 0;
   }
 
   .contacts-communication-links-wrapper {
