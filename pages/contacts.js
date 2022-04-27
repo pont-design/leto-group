@@ -28,7 +28,7 @@ function Contacts() {
   return (
     <section className="container" >
       <div className="contacts-hero">
-        <h1>Есть столько
+        <h1>Есть столько <br />
           причин связаться</h1>
       </div>
       <div className="contacts-communication-links-wrapper">
@@ -46,15 +46,15 @@ function Contacts() {
             </div>
           })}
         </div>
-        <div className="contacts-form-wrapper">
-          <div className="contacts-form__form">
-            <h4>Оставьте заявку</h4>
-            <p className="text-1">We're proud to be an accredited 'Australian Trusted Trader'.
-              This internationally recognised, Australian Government accreditation. </p>
-            <CustomForm buttonLabel='Отправить' />
-          </div>
-          <iframe className='map-iframe-wrapper' src="https://yandex.ru/map-widget/v1/?um=constructor%3A3c9f7210935d1d610768574acf1c7a0c8c9d247c1ab24aaf271e60590eeeb41f&amp;source=constructor" frameborder="0"></iframe>
+      </div>
+      <div className="contacts-form-wrapper">
+        <div className="contacts-form__form">
+          <h4>Оставьте заявку</h4>
+          <p className="text-1">We're proud to be an accredited 'Australian Trusted Trader'.
+            This internationally recognised, Australian Government accreditation. </p>
+          <CustomForm buttonLabel='Отправить' />
         </div>
+        <iframe className='map-iframe-wrapper' src="https://yandex.ru/map-widget/v1/?um=constructor%3A3c9f7210935d1d610768574acf1c7a0c8c9d247c1ab24aaf271e60590eeeb41f&amp;source=constructor" frameborder="0"></iframe>
       </div>
       <div>
       </div>
