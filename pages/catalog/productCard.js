@@ -1,4 +1,4 @@
-import { CustomAccordion } from '../../components/UI/customAccordion/CustomAccordion';
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { mockProductCard } from '../../assets/mockProductCard';
 
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
