@@ -20,7 +20,7 @@ export const Header = () => {
       <div className="container">
         <header className="header__wrapper">
           <div className="header-links__wrapper">
-            <img src={logoLeto.src} />
+            <img src={logoLeto.src} className='header-links__wrapper_logo-leto' />
             <img className="header__sanovo-label" src={logoSanovo.src} />
             <ul className="header__links">
               {links.map(link => (
@@ -36,6 +36,22 @@ export const Header = () => {
             <a className="btn-text-2" href="tel:+78005553535">+7 800 555 35 35</a>
             <CustomOutlinedButton label='Оставить заявку' isButtonSmall={true} />
             <CustomLanguageSwitcher />
+          </div>
+          <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+
+            <ul class="menu__box">
+              {links.map(link => (
+                <li className="link-text" key={link.label}>
+                  <Link href={link.link}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </header>
       </div>

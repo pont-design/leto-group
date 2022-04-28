@@ -69,10 +69,9 @@ function index() {
           </div>
           <div className="start-page__about-caption">
             <p className="text-1">
-              Весь завод по глубокой переработке яиц оснащен современной
-              системой автоматизации, что позволяет осуществлять контроль и
-              управление всеми технологическими процессами с одного компьютера,
-              а так же контроль за всеми процессами дистанционно
+              В арсенале завода «ЛЕТО» используется самое современное
+              оборудование изготовленное датской компанией SANOVO, являющиеся
+              мировым лидером в этой отрасли
             </p>
             <CustomLink label="Наши процессы" />
           </div>
@@ -92,15 +91,19 @@ function index() {
             </div>
             <div className="start-page__number-item">
               <p className="text-numbers">70 000 000 +</p>
-              <p className="text-1">Продаём упаковок в год</p>
+              <p className="text-1 start-page__number-item-desc">
+                Продаём упаковок в год
+              </p>
             </div>
             <div className="start-page__number-item">
               <p className="text-numbers">3000 Га</p>
-              <p className="text-1">Рабочая площадь преприятия</p>
+              <p className="text-1 start-page__number-item-desc">
+                Рабочая площадь преприятия
+              </p>
             </div>
             <div className="start-page__number-item">
               <p className="text-numbers">SANOVO</p>
-              <p className="text-1">
+              <p className="text-1 start-page__number-item-desc">
                 Завод оборудован современной техникой датской компании
               </p>
             </div>
@@ -108,7 +111,7 @@ function index() {
         </div>
       </div>
       <div className="start-page__production-block">
-        <h2 className="start-page__production-heading">Продукция</h2>
+        <h2 className="start-page__production-heading container">Продукция</h2>
         <CustomSlider
           list={productionSliderContent}
           breakpointsObj={productionSliderBreakPoint}
@@ -126,7 +129,7 @@ function index() {
       <div className="container">
         <div className="start-page__certification-wrapper">
           <div className="start-page__certification__imgs-wrapper">
-            <h2>Сертефицированное производство</h2>
+            <h2>Качественная продукция</h2>
             <div className="start-page__certification__imgs">
               <img
                 className="start-page__certification__imgs_img"
@@ -144,8 +147,10 @@ function index() {
           </div>
           <div className="start-page__certification-description">
             <p className="text-2 start-page__certification-description_subtitle">
-              Сертификация продукции по международным стандартам: для целей
-              экспорта (целевые рынки – страны ЕС, Азия, Ближний Восток)
+              Высокое и стабильное качество продукции ГПЯ – самые современные
+              технологии и стандарты работы позволяют как замещать импорт и
+              развивать рынок продукции ГПЯ, так и экспортировать продукты на
+              целевые экспортные рынки
             </p>
             <CustomLink label="Наши процессы" />
           </div>
