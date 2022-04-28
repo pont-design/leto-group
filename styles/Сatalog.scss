@@ -1,6 +1,8 @@
 @import './variables.scss';
 
 .catalog-page {
+  margin-top: 64px;
+
   .catalog-page__heading {
     border-bottom: 1px solid $gray200;
     padding-bottom: 7.2rem;
