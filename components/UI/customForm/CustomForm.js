@@ -40,7 +40,7 @@ export const CustomForm = ({ buttonLabel }) => {
         isFullField={!!formsData['message']}
         setCurrentFormData={setCurrentFormData}
       />
-      <CustomButton styles='form-button' label={buttonLabel} onClick={(e) => { submitForm(e) }} />
+      <CustomButton styles='form-button btn-text' label={buttonLabel} onClick={(e) => { submitForm(e) }} />
     </form>
   )
 }

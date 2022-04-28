@@ -71,8 +71,8 @@ function technologies() {
           </p>
         </div>
         <div className="quality-productivity__sertificates">
-          <img src={atexSertificate.src} alt="atex sertificate" />
-          <img src={ISOCertificate.src} alt="ISO sertificate" />
+          <img className="quality-productivity__sertificates_atex" src={atexSertificate.src} alt="atex sertificate" />
+          <img className="quality-productivity__sertificates_iso" src={ISOCertificate.src} alt="ISO sertificate" />
         </div>
       </div>
       <div className="technologies__equipment">
@@ -80,9 +80,8 @@ function technologies() {
         {equipment.equipment.map((equipmentEl, i) => {
           return (
             <div
-              className={`technologies__equipment-wrapper ${
-                i === 0 && 'technologies__equipment-wrapper_first-elem'
-              }`}
+              className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
+                }`}
               key={equipmentEl.title}
             >
               <img

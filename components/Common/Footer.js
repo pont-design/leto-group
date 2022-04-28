@@ -42,31 +42,38 @@ export const Footer = () => {
               {company.list.map(link => (
                 <li className="link-text">
                   <Link href={link.link}>
-                    {link.label}
+                    <span className="footer-link-content">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <ul className="footer__contacts-list">
+            <ul className="footer__contacts-list footer__contacts-list_help">
               <li className="footer__contacts-list_title">
                 <h6>{help.title}</h6>
               </li>
               {help.list.map(link => (
                 <li className="link-text">
                   <Link href={link.link}>
-                    {link.label}
+                    <span className="footer-link-content">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <ul className="footer__contacts-list">
+            <div className="footer__request-wrapper_mobile">
+              <h5>Есть предложения? <br /> Оставьте заявку</h5>
+              <div className="footer__request-button">
+                <CustomOutlinedButton label="Оставить заявку" isButtonSmall={false} />
+              </div>
+            </div>
+            <ul className="footer__contacts-list footer__contacts-list_media">
               <li className="footer__contacts-list_title">
                 <h6>{media.title}</h6>
               </li>
               {media.list.map(link => (
                 <li className='link-text' >
                   <a href='#' className="footer__vk-logo" link={link.link}>
-                    <img src={vkLogo.src} /> {link.label}
+                    <img src={vkLogo.src} />
+                    <p className="footer-link-content">{link.label}</p>
                   </a>
                 </li>
               ))}
@@ -74,11 +81,11 @@ export const Footer = () => {
             <ul className="footer__contacts-list footer__contacts-list_contacts">
               <li>
                 <p className="caption-2">Телефон</p>
-                <a className="text-2" href="tel:+7 495 147 01 99">+7 495 147 01 99</a>
+                <a className="footer-link-content text-2" href="tel:+7 495 147 01 99">+7 495 147 01 99</a>
               </li>
               <li>
                 <p className="caption-2">Email</p>
-                <a className="text-2" href="mailto:info@egg-go.ru">info@egg-go.ru</a>
+                <a className="footer-link-content text-2" href="mailto:info@egg-go.ru">info@egg-go.ru</a>
               </li>
             </ul>
             <div className="footer__contacts-list footer__contacts-list_logo">

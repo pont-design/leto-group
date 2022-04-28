@@ -79,7 +79,7 @@
 }
 
 .technologies__equipment_img {
-  height: 24.8rem;
+  max-height: 24.8rem;
   object-fit: cover;
   width: calc(466 / 721 * 100%);
 }
@@ -133,4 +133,107 @@
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2.4rem;
   line-height: 2.88rem;
+}
+
+// MOBILE
+// MOBILE
+// MOBILE
+@media (max-width: 768px) {
+  .technologies__hero {
+    padding-bottom: 12rem;
+    padding-top: 0;
+  }
+
+  .technologies__hero-img {
+    width: 100%;
+    display: block;
+    img {
+      &:nth-child(1) {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  .technologies__hero-img_img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    max-height: 85rem;
+  }
+
+  .technologies__quality-productivity {
+    display: block;
+  }
+
+  .quality-productivity-hero-text {
+    margin-top: 2rem;
+  }
+
+  .quality-productivity-hero-text__description {
+    margin-top: 4rem;
+  }
+
+  .quality-productivity__sertificates {
+    margin-top: 6rem;
+    column-gap: 4rem;
+  }
+
+  .technologies__equipment {
+    margin-top: 20rem;
+  }
+
+  .technologies__equipment-wrapper {
+    padding: 0;
+    display: block;
+    border-top: none;
+    margin-bottom: 8rem;
+  }
+
+  .technologies__equipment-wrapper_first-elem {
+    margin-top: 4rem;
+  }
+
+  .technologies__equipment_img {
+    width: 100%;
+    max-height: 46rem;
+  }
+
+  .technologies__equipment-description {
+    margin-top: 3rem;
+  }
+
+  .equipment-description-subtitle {
+    margin-top: 1rem;
+  }
+
+  .technologies__automation_hero {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20rem;
+    padding-bottom: 8rem;
+  }
+
+  .technologies-advantages-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .technologies-advantage {
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+
+  .technologies-advantage_text {
+    margin-bottom: 6rem;
+  }
+
+  .technologies-advantage_subtitle {
+    font-family: 'nunito_sanssemibold', sans-serif;
+    font-size: 4rem;
+    line-height: 120%;
+  }
 }

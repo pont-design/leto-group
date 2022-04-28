@@ -26,6 +26,10 @@
       .product-card__product-name {
         margin: 0.4rem 0 1.6rem 0;
       }
+
+      .product-card__product-desc {
+        color: $gray800;
+      }
     }
 
     .product-card__voluem-options {
@@ -57,11 +61,13 @@
 
       .product-card__parametr-name {
         grid-column: 1/5;
+        color: $gray900;
       }
 
       .product-card__parametr-desc {
         grid-column: 5/13;
         padding-left: 2.25vw;
+        color: $gray800;
       }
     }
   }
@@ -69,7 +75,12 @@
   .product-card__similar {
     margin-top: 12rem;
 
+    h3 {
+      color: #121212;
+    }
+
     .product-card__similar-list {
+      margin-top: 24px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.4rem;
@@ -142,6 +153,7 @@
       margin-top: 18rem;
 
       .product-card__similar-list {
+        margin-top: 16px;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2.4rem;
