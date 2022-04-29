@@ -4,6 +4,10 @@
   border-bottom: 1px solid $gray200;
 }
 
+.header-links__wrapper_logo-leto {
+  cursor: pointer;
+}
+
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -31,6 +35,21 @@
   gap: 2rem;
   display: flex;
   align-items: center;
+}
+
+.header-link-content {
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient($green, $green);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.2s ease-in;
+}
+
+.header-link-content:hover,
+.header-link-content:focus {
+  background-size: 100% 1px;
 }
 
 //MENU BURGER

@@ -81,7 +81,7 @@ export default function productCard() {
             <p className="caption-2 product-card__voluem-text">Объём</p>
             <CustomRadioButton buttonsLabels={['5 л.', '10 л.', '25 л.']} />
           </div>
-          <CustomButton label={'Оставить заявку'} />
+          <CustomButton label='Оставить заявку' />
           <div className="product-card__accordion">
             <CustomAccordion list={productCardAccordionContent} />
           </div>

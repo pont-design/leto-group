@@ -16,3 +16,12 @@
 .filter-container__amount {
   color: $gray400;
 }
+
+//MOBILE
+//MOBILE
+//MOBILE
+@media (max-width: 768px) {
+  .filter-container__amount {
+    display: none;
+  }
+}
