@@ -35,7 +35,13 @@ const AccordionTab2 = ({ title, content }) => {
   );
 
   return (
-    <div className="accordion-product-card__tab">
+    <div
+      className="accordion-product-card__tab"
+      onClick={() => {
+        setIsActive(!isActive);
+        setShowMessage(!showMessage);
+      }}
+    >
       <div>
         <p className="card-accard">{title}</p>
         <CSSTransition
@@ -54,14 +60,7 @@ const AccordionTab2 = ({ title, content }) => {
         </CSSTransition>
       </div>
       <div className={classOfArrow}>
-        <div
-          onClick={() => {
-            setIsActive(!isActive);
-            setShowMessage(!showMessage);
-          }}
-        >
-          {arrow}
-        </div>
+        <div>{arrow}</div>
       </div>
     </div>
   );
