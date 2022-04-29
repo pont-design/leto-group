@@ -81,16 +81,12 @@ export default function Catalog({ items }) {
         filteredValue={filteredValues}
         setFilterValue={setFilterValue}
       />
-
-      {
-        <AddChosenFilter
-          inProp={inProp}
-          filterValue={filterValue}
-          setInProp={setInProp}
-          setFilterValue={setFilterValue}
-        />
-      }
-
+      <AddChosenFilter
+        inProp={inProp}
+        filterValue={filterValue}
+        setInProp={setInProp}
+        setFilterValue={setFilterValue}
+      />
       <TransitionGroup className="catalog-page__products-list">
         {filteredValues.map((el) => (
           <CSSTransition
