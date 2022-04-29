@@ -12,7 +12,6 @@ export const Header = () => {
     { label: 'О компании', link: 'about' },
     { label: 'Качество', link: 'quality' },
     { label: 'Технология', link: 'technologies' },
-    { label: 'Вакансии', link: 'vacancy' },
     { label: 'Контакты', link: 'contacts' }]
 
   return (

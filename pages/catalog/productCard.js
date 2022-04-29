@@ -1,4 +1,4 @@
-import { CustomAccordion } from '../../components/UI/customAccordion/CustomAccordion';
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { mockProductCard } from '../../assets/mockProductCard';
 
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
@@ -24,6 +24,21 @@ export default function productCard() {
     );
   }
 
+  const productCardAccordionContent = [
+    {
+      title: 'Структура',
+      desc: mockProductCard.structure,
+    },
+    {
+      title: 'Описание',
+      desc: mockProductCard.description,
+    },
+    {
+      title: 'Упаковка',
+      desc: mockProductCard.packaging,
+    },
+  ];
+
   return (
     <section className="product-card container">
       <div className="product-card__main-info">
@@ -48,24 +63,7 @@ export default function productCard() {
           </div>
           <CustomButton label={'Оставить заявку'} />
           <div className="product-card__accordion">
-            <CustomAccordion
-              title={'Структура'}
-              content={mockProductCard.structure}
-            />
-            <CustomAccordion
-              title={'Описание'}
-              content={mockProductCard.description}
-              style={{
-                borderTop: '1px solid #e4e4e7',
-                borderBottom: '1px solid #e4e4e7',
-                padding: '16px 0',
-                margin: '16px 0',
-              }}
-            />
-            <CustomAccordion
-              title={'Упаковка'}
-              content={mockProductCard.packaging}
-            />
+            <CustomAccordion list={productCardAccordionContent} />
           </div>
         </div>
       </div>
