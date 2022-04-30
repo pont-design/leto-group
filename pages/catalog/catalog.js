@@ -9,6 +9,7 @@ import { BaseCard } from '../../components/BaseCard/BaseCard';
 
 import { mockCatalog } from '../../assets/mockCatalog';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
+import { SliderWrapper } from "../../components/SliderWrapper/SliderWrapper";
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -87,6 +88,7 @@ export default function Catalog({ items }) {
         setInProp={setInProp}
         setFilterValue={setFilterValue}
       />
+
       <TransitionGroup className="catalog-page__products-list">
         {filteredValues.map((el) => (
           <CSSTransition

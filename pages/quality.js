@@ -39,9 +39,9 @@ function Quality() {
 
   const qualitySliderBreakPoint = {
     gapxl: 24,
-    slidesPerViewXl: 4.2,
-    slidesPerViewMd: 1.2,
-    slidesPerViewXs: 1.2,
+    slidesPerViewXl: 1,
+    slidesPerViewMd: 2,
+    slidesPerViewXs: 1,
   };
 
   return (
@@ -72,7 +72,7 @@ function Quality() {
           className="quality-certification-wrapper"
         >
           <div className="quality-certification__imgs-wrapper">
-            <h2>Мы производим качественный продукт</h2>
+            <h2>Мы производим <br /> качественный продукт</h2>
             <div className="quality-certification__imgs">
               <img
                 className="quality-certification__imgs_img"
