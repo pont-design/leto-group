@@ -7,6 +7,8 @@ import { CustomLink } from '../components/UI/CustomLink/customLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import mainImg from '../public/images/QualityPage/quality-main-img.jpg';
+import controlImg from '../public/images/QualityPage/quality-control-img.jpg';
 
 import { startPageAnimation } from '../assets/animations/animations';
 
@@ -57,7 +59,7 @@ function Quality() {
           </motion.h3>
         </motion.div>
         <div className="quality-hero-img">
-          <img src={mockImage.src} />
+          <img src={mainImg.src} />
         </div>
         <motion.div
           initial="hidden"
@@ -111,7 +113,7 @@ function Quality() {
             />
           </div>
           <div className="quality-steps-img-wrapper">
-            <img src={mockImage.src} />
+            <img src={controlImg.src} />
           </div>
         </div>
         <motion.div

@@ -8,6 +8,8 @@ import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
 import logoSanovo from '../public/images/Header/logoSanovo.svg';
 import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
 import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
+import mainBlockFirst from '../public/images/Technologies/technologies-main-block-first-img.jpg';
+import mainBlockSecond from '../public/images/Technologies/technologies-main-block-second.jpg';
 
 import {
   startPageAnimation,
@@ -56,12 +58,12 @@ function technologies() {
       <div className="technologies__hero-img">
         <img
           className="technologies__hero-img_img "
-          src={mockImage.src}
+          src={mainBlockFirst.src}
           alt="image name"
         />
         <img
           className="technologies__hero-img_img"
-          src={mockImage.src}
+          src={mainBlockSecond.src}
           alt="image name"
         />
       </div>
