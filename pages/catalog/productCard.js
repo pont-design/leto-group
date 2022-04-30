@@ -4,6 +4,7 @@ import { mockProductCard } from '../../assets/mockProductCard';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
+import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 
 import mockProduct from '../../public/images/ProductCard/mockProduct.jpg';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
@@ -23,6 +24,25 @@ export default function productCard() {
       </div>
     );
   }
+
+  const similarSliderContent = mockProductCard.similar.map((el) => {
+    return {
+      imgSrc: mockBaseCard.src,
+      description: (
+        <div className="product-card__similar-slider-desc">
+          <p className="card-caption">{el.gost}</p>
+          <h6>{el.name}</h6>
+        </div>
+      ),
+    };
+  });
+
+  const similarSliderBreakPoint = {
+    gapxl: 20,
+    slidesPerViewXl: 3.5,
+    slidesPerViewMd: 2.5,
+    slidesPerViewXs: 1.2,
+  };
 
   const productCardAccordionContent = [
     {
@@ -85,6 +105,15 @@ export default function productCard() {
               />
             );
           })}
+        </div>
+        <div className="product-card__similar-slider">
+          <CustomSlider
+            list={similarSliderContent}
+            swiperWrapperStyle=""
+            swiperItemStyles=""
+            slideImgStyle=""
+            breakpointsObj={similarSliderBreakPoint}
+          />
         </div>
       </div>
     </section>
