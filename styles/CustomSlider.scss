@@ -10,7 +10,14 @@
 }
 
 .custom-swiper-wrapper {
-  padding-left: calc((100vw - 1337px) / 2);
+  margin-left: calc((100vw - 1400px) / 2);
+  padding-left: 4rem;
+}
+
+@media (max-width: 1400px) {
+  .custom-swiper-wrapper {
+    margin-left: 0;
+  }
 }
 
 //MOBILE

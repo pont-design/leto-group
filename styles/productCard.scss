@@ -85,6 +85,10 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2.4rem;
     }
+
+    .product-card__similar-slider {
+      display: none;
+    }
   }
 }
 
@@ -153,10 +157,16 @@
       margin-top: 18rem;
 
       .product-card__similar-list {
+        display: none;
+      }
+
+      .product-card__similar-slider {
         margin-top: 16px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2.4rem;
+        display: block;
+
+        .product-card__similar-slider-desc {
+          margin-top: 16px;
+        }
       }
     }
   }
