@@ -1,4 +1,7 @@
-import React from 'react';
+import React from 'react'
+import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable"
+import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure"
+import { CustomLink } from "../components/UI/CustomLink/customLink"
 
 import { motion } from 'framer-motion';
 
@@ -101,21 +104,12 @@ function Quality() {
         <div className="quality-steps-wrapper">
           <div className="quality-steps-description">
             <h2>Многоступенчатый контроль качества </h2>
-            <CustomAccordionNumerable
-              list={[
-                {
-                  title: 'Приезд фуры',
-                  content:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                },
-                { title: '456', content: '654' },
-              ]}
-            />
-          </div>
+            <CustomAccordionPure accordionList={[{ title: '123', content: '321' }, { title: '123', content: '321' }, { title: '123', content: '321' }]} />
+          </div >
           <div className="quality-steps-img-wrapper">
             <img src={controlImg.src} />
           </div>
-        </div>
+        </div >
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -151,7 +145,7 @@ function Quality() {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section >
       <div className="certificates">
         <div className="container">
           <h2>Сертификаты</h2>
