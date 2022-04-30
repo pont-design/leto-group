@@ -20,6 +20,7 @@ import '../styles/CustomFormStyles.scss';
 import '../styles/CustomLanguageSwitcher.scss';
 import '../styles/CustomOutlinedButton.scss';
 import '../styles/CustomRadioButtonStyle.scss';
+import '../styles/CustomBreadCrumb.scss'
 import '../styles/BaseCardStyles.scss';
 
 import '../styles/Footer.scss';
