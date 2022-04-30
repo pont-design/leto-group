@@ -14,6 +14,7 @@ import { CustomSlider } from "../components/UI/customSlider/CustomSlider";
 import mockProduct from '../public/images/mock/mock-img-with-color.jpg';
 import { CustomForm } from "../components/UI/customForm/customForm";
 import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure";
+import { SliderWrapper } from "../components/SliderWrapper/SliderWrapper";
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getImages();
@@ -41,10 +42,15 @@ export default function Test({ imagesStrapi }) {
     setCount(value);
   };
 
-  const listSwiper = [
-    { imgSrc: mockProduct.src, description: <p>123</p> },
-    { imgSrc: mockProduct.src, description: <p>456</p> },
-  ];
+  const qualitySliderBreakPoint = {
+    gapxl: 24,
+    slidesPerViewXl: 30,
+    slidesPerViewMd: 2.2,
+    slidesPerViewXs: 1.2,
+  };
+
+  const listSwiper = [{ imgSrc: mockProduct.src, description: <p>123</p> },
+  { imgSrc: mockProduct.src, description: <p>456</p> }]
 
   return (
     <div>
@@ -74,7 +80,9 @@ export default function Test({ imagesStrapi }) {
         ]}
       />
       <CustomForm />
-      <CustomAccordionPure accordionList={[{ title: '11 Accordion', content: 'test test' }, { title: 'Second Accordion', content: 'test test' }, { title: 'Third Accordion', content: 'test test' }]} />
-    </div >
+      <CustomAccordionPure
+        accordionList={[{ title: '11 Accordion', content: 'test test' }, { title: 'Second Accordion', content: 'test test' }, { title: 'Third Accordion', content: 'test test' }]}
+      />
+    </div>
   );
 }

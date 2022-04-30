@@ -78,10 +78,17 @@ export const Footer = () => {
               <li className="footer__contacts-list_title">
                 <h6>{media.title}</h6>
               </li>
+<<<<<<< HEAD
               {media.list.map((link) => (
                 <li className="link-text" key={link.link}>
                   <a href="#" className="footer__vk-logo" link={link.link}>
                     <img src={vkLogo.src} />
+=======
+              {media.list.map(link => (
+                <li className='link-text' >
+                  <a href='#' className="footer__vk-logo" link={link.link}>
+                    <img className="footer__vk-logo_img" src={vkLogo.src} />
+>>>>>>> b74f320 (feat: add basic swiper filters buttons)
                     <p className="footer-link-content">{link.label}</p>
                   </a>
                 </li>
