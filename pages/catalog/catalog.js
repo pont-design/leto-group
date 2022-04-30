@@ -1,14 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+import { StrapiServiceInstance } from '../../Service/CMSAPI';
+import { StrapiHandlerInstance } from '../../Service/CMSAPIHandler';
+
 import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 
 import { mockCatalog } from '../../assets/mockCatalog';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
-export default function Catalog() {
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getProducts();
+
+  return {
+    props: {
+      items: res,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+export default function Catalog({ items }) {
   const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
+
+  const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
+  console.log(createdCatalog);
 
   const [filterValue, setFilterValue] = useState({
     Категория: '',
@@ -30,7 +47,7 @@ export default function Catalog() {
   );
 
   const filterProducts = () => {
-    const filteredCatalog = [...mockCatalog];
+    const filteredCatalog = [...createdCatalog];
     const appliedFilters = Object.entries(filterValue);
 
     for (let i = 0; i < appliedFilters.length; i++) {

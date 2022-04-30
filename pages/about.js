@@ -5,7 +5,8 @@ import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mainImage from '../public/images/AboutPage/about-main.jpg';
-import ideasImage from '../public/images/AboutPage/ideas.jpg';
+import ideasImage from '../public/images/AboutPage/about-ideas-img.jpg';
+import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
 
 import mockAboutFactorySlider from '../public/images/ProductCard/mockBaseCard.jpg';
 
@@ -25,14 +26,14 @@ export default function about() {
   );
 
   const factorySliderContent = [
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
   ];
 
   const teamSliderContent = [
