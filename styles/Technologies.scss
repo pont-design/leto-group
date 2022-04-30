@@ -109,6 +109,10 @@
 .technologies__automation_hero {
   max-width: calc(1124 / 1496 * 100%);
   margin-top: 19.6rem;
+
+  p {
+    font-size: clamp(28px, 3vw, 48px);
+  }
 }
 
 .technologies-advantages-wrapper {

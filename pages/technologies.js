@@ -1,9 +1,18 @@
 import React from 'react';
+
+import { motion } from 'framer-motion';
+
+import { StatisticBlock } from '../components/StatisticBlock/StatisticBlock';
+
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
 import logoSanovo from '../public/images/Header/logoSanovo.svg';
 import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
 import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
-import { StatisticBlock } from '../components/StatisticBlock/StatisticBlock';
+
+import {
+  startPageAnimation,
+  startPageAnimationSecond,
+} from '../assets/animations/animations';
 
 function technologies() {
   const equipment = {
@@ -56,7 +65,13 @@ function technologies() {
           alt="image name"
         />
       </div>
-      <div className="technologies__quality-productivity">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={startPageAnimationSecond}
+        className="technologies__quality-productivity"
+      >
         <div className="quality-productivity-logo">
           <img src={logoSanovo.src} alt="logo sanovo" />
         </div>
@@ -71,17 +86,26 @@ function technologies() {
           </p>
         </div>
         <div className="quality-productivity__sertificates">
-          <img className="quality-productivity__sertificates_atex" src={atexSertificate.src} alt="atex sertificate" />
-          <img className="quality-productivity__sertificates_iso" src={ISOCertificate.src} alt="ISO sertificate" />
+          <img
+            className="quality-productivity__sertificates_atex"
+            src={atexSertificate.src}
+            alt="atex sertificate"
+          />
+          <img
+            className="quality-productivity__sertificates_iso"
+            src={ISOCertificate.src}
+            alt="ISO sertificate"
+          />
         </div>
-      </div>
+      </motion.div>
       <div className="technologies__equipment">
         <h2>{equipment.title}</h2>
         {equipment.equipment.map((equipmentEl, i) => {
           return (
             <div
-              className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
-                }`}
+              className={`technologies__equipment-wrapper ${
+                i === 0 && 'technologies__equipment-wrapper_first-elem'
+              }`}
               key={equipmentEl.title}
             >
               <img
@@ -102,28 +126,44 @@ function technologies() {
         })}
       </div>
       <StatisticBlock />
-      <div className="technologies__automation">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={startPageAnimationSecond}
+        className="technologies__automation"
+      >
         <div className="technologies__automation_hero">
           <p className="text-3">
             Весь завод оснащен современной системой автоматизации, что позволяет
             осуществлять контроль с одного компьютера
           </p>
         </div>
-      </div>
-      <div className="technologies-advantages-wrapper">
+      </motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        className="technologies-advantages-wrapper"
+      >
         {advantages.map((advantage, i) => {
           return (
-            <div key={advantage} className="technologies-advantage">
+            <motion.div
+              custom={i}
+              variants={startPageAnimation}
+              key={advantage}
+              className="technologies-advantage"
+            >
               <div className="technologies-advantage_text">
                 <h6 className="text-1">{advantage}</h6>
               </div>
               <p className="technologies-advantage_subtitle">
                 {String(i + 1).padStart(2, '0')}
               </p>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </section>
   );
 }
