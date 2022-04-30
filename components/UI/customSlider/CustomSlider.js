@@ -32,9 +32,9 @@ export const CustomSlider = ({
           },
         }}
       >
-        {list.map((slide) => {
+        {list.map((slide, idx) => {
           return (
-            <SwiperSlide>
+            <SwiperSlide key={idx}>
               <div className={swiperItemStyles}>
                 <img
                   className={['slider-slide-img', slideImgStyle].join(' ')}
