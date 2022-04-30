@@ -6,8 +6,8 @@ const nextConfig = {
   },
 };
 
-// module.exports = {
-//   compress: false,
-// }
+module.exports = {
+  compress: false,
+}
 
 module.exports = nextConfig;
