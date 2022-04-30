@@ -1,15 +1,15 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { StrapiServiceInstance } from '../../Service/CMSAPI';
-import { StrapiHandlerInstance } from '../../Service/CMSAPIHandler';
+import { StrapiServiceInstance } from '../Service/CMSAPI';
+import { StrapiHandlerInstance } from '../Service/CMSAPIHandler';
 
-import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
-import { BaseCard } from '../../components/BaseCard/BaseCard';
+import { CustomFilters } from '../components/UI/customFilters/CustomFilters';
+import { BaseCard } from '../components/BaseCard/BaseCard';
 
-import { mockCatalog } from '../../assets/mockCatalog';
-import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
-import { SliderWrapper } from "../../components/SliderWrapper/SliderWrapper";
+import Link from 'next/link';
+
+import mockBaseCard from '../public/images/ProductCard/mockBaseCard.jpg';
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -26,7 +26,6 @@ export default function Catalog({ items }) {
   const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
 
   const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
-  console.log(createdCatalog);
 
   const [filterValue, setFilterValue] = useState({
     Категория: '',
@@ -98,7 +97,11 @@ export default function Catalog({ items }) {
             classNames="filter-transition"
             unmountOnExit
           >
-            <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+            <Link href={`/productCard/${el.id}`}>
+              <a>
+                <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+              </a>
+            </Link>
           </CSSTransition>
         ))}
       </TransitionGroup>

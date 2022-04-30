@@ -1,20 +1,93 @@
 import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
-import { mockProductCard } from '../../assets/mockProductCard';
 
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 
-import mockProduct from '../../public/images/ProductCard/mockProduct.jpg';
-import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
+import { StrapiServiceInstance } from "../../Service/CMSAPI";
+import { getGostFromString } from "../../utils/getGostfromString";
+import { CustomBreadCrumb } from "../../components/Breadcrumbs/CustomBreadCrumb";
 
-export default function productCard() {
+export async function getStaticPaths() {
+  const paths = await StrapiServiceInstance.getAllIds('productCard')
+
+  return { paths, fallback: false }
+}
+
+export const getStaticProps = async (context) => {
+  const id = context.params;
+
+  const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
+
+  let similarProducts = await StrapiServiceInstance.getSimilarProducts(currentProduct.category)
+
+  const { name,
+    document,
+    structure,
+    description,
+    worth,
+    storage_conditions,
+    category,
+    consistency
+  } = currentProduct
+
+  const indicators = currentProduct.other_info
+
+  const mediumImageUrl = currentProduct.img[0].formats.medium.url
+
+  const gost = getGostFromString(document)
+
+  similarProducts = similarProducts.map(similarProduct => {
+    return {
+      id: similarProduct.id,
+      gost: `ГОСТ - 1234`,
+      name: similarProduct.name,
+      src: similarProduct.img[0].formats.small.url,
+    }
+
+  })
+
+  return {
+    props: {
+      indicators,
+      name,
+      structure,
+      description,
+      worth,
+      storage_conditions,
+      mediumImageUrl,
+      gost,
+      similarProducts,
+      category,
+      consistency
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+export default function productCard(
+  {
+    indicators,
+    name,
+    gost,
+    structure,
+    description,
+    worth,
+    storage_conditions,
+    mediumImageUrl,
+    similarProducts,
+    category,
+    consistency
+  }
+) {
+
   function addParametrs() {
-    const indicatorsArr = Object.entries(mockProductCard.indicators);
+    const indicatorsArr = Object.entries(indicators);
 
     return (
       <div className="product-card__parametrs-table">
+
         {indicatorsArr.map((el) => (
           <div className="product-card__parametrs-item">
             <p className="product-card__parametr-name text-1">{el[0]}</p>
@@ -25,9 +98,9 @@ export default function productCard() {
     );
   }
 
-  const similarSliderContent = mockProductCard.similar.map((el) => {
+  const similarSliderContent = similarProducts.map((el) => {
     return {
-      imgSrc: mockBaseCard.src,
+      imgSrc: el.src,
       description: (
         <div className="product-card__similar-slider-desc">
           <p className="card-caption">{el.gost}</p>
@@ -47,35 +120,36 @@ export default function productCard() {
   const productCardAccordionContent = [
     {
       title: 'Структура',
-      desc: mockProductCard.structure,
+      desc: structure,
     },
     {
       title: 'Описание',
-      desc: mockProductCard.description,
+      desc: description,
     },
     {
       title: 'Упаковка',
-      desc: mockProductCard.packaging,
+      desc: storage_conditions,
     },
   ];
 
   return (
     <section className="product-card container">
+      <CustomBreadCrumb category={category} consistency={consistency} />
       <div className="product-card__main-info">
         <div className="product-card__image-block">
           <img
             className="product-card__image"
-            src={mockProduct.src}
-            alt={mockProductCard.name}
+            src={`${StrapiServiceInstance.baseURL}${mediumImageUrl}`}
+            alt={name}
           />
         </div>
         <div className="product-card__text-info">
           <p className="product-card__gost card-caption">
-            {mockProductCard.gost}
+            {`ГОСТ - ${gost}`}
           </p>
-          <h5 className="product-card__product-name">{mockProductCard.name}</h5>
+          <h5 className="product-card__product-name">{name}</h5>
           <p className="product-card__product-desc text-1">
-            {mockProductCard.desc}
+            {worth}
           </p>
           <div className="product-card__voluem-options">
             <p className="caption-2 product-card__voluem-text">Объём</p>
@@ -95,14 +169,15 @@ export default function productCard() {
       <div className="product-card__similar">
         <h3>Может такое возьмёте?</h3>
         <div className="product-card__similar-list">
-          {mockProductCard.similar.map((el) => {
-            return (
+          {similarProducts.map((el) => {
+            return (<>
               <BaseCard
                 key={el.id}
-                img={mockBaseCard.src}
+                img={`${StrapiServiceInstance.baseURL}${el.src}`}
                 name={el.name}
                 gost={el.gost}
               />
+            </>
             );
           })}
         </div>

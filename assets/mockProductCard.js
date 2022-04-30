@@ -77,5 +77,6 @@ export const mockProductCard = {
         'Не менее 11,5': 'Не менее 11,0',
       },
     },
+
   ],
 };

@@ -1,11 +1,8 @@
 import React from 'react'
-import CustomAccordionNumerable from "../components/UI/customAccordionNumerable/CustomAccordionNumerable"
 import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure"
-import { CustomLink } from "../components/UI/CustomLink/customLink"
 
 import { motion } from 'framer-motion';
 
-import CustomAccordionNumerable from '../components/UI/customAccordionNumerable/CustomAccordionNumerable';
 import { CustomLink } from '../components/UI/CustomLink/customLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 

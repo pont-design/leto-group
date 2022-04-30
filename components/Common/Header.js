@@ -8,11 +8,11 @@ import { CustomLanguageSwitcher } from '../UI/сustomLanguageSwitcher/CustomLang
 
 export const Header = () => {
   const links = [
-    { label: 'Продукция', link: 'catalog/catalog' },
-    { label: 'О компании', link: 'about' },
-    { label: 'Качество', link: 'quality' },
-    { label: 'Технология', link: 'technologies' },
-    { label: 'Контакты', link: 'contacts' },
+    { label: 'Продукция', link: '/catalog' },
+    { label: 'О компании', link: '/about' },
+    { label: 'Качество', link: '/quality' },
+    { label: 'Технология', link: '/technologies' },
+    { label: 'Контакты', link: '/contacts' },
   ];
 
   return (
