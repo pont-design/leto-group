@@ -25,11 +25,13 @@
 
 .technologies__hero-img_img {
   object-fit: cover;
+  height: 100%;
   width: 100%;
   max-height: 45.2rem;
 }
 
 .technologies__quality-productivity {
+  gap: 2rem;
   margin-top: 4.8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,6 +63,7 @@
 
 .technologies__equipment {
   margin-top: 16.4rem;
+  margin-bottom: 12.6rem;
 }
 
 .technologies__equipment-wrapper {
@@ -76,7 +79,7 @@
 }
 
 .technologies__equipment_img {
-  height: 24.8rem;
+  max-height: 24.8rem;
   object-fit: cover;
   width: calc(466 / 721 * 100%);
 }
@@ -96,64 +99,20 @@
   color: $gray400;
 }
 
-.technologies-statistic {
-  margin-top: 12.6rem;
-  border-bottom: 1px solid $gray200;
-  border-top: 1px solid $gray200;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.technologies-sales__heading_small {
-  color: $green;
-}
-
-.technologies-sales__heading_big {
-  color: $green;
-}
-
-.technologies-sales_small {
-  padding-top: 4.8rem;
-  padding-bottom: 4.8rem;
-}
-
-.technologies-sales_small_sales {
-  border-bottom: 1px solid $gray200;
-  grid-column: 1 / 2;
-  grid-row-start: 1;
-}
-
-.technologies-sales_small_inovations {
-  grid-column: 1 / 2;
-  grid-row-start: 2;
-}
-
-.technologies-sales_big_area {
-  grid-column: 2 / 3;
-  grid-row: 1 / 3;
-}
-
-.technologies-sales_big_area {
-  border-left: 1px solid $gray200;
-}
-
-.technologies-sales_big {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .technologies__automation {
-  max-width: calc(1124 / 1496 * 100%);
+  width: 100%;
+  border-bottom: 1px solid $gray200;
+  padding-bottom: 3.2rem;
+  margin-bottom: 6.4rem;
 }
 
 .technologies__automation_hero {
+  max-width: calc(1124 / 1496 * 100%);
   margin-top: 19.6rem;
-  border-bottom: 1px solid $gray200;
-  margin-bottom: 6.4rem;
-  padding-bottom: 3.2rem;
+
+  p {
+    font-size: clamp(28px, 3vw, 48px);
+  }
 }
 
 .technologies-advantages-wrapper {
@@ -178,4 +137,107 @@
   font-family: 'nunito_sanssemibold', sans-serif;
   font-size: 2.4rem;
   line-height: 2.88rem;
+}
+
+// MOBILE
+// MOBILE
+// MOBILE
+@media (max-width: 768px) {
+  .technologies__hero {
+    padding-bottom: 12rem;
+    padding-top: 0;
+  }
+
+  .technologies__hero-img {
+    width: 100%;
+    display: block;
+    img {
+      &:nth-child(1) {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  .technologies__hero-img_img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    max-height: 85rem;
+  }
+
+  .technologies__quality-productivity {
+    display: block;
+  }
+
+  .quality-productivity-hero-text {
+    margin-top: 2rem;
+  }
+
+  .quality-productivity-hero-text__description {
+    margin-top: 4rem;
+  }
+
+  .quality-productivity__sertificates {
+    margin-top: 6rem;
+    column-gap: 4rem;
+  }
+
+  .technologies__equipment {
+    margin-top: 20rem;
+  }
+
+  .technologies__equipment-wrapper {
+    padding: 0;
+    display: block;
+    border-top: none;
+    margin-bottom: 8rem;
+  }
+
+  .technologies__equipment-wrapper_first-elem {
+    margin-top: 4rem;
+  }
+
+  .technologies__equipment_img {
+    width: 100%;
+    max-height: 46rem;
+  }
+
+  .technologies__equipment-description {
+    margin-top: 3rem;
+  }
+
+  .equipment-description-subtitle {
+    margin-top: 1rem;
+  }
+
+  .technologies__automation_hero {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20rem;
+    padding-bottom: 8rem;
+  }
+
+  .technologies-advantages-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .technologies-advantage {
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+
+  .technologies-advantage_text {
+    margin-bottom: 6rem;
+  }
+
+  .technologies-advantage_subtitle {
+    font-family: 'nunito_sanssemibold', sans-serif;
+    font-size: 4rem;
+    line-height: 120%;
+  }
 }

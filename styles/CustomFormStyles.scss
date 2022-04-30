@@ -1,0 +1,22 @@
+@import './variables.scss';
+
+.custom-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-button {
+  margin-top: 32px;
+  max-width: 27.6rem;
+  padding: 16px 0;
+}
+
+//MOBILE
+//MOBILE
+//MOBILE
+@media (max-width: 768px) {
+  .form-button {
+    max-width: 100%;
+  }
+}

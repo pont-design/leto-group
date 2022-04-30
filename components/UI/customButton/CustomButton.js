@@ -1,8 +1,10 @@
 import React from 'react'
 
-export const CustomButton = ({ onClick, label }) => {
+export const CustomButton = ({ onClick, label, styles }) => {
+
+  const customButtonStyles = `btn-text custom-button ${styles ? styles : ''}`
 
   return (
-    <button className="btn-text custom-button" onClick={onClick}>{label}</button>
+    <button className={customButtonStyles} onClick={onClick}>{label}</button>
   )
 }

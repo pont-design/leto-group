@@ -1,19 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { CustomFilters } from '../../components/UI/CustomFilters/CustomFilters';
+import { StrapiServiceInstance } from '../../Service/CMSAPI';
+import { StrapiHandlerInstance } from '../../Service/CMSAPIHandler';
+
+import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 
 import { mockCatalog } from '../../assets/mockCatalog';
 import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
 
-export default function Catalog() {
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getProducts();
 
-  const productWordsDeclination = [
-    'продукт',
-    'продукта',
-    'продуктов',
-  ]
+  return {
+    props: {
+      items: res,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+export default function Catalog({ items }) {
+  const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
+
+  const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
+  console.log(createdCatalog);
 
   const [filterValue, setFilterValue] = useState({
     Категория: '',
@@ -21,7 +33,6 @@ export default function Catalog() {
   });
 
   const [inProp, setInProp] = useState(false);
-
 
   const downloadArrow = (
     <svg
@@ -36,7 +47,7 @@ export default function Catalog() {
   );
 
   const filterProducts = () => {
-    const filteredCatalog = [...mockCatalog];
+    const filteredCatalog = [...createdCatalog];
     const appliedFilters = Object.entries(filterValue);
 
     for (let i = 0; i < appliedFilters.length; i++) {
@@ -47,16 +58,19 @@ export default function Catalog() {
         );
       }
     }
-    return filteredCatalog
+    return filteredCatalog;
   };
 
-  const filteredValues = useMemo(() => filterProducts(), [productWordsDeclination, filterValue])
+  const filteredValues = useMemo(
+    () => filterProducts(),
+    [productWordsDeclination, filterValue]
+  );
 
   return (
-    <section className="catalog-page">
+    <section className="catalog-page container">
       <div className="catalog-page__heading">
         <h1>Продукция</h1>
-        <a className="catalog-page__download-link">
+        <a className="catalog-page__download-link btn-link">
           {downloadArrow} Скачать каталог
         </a>
       </div>
@@ -68,12 +82,14 @@ export default function Catalog() {
         setFilterValue={setFilterValue}
       />
 
-      {<AddChosenFilter
-        inProp={inProp}
-        filterValue={filterValue}
-        setInProp={setInProp}
-        setFilterValue={setFilterValue}
-      />}
+      {
+        <AddChosenFilter
+          inProp={inProp}
+          filterValue={filterValue}
+          setInProp={setInProp}
+          setFilterValue={setFilterValue}
+        />
+      }
 
       <TransitionGroup className="catalog-page__products-list">
         {filteredValues.map((el) => (
@@ -88,14 +104,16 @@ export default function Catalog() {
           </CSSTransition>
         ))}
       </TransitionGroup>
-
     </section>
   );
 }
 
-
-const AddChosenFilter = ({ inProp, filterValue, setInProp, setFilterValue }) => {
-
+const AddChosenFilter = ({
+  inProp,
+  filterValue,
+  setInProp,
+  setFilterValue,
+}) => {
   const removeFilterImg = (
     <svg
       width="16"
