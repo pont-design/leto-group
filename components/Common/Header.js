@@ -3,7 +3,7 @@ import logoLeto from '../../public/images/header/logoLeto.svg';
 import logoSanovo from '../../public/images/header/logoSanovo.svg';
 
 import Link from 'next/link';
-import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
+import { CustomOutlinedButton } from '../UI/customOutlinedButton/CustomOutlinedButton';
 import { CustomLanguageSwitcher } from '../UI/сustomLanguageSwitcher/CustomLanguageSwitcher';
 
 export const Header = () => {
@@ -20,16 +20,17 @@ export const Header = () => {
       <div className="container">
         <header className="header__wrapper">
           <div className="header-links__wrapper">
-            <Link href='/'>
-              <img src={logoLeto.src} className='header-links__wrapper_logo-leto' />
+            <Link href="/">
+              <img
+                src={logoLeto.src}
+                className="header-links__wrapper_logo-leto"
+              />
             </Link>
             <img className="header__sanovo-label" src={logoSanovo.src} />
             <ul className="header__links">
-              {links.map(link => (
+              {links.map((link) => (
                 <li className="link-text header-link-content" key={link.label}>
-                  <Link href={link.link}>
-                    {link.label}
-                  </Link>
+                  <Link href={link.link}>{link.label}</Link>
                 </li>
               ))}
             </ul>

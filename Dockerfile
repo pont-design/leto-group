@@ -4,10 +4,10 @@ WORKDIR /usr/src/app/api
 
 COPY . .
 
-RUN npm install
+RUN yarn
 
 EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]

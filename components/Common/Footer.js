@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
+import { CustomOutlinedButton } from '../UI/customOutlinedButton/CustomOutlinedButton';
 
 import logoLeto from '../../public/images/header/logoLeto.svg';
 import vkLogo from '../../public/images/Footer/VkLogo.svg';
@@ -78,9 +78,9 @@ export const Footer = () => {
               <li className="footer__contacts-list_title">
                 <h6>{media.title}</h6>
               </li>
-              {media.list.map(link => (
-                <li className='link-text' >
-                  <a href='#' className="footer__vk-logo" link={link.link}>
+              {media.list.map((link) => (
+                <li className="link-text">
+                  <a href="#" className="footer__vk-logo" link={link.link}>
                     <img className="footer__vk-logo_img" src={vkLogo.src} />
                     <p className="footer-link-content">{link.label}</p>
                   </a>
