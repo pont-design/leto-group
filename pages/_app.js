@@ -20,6 +20,7 @@ import '../styles/CustomFormStyles.scss';
 import '../styles/CustomLanguageSwitcher.scss';
 import '../styles/CustomOutlinedButton.scss';
 import '../styles/CustomRadioButtonStyle.scss';
+import '../styles/CustomBreadCrumb.scss'
 import '../styles/BaseCardStyles.scss';
 
 import '../styles/Footer.scss';
@@ -30,6 +31,8 @@ import '../styles/Technologies.scss';
 import '../styles/AboutStyles.scss';
 import '../styles/Сatalog.scss';
 import '../styles/StartPageStyles.scss';
+
+import '../styles/CustomAccordionPure.scss'
 
 function MyApp({ Component, pageProps }) {
   return (

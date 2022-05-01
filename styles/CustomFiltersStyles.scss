@@ -8,11 +8,40 @@
 }
 
 .filter-container__filters {
-  display: flex;
+  gap: 16px;
   align-items: center;
-  gap: 1.6rem;
+  display: flex;
 }
 
 .filter-container__amount {
+  margin-left: 16px;
   color: $gray400;
+}
+
+.filter-container-swiper-quality {
+  max-width: calc(100vw - 320px);
+  height: 100px;
+  margin-bottom: -52px;
+  .swiper-slide {
+    width: unset !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .filter-container-swiper-quality {
+    max-width: 1080px;
+  }
+}
+
+//MOBILE
+//MOBILE
+//MOBILE
+@media (max-width: 768px) {
+  .filter-container__amount {
+    display: none;
+  }
+
+  .filter-container-swiper-quality {
+    max-width: calc(100vw - 134px);
+  }
 }

@@ -1,10 +1,8 @@
-import axios from 'axios';
-
 import { StrapiServiceInstance } from './CMSAPI';
 
 class StrapiHandler {
   handleCatalog(res) {
-    console.log(res);
+
     return res.map((el) => ({
       id: el.id,
       image: `${StrapiServiceInstance.baseURL}${el.img[0].formats.medium.url}`,
@@ -53,6 +51,19 @@ class StrapiHandler {
     }
     return consistency;
   }
+
+  getPaths(nameOfPage, allItems) {
+    const paths = []
+    allItems.forEach(item => {
+      paths.push({
+        params: {
+          [nameOfPage]: String(item.id)
+        }
+      })
+    })
+    return paths
+  }
+
 }
 
 export const StrapiHandlerInstance = new StrapiHandler();

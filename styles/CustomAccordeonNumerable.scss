@@ -7,14 +7,13 @@
       46 / 635 * 1fr
     );
   width: 100%;
-  justify-content: space-between;
   border-top: 1px solid $gray200;
   border-bottom: 1px solid $gray200;
   padding-top: 3.2rem;
   padding-bottom: 3.2rem;
 }
-
-.accordion-tab-numerable__arrow-container {
+.small-arrow-container {
+  display: inline-block;
   cursor: pointer;
 }
 

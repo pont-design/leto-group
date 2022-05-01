@@ -116,13 +116,14 @@
 }
 
 .technologies-advantages-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 2.4rem;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 2.4rem;
   margin-bottom: 27.2rem;
 }
 
 .technologies-advantage {
+  max-width: 31.2rem;
   display: flex;
   flex-direction: column;
   padding-bottom: 1.6rem;
@@ -139,13 +140,16 @@
   line-height: 2.88rem;
 }
 
+.quality-productivity-logo__sanovo-logo {
+  max-width: 132px;
+}
+
 // MOBILE
 // MOBILE
 // MOBILE
 @media (max-width: 768px) {
   .technologies__hero {
-    padding-bottom: 12rem;
-    padding-top: 0;
+    padding: 12rem 0;
   }
 
   .technologies__hero-img {
@@ -227,6 +231,7 @@
   }
 
   .technologies-advantage {
+    max-width: none;
     padding-top: 12rem;
     padding-bottom: 4rem;
   }

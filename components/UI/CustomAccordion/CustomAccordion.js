@@ -1,26 +1,48 @@
-import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import React, { useState, useEffect } from 'react';
 
-export const CustomAccordion = ({ list }) => {
+// type accordionList = Array<{title : string, content: string}>
+
+export const CustomAccordion = ({ accordionList }) => {
+  const [blockOpenStatus, setBlockOpenStatus] = useState({});
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const initialBlockStatuses = {};
+    accordionList.forEach((_, index) => {
+      initialBlockStatuses[`block${index}`] = false;
+    });
+    setBlockOpenStatus(initialBlockStatuses);
+  }, [accordionList]);
+
+  const toggle = (index) => () => {
+    setBlockOpenStatus({
+      [`block${index}`]: !blockOpenStatus[`block${index}`],
+    });
+    setIsActive(!isActive);
+  };
+
   return (
-    <div className="accordion-product-card__wrapper">
-      {list.map((el) => {
-        return (
-          <AccordionTab2 key={el.title} title={el.title} content={el.desc} />
-        );
-      })}
+    <div className="accordions-pure-wrapper">
+      {accordionList.map((item, index) => (
+        <AccordionTab
+          index={index}
+          title={item.title}
+          blockOpenStatus={blockOpenStatus}
+          toggle={toggle(index + 1)}
+          content={item.content}
+        />
+      ))}
     </div>
   );
 };
 
-const AccordionTab2 = ({ title, content }) => {
+const AccordionTab = ({ index, title, blockOpenStatus, toggle, content }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const [showMessage, setShowMessage] = useState(false);
-
-  const classOfArrow = isActive
-    ? 'accordion-product-card__arrow-container accordion-product-card-arrow_open'
-    : 'accordion-product-card__arrow-container accordion-product-card-arrow_close';
+  const toggleCurrentTab = () => {
+    toggle();
+    setIsActive(!isActive);
+  };
 
   const arrow = (
     <svg
@@ -34,33 +56,26 @@ const AccordionTab2 = ({ title, content }) => {
     </svg>
   );
 
+  const classOfArrow = isActive
+    ? 'accordion__arrow-container accordion-arrow_open'
+    : 'accordion__arrow-container accordion-arrow_close';
+
   return (
-    <div
-      className="accordion-product-card__tab"
-      onClick={() => {
-        setIsActive(!isActive);
-        setShowMessage(!showMessage);
-      }}
-    >
-      <div>
-        <p className="card-accard">{title}</p>
-        <CSSTransition
-          in={showMessage}
-          timeout={300}
-          classNames="accordion-product-card__animation"
-          unmountOnExit
-        >
-          <div>
-            {isActive && (
-              <div className="accordion-product-card__content">
-                <p className="text-1">{content}</p>
-              </div>
-            )}
-          </div>
-        </CSSTransition>
+    <div key={index} className="accordion-wrapper">
+      <div className="accordion-tab-wrapper" onClick={toggleCurrentTab}>
+        <h4 className="accordion__title">{title}</h4>
+        <div className={classOfArrow}>
+          <div className="arrow-container">{arrow}</div>
+        </div>
       </div>
-      <div className={classOfArrow}>
-        <div>{arrow}</div>
+      <div
+        className={
+          blockOpenStatus[`block${index + 1}`]
+            ? 'accordion-content is-opened'
+            : 'accordion-content'
+        }
+      >
+        <p className="text-1"> {content} </p>
       </div>
     </div>
   );

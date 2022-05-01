@@ -1,36 +1,39 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
-import { StrapiServiceInstance } from '../Service/CMSAPI';
-import { CustomRadioButton } from '../components/UI/customRadioButton/CustomRadioButton';
-import { CustomDropDown } from '../components/UI/customDropDown/CustomDropDown';
-import { CustomButton } from '../components/UI/customButton/CustomButton';
-import { CustomLink } from '../components/UI/customLink/customLink';
-import { CustomOutlinedButton } from '../components/UI/customOutlinedButton/CustomOutlinedButton';
-import { CustomLanguageSwitcher } from '../components/UI/сustomLanguageSwitcher/CustomLanguageSwitcher';
-import CustomAccordionNumerable from '../components/UI/customAccordionNumerable/CustomAccordionNumerable';
-import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
+import React, { useState } from "react";
+import Head from "next/head";
+import { StrapiServiceInstance } from "../Service/CMSAPI";
+import { CustomRadioButton } from "../components/UI/customRadioButton/CustomRadioButton";
+import { CustomDropDown } from "../components/UI/customDropDown/CustomDropDown";
+import { CustomButton } from "../components/UI/customButton/CustomButton";
+import { CustomLink } from "../components/UI/customLink/customLink";
+import { CustomOutlinedButton } from "../components/UI/customOutlinedButton/CustomOutlinedButton";
+import { CustomLanguageSwitcher } from "../components/UI/сustomLanguageSwitcher/CustomLanguageSwitcher";
+import { CustomAccordionNumerable } from "../components/UI/customAccordionNumerable/CustomAccordionNumerable";
+import { CustomSlider } from "../components/UI/customSlider/CustomSlider";
+
 
 import mockProduct from '../public/images/mock/mock-img-with-color.jpg';
-import { CustomForm } from '../components/UI/customForm/customForm';
+import { CustomForm } from "../components/UI/customForm/customForm";
+import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure";
+import { SliderWrapper } from "../components/SliderWrapper/SliderWrapper";
 
-// export const getStaticProps = async () => {
-//   const res = await StrapiServiceInstance.getImages();
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getImages();
 
-//   const imagesUrls = [];
+  const imagesUrls = [];
 
-//   for (let i = 0; i < res.length; i++) {
-//     imagesUrls.push(
-//       `${StrapiServiceInstance.baseURL}${res[i].image[0].formats.medium.url}`
-//     );
-//   }
+  for (let i = 0; i < res.length; i++) {
+    imagesUrls.push(
+      `${StrapiServiceInstance.baseURL}${res[i].image[0].formats.medium.url}`
+    );
+  }
 
-//   return {
-//     props: {
-//       imagesStrapi: imagesUrls,
-//     },
-//     revalidate: StrapiServiceInstance.timeToRebuild,
-//   };
-// };
+  return {
+    props: {
+      imagesStrapi: imagesUrls,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
 
 export default function Test({ imagesStrapi }) {
   const [count, setCount] = useState(0);
@@ -39,10 +42,15 @@ export default function Test({ imagesStrapi }) {
     setCount(value);
   };
 
-  const listSwiper = [
-    { imgSrc: mockProduct.src, description: <p>123</p> },
-    { imgSrc: mockProduct.src, description: <p>456</p> },
-  ];
+  const qualitySliderBreakPoint = {
+    gapxl: 24,
+    slidesPerViewXl: 30,
+    slidesPerViewMd: 2.2,
+    slidesPerViewXs: 1.2,
+  };
+
+  const listSwiper = [{ imgSrc: mockProduct.src, description: <p>123</p> },
+  { imgSrc: mockProduct.src, description: <p>456</p> }]
 
   return (
     <div>
@@ -61,7 +69,7 @@ export default function Test({ imagesStrapi }) {
       <div>{count}</div>
       <button onClick={() => setCount((count) => count + 1)}>increment</button>
       <CustomDropDown label={'test'} buttonsLabels={['1', '2', '3']} />
-      <CustomButton label={'test2'} onClick={() => {}} />
+      <CustomButton label={'test2'} onClick={() => { }} />
       <CustomLink label={'test'} />
       <CustomOutlinedButton isButtonSmall={false} label="Оставить заявку" />
       <CustomLanguageSwitcher />
@@ -72,6 +80,9 @@ export default function Test({ imagesStrapi }) {
         ]}
       />
       <CustomForm />
+      <CustomAccordionPure
+        accordionList={[{ title: '11 Accordion', content: 'test test' }, { title: 'Second Accordion', content: 'test test' }, { title: 'Third Accordion', content: 'test test' }]}
+      />
     </div>
   );
 }
