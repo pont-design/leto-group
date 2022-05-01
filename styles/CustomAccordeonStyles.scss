@@ -1,53 +1,56 @@
 @import './variables.scss';
 
-.accordion-product-card__tab {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  cursor: pointer;
+.accordion-wrapper {
+  width: 100%;
 
-  &:nth-child(2n) {
+  &:nth-child(even) {
     padding: 16px 0;
-    margin: 16px 0;
     border-top: 1px solid $gray200;
     border-bottom: 1px solid $gray200;
+    margin: 16px 0;
   }
-}
 
-.accordion-product-card__arrow-container {
-  cursor: pointer;
-}
+  .accordion-tab-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
 
-.accordion-product-card-arrow_open svg {
-  transform: rotate(90deg);
-  fill: $green;
-  transition: all 0.3s ease-in;
-}
+  .accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.8s ease-in;
 
-.accordion-product-card-arrow_close svg {
-  fill: $gray600;
-  transition: all 0.3s ease-in;
-}
+    p {
+      padding-top: 12px;
+      margin: 0;
+      opacity: 0;
+      transition: 2s;
+    }
 
-.accordion-product-card__animation-enter {
-  opacity: 0;
-  transform: scale(0.9);
-}
+    &.is-opened {
+      max-height: 500px;
+      overflow: hidden;
+      p {
+        opacity: 1;
+      }
+    }
+  }
 
-.accordion-product-card__animation-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
-}
+  .arrow-container {
+    display: inline-block;
+    cursor: pointer;
+  }
 
-.accordion-product-card__animation-exit {
-  opacity: 1;
-  transform: scale(0.1);
-  transition: opacity 300ms, transform 300ms;
-}
+  .accordion-arrow_open svg {
+    transform: rotate(90deg);
+    fill: $green;
+    transition: all 0.3s ease-in;
+  }
 
-.accordion-product-card__animation-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+  .accordion-arrow_close svg {
+    fill: $gray600;
+    transition: all 0.3s ease-in;
+  }
 }
