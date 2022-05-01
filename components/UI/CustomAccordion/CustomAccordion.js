@@ -8,7 +8,7 @@ export const CustomAccordion = ({ accordionList }) => {
 
   useEffect(() => {
     const initialBlockStatuses = {};
-    accordionList.forEach((accordion, index) => {
+    accordionList.forEach((_, index) => {
       initialBlockStatuses[`block${index}`] = false;
     });
     setBlockOpenStatus(initialBlockStatuses);

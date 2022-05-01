@@ -15,10 +15,10 @@ export const CustomFilters = ({
 }) => {
 
   const factorySliderBreakPoint = {
-    gapxl: 16,
-    slidesPerViewXl: 4,
-    slidesPerViewMd: 1,
-    slidesPerViewXs: 1,
+    gapxl: 1,
+    gapXs: 16,
+    gapMd: 16,
+    gapXl: 16
   };
 
   const filtersElems = filters.map((el) => (
@@ -39,16 +39,18 @@ export const CustomFilters = ({
     <div className="filters-container">
       <div className="filter-container__filters">
         <p className="tag-text">Фильтры</p>
+        <div className="filter-container-swiper-quality">
+          <SliderWrapper
+            listOfElems={filtersElems}
+            breakpointsObj={factorySliderBreakPoint}
+            swiperWrapperStyle='filter-container-swiper-quality'
+          />
+        </div>
       </div>
-      <SliderWrapper
-        listOfElems={filtersElems}
-        breakpointsObj={factorySliderBreakPoint}
-        swiperWrapperStyle='filter-container-swiper-quality'
-      />
+
       <p className="tag-text filter-container__amount">
         {getAmountDeclination(filteredValue)}
       </p>
-
     </div>
   );
 };
