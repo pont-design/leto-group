@@ -1,14 +1,31 @@
 import React, { useState, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { CustomFilters } from '../../components/UI/customFilters/CustomFilters';
-import { BaseCard } from '../../components/BaseCard/BaseCard';
+import { StrapiServiceInstance } from '../Service/CMSAPI';
+import { StrapiHandlerInstance } from '../Service/CMSAPIHandler';
 
-import { mockCatalog } from '../../assets/mockCatalog';
-import mockBaseCard from '../../public/images/ProductCard/mockBaseCard.jpg';
+import { CustomFilters } from '../components/UI/customFilters/CustomFilters';
+import { BaseCard } from '../components/BaseCard/BaseCard';
 
-export default function Catalog() {
+import Link from 'next/link';
+
+import mockBaseCard from '../public/images/ProductCard/mockBaseCard.jpg';
+
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getProducts();
+
+  return {
+    props: {
+      items: res,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+export default function Catalog({ items }) {
   const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
+
+  const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
 
   const [filterValue, setFilterValue] = useState({
     Категория: '',
@@ -30,7 +47,7 @@ export default function Catalog() {
   );
 
   const filterProducts = () => {
-    const filteredCatalog = [...mockCatalog];
+    const filteredCatalog = [...createdCatalog];
     const appliedFilters = Object.entries(filterValue);
 
     for (let i = 0; i < appliedFilters.length; i++) {
@@ -64,15 +81,12 @@ export default function Catalog() {
         filteredValue={filteredValues}
         setFilterValue={setFilterValue}
       />
-
-      {
-        <AddChosenFilter
-          inProp={inProp}
-          filterValue={filterValue}
-          setInProp={setInProp}
-          setFilterValue={setFilterValue}
-        />
-      }
+      <AddChosenFilter
+        inProp={inProp}
+        filterValue={filterValue}
+        setInProp={setInProp}
+        setFilterValue={setFilterValue}
+      />
 
       <TransitionGroup className="catalog-page__products-list">
         {filteredValues.map((el) => (
@@ -83,7 +97,11 @@ export default function Catalog() {
             classNames="filter-transition"
             unmountOnExit
           >
-            <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+            <Link href={`/productCard/${el.id}`}>
+              <a>
+                <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+              </a>
+            </Link>
           </CSSTransition>
         ))}
       </TransitionGroup>

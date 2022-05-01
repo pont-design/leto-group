@@ -3,27 +3,49 @@ import Link from 'next/link';
 
 import { motion } from 'framer-motion';
 
+import { StrapiServiceInstance } from '../Service/CMSAPI';
+
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import { CustomButton } from '../components/UI/customButton/CustomButton';
 
-import mockProduct from '../public/images/ProductCard/mockProduct.jpg';
-import { mockCatalog } from '../assets/mockCatalog';
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import mainImg from '../public/images/StartPage/start-page-main-img.jpg';
+import numbersImg from '../public/images/StartPage/start-page-numbers-img.jpg';
+import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
+import qualitativeProduction from '../public/images/StartPage/start-page-qualitative-product.jpg';
 
 import {
   startPageAnimation,
   startPageAnimationSecond,
 } from '../assets/animations/animations';
 
-function index() {
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getProducts();
+
+  return {
+    props: {
+      items: res,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+function index({ items }) {
   const catalogLink = 'catalog/catalog';
 
-  const productionSliderContent = mockCatalog.map((el) => ({
-    imgSrc: mockProduct.src,
+  function getGost(str) {
+    if (str) {
+      const gost = str.split(' ');
+      return `${gost[0]} ${gost[1]}`;
+    }
+  }
+
+  const productionSliderContent = items.map((el) => ({
+    imgSrc: `${StrapiServiceInstance.baseURL}${el.img[0].formats.medium.url}`,
     description: (
       <div className="start-page__production-slider-text">
-        <p className="card-caption">{el.gost}</p>
+        <p className="card-caption">{getGost(el.document)}</p>
         <h6 className="start-page__production-item-name">{el.name}</h6>
       </div>
     ),
@@ -37,14 +59,14 @@ function index() {
   };
 
   const factorySliderContent = [
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
   ];
 
   const factorySliderBreakPoint = {
@@ -64,7 +86,7 @@ function index() {
           <div className="start-page__main-img-wrapper">
             <img
               className="start-page__main-img"
-              src={mockProduct.src}
+              src={mainImg.src}
               alt="main-img"
             />
           </div>
@@ -94,7 +116,7 @@ function index() {
         >
           <h2>Наши показатели</h2>
           <div className="start-pahe__number-img">
-            <img src={mockProduct.src} alt="factory" />
+            <img src={numbersImg.src} alt="factory" />
           </div>
           <div className="start-page__number-text">
             <div className="start-page__number-item">
@@ -220,7 +242,7 @@ function index() {
             variants={startPageAnimationSecond}
             className="start-page__last-block-img-wrapper"
           >
-            <img src={mockProduct.src} alt="factory" />
+            <img src={qualitativeProduction.src} alt="factory" />
           </motion.div>
         </motion.div>
       </div>

@@ -13,7 +13,7 @@ export const CustomRadioButton = ({ buttonsLabels, handleValue }) => {
       <div className="form-radio-btn tag-text">
         {buttonsLabels.map(buttonLabel => {
           return <div key={buttonLabel}>
-            <input id={buttonLabel} type="radio" name="radio" value={buttonLabel} checked />
+            <input id={buttonLabel} type="radio" name="radio" value={buttonLabel} />
             <label onClick={() => { handleClick(buttonLabel) }} htmlFor={buttonLabel}>{buttonLabel}</label>
           </div>
         })}

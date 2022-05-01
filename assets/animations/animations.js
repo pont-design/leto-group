@@ -1,5 +1,5 @@
 export const startPageAnimation = {
-  hidden: { y: 80, opacity: 1 },
+  hidden: { y: 80, opacity: 0 },
   visible: (custom = 0) => ({
     y: 0,
     opacity: 1,

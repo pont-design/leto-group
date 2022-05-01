@@ -70,12 +70,17 @@
   background-position: 0% 100%;
   background-repeat: no-repeat;
   background-size: 0% 1px;
-  transition: background-size 0.3s ease-in;
+  transition: background-size 0.2s ease-in;
 }
 
 .footer-link-content:hover,
 .footer-link-content:focus {
   background-size: 100% 1px;
+}
+
+.footer__vk-logo_img {
+  max-height: 24px;
+  max-width: 24px;
 }
 
 //MOBILE

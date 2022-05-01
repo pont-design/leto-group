@@ -1,12 +1,14 @@
-import React from 'react';
+import React from 'react'
+import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure"
 
 import { motion } from 'framer-motion';
 
-import CustomAccordionNumerable from '../components/UI/customAccordionNumerable/CustomAccordionNumerable';
 import { CustomLink } from '../components/UI/CustomLink/customLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import mainImg from '../public/images/QualityPage/quality-main-img.jpg';
+import controlImg from '../public/images/QualityPage/quality-control-img.jpg';
 
 import { startPageAnimation } from '../assets/animations/animations';
 
@@ -34,9 +36,9 @@ function Quality() {
 
   const qualitySliderBreakPoint = {
     gapxl: 24,
-    slidesPerViewXl: 4.2,
-    slidesPerViewMd: 1.2,
-    slidesPerViewXs: 1.2,
+    slidesPerViewXl: 1,
+    slidesPerViewMd: 2,
+    slidesPerViewXs: 1,
   };
 
   return (
@@ -57,7 +59,7 @@ function Quality() {
           </motion.h3>
         </motion.div>
         <div className="quality-hero-img">
-          <img src={mockImage.src} />
+          <img src={mainImg.src} />
         </div>
         <motion.div
           initial="hidden"
@@ -67,7 +69,7 @@ function Quality() {
           className="quality-certification-wrapper"
         >
           <div className="quality-certification__imgs-wrapper">
-            <h2>Мы производим качественный продукт</h2>
+            <h2>Мы производим <br /> качественный продукт</h2>
             <div className="quality-certification__imgs">
               <img
                 className="quality-certification__imgs_img"
@@ -99,21 +101,12 @@ function Quality() {
         <div className="quality-steps-wrapper">
           <div className="quality-steps-description">
             <h2>Многоступенчатый контроль качества </h2>
-            <CustomAccordionNumerable
-              list={[
-                {
-                  title: 'Приезд фуры',
-                  content:
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                },
-                { title: '456', content: '654' },
-              ]}
-            />
-          </div>
+            <CustomAccordionPure accordionList={[{ title: '123', content: '321' }, { title: '123', content: '321' }, { title: '123', content: '321' }]} />
+          </div >
           <div className="quality-steps-img-wrapper">
-            <img src={mockImage.src} />
+            <img src={controlImg.src} />
           </div>
-        </div>
+        </div >
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -149,7 +142,7 @@ function Quality() {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section >
       <div className="certificates">
         <div className="container">
           <h2>Сертификаты</h2>
