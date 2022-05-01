@@ -4,43 +4,34 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 
-// type list = Array<{slide : JSX}>
-
 export const SliderWrapper = ({
   listOfElems,
   swiperWrapperStyle,
   breakpointsObj,
 }) => {
   return (
-    <div className="custom-swiper-wrapper-wrapper ">
-      <Swiper
-        className={swiperWrapperStyle}
-        breakpoints={{
-          320: {
-            slidesPerView: breakpointsObj.slidesPerViewXs,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: breakpointsObj.slidesPerViewMd,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: breakpointsObj.slidesPerViewXl,
-            spaceBetween: breakpointsObj.gapxl,
-          },
-        }}
-      >
-        {listOfElems.map((slide) => {
-          return (
-            <>
-              <SwiperSlide>
-                {slide}
-              </SwiperSlide>
-            </>
-          );
-        })}
+    <Swiper
+      className={swiperWrapperStyle}
+      breakpoints={{
+        320: {
+          spaceBetween: breakpointsObj.gapXs,
+        },
+        768: {
+          spaceBetween: breakpointsObj.gapMd,
+        },
+        1280: {
+          spaceBetween: breakpointsObj.gapXl,
+        },
+      }}
+    >
+      {listOfElems.map((slide) => {
+        return (
+          <SwiperSlide >
+            {slide}
+          </SwiperSlide>
+        );
+      })}
+    </Swiper >
 
-      </Swiper>
-    </div >
   );
 };

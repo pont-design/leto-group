@@ -75,7 +75,7 @@ function technologies() {
         className="technologies__quality-productivity"
       >
         <div className="quality-productivity-logo">
-          <img src={logoSanovo.src} alt="logo sanovo" />
+          <img className="quality-productivity-logo__sanovo-logo" src={logoSanovo.src} alt="logo sanovo" />
         </div>
         <div className="quality-productivity-hero-text">
           <h2>Высокое качество и производительность</h2>
@@ -105,9 +105,8 @@ function technologies() {
         {equipment.equipment.map((equipmentEl, i) => {
           return (
             <div
-              className={`technologies__equipment-wrapper ${
-                i === 0 && 'technologies__equipment-wrapper_first-elem'
-              }`}
+              className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
+                }`}
               key={equipmentEl.title}
             >
               <img
