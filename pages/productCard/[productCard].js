@@ -5,14 +5,16 @@ import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomR
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 
-import { StrapiServiceInstance } from "../../Service/CMSAPI";
-import { getGostFromString } from "../../utils/getGostfromString";
-import { CustomBreadCrumb } from "../../components/Breadcrumbs/CustomBreadCrumb";
+import { StrapiServiceInstance } from '../../Service/CMSAPI';
+import { getGostFromString } from '../../utils/getGostfromString';
+import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
+
+import mockImg from '../../public/images/ProductCard/mockBaseCard.jpg';
 
 export async function getStaticPaths() {
-  const paths = await StrapiServiceInstance.getAllIds('productCard')
+  const paths = await StrapiServiceInstance.getAllIds('productCard');
 
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }
 
 export const getStaticProps = async (context) => {
@@ -20,83 +22,85 @@ export const getStaticProps = async (context) => {
 
   const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
 
-  let similarProducts = await StrapiServiceInstance.getSimilarProducts(currentProduct.category)
+  let similarProducts = await StrapiServiceInstance.getSimilarProducts(
+    currentProduct.data.attributes.category
+  );
 
-  const { name,
+  console.log(currentProduct.data.attributes.img);
+
+  const {
+    name,
     document,
     structure,
     description,
     worth,
-    storage_conditions,
+    storage_condition,
     category,
-    consistency
-  } = currentProduct
+    consistency,
+  } = currentProduct.data.attributes;
 
-  const indicators = currentProduct.other_info
+  // const indicators = currentProduct.data.attributes.other_info;
 
-  const mediumImageUrl = currentProduct.img[0].formats.medium.url
+  const mediumImageUrl = currentProduct.data.attributes.img.data.attributes.url;
 
-  const gost = getGostFromString(document)
+  const gost = getGostFromString(document);
 
-  similarProducts = similarProducts.map(similarProduct => {
+  similarProducts = similarProducts.data.map((similarProduct) => {
+    console.log(similarProduct);
     return {
       id: similarProduct.id,
       gost: `ГОСТ - 1234`,
-      name: similarProduct.name,
-      src: similarProduct.img[0].formats.small.url,
-    }
-
-  })
+      name: similarProduct.attributes.name,
+      // src: similarProduct.attributes.img.data.attributes.url,
+      src: mockImg.src,
+    };
+  });
 
   return {
     props: {
-      indicators,
+      // indicators,
       name,
       structure,
       description,
       worth,
-      storage_conditions,
+      storage_condition,
       mediumImageUrl,
       gost,
       similarProducts,
       category,
-      consistency
+      consistency,
     },
     revalidate: StrapiServiceInstance.timeToRebuild,
   };
 };
 
-export default function productCard(
-  {
-    indicators,
-    name,
-    gost,
-    structure,
-    description,
-    worth,
-    storage_conditions,
-    mediumImageUrl,
-    similarProducts,
-    category,
-    consistency
-  }
-) {
+export default function productCard({
+  // indicators,
+  name,
+  gost,
+  structure,
+  description,
+  worth,
+  storage_conditions,
+  mediumImageUrl,
+  similarProducts,
+  category,
+  consistency,
+}) {
+  // function addParametrs() {
+  //   const indicatorsArr = Object.entries(indicators);
 
-  function addParametrs() {
-    const indicatorsArr = Object.entries(indicators);
-
-    return (
-      <div className="product-card__parametrs-table">
-
-        {indicatorsArr.map((el) => (
-          <div className="product-card__parametrs-item">
-            <p className="product-card__parametr-name text-1">{el[0]}</p>
-            <p className="product-card__parametr-desc text-1">{el[1]}</p>
-          </div>
-        ))}
-      </div>
-    );
-  }
+  //   return (
+  //     <div className="product-card__parametrs-table">
+  //       {indicatorsArr.map((el) => (
+  //         <div className="product-card__parametrs-item">
+  //           <p className="product-card__parametr-name text-1">{el[0]}</p>
+  //           <p className="product-card__parametr-desc text-1">{el[1]}</p>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   );
+  // }
 
   const similarSliderContent = similarProducts.map((el) => {
     return {
@@ -140,7 +144,6 @@ export default function productCard(
         </div>
       </div>
       <section className="product-card container">
-
         <div className="product-card__main-info">
           <div className="product-card__image-block">
             <img
@@ -154,14 +157,12 @@ export default function productCard(
               {`ГОСТ - ${gost}`}
             </p>
             <h5 className="product-card__product-name">{name}</h5>
-            <p className="product-card__product-desc text-1">
-              {worth}
-            </p>
+            <p className="product-card__product-desc text-1">{worth}</p>
             <div className="product-card__voluem-options">
               <p className="caption-2 product-card__voluem-text">Объём</p>
               <CustomRadioButton buttonsLabels={['5 л.', '10 л.', '25 л.']} />
             </div>
-            <CustomButton label='Оставить заявку' />
+            <CustomButton label="Оставить заявку" />
             <div className="product-card__accordion">
               <CustomAccordion list={productCardAccordionContent} />
             </div>
@@ -169,21 +170,22 @@ export default function productCard(
         </div>
         <div className="product-card__parametrs">
           <h5>Показатели</h5>
-          {addParametrs()}
+          {/* {addParametrs()} */}
         </div>
 
         <div className="product-card__similar">
           <h3>Может такое возьмёте?</h3>
           <div className="product-card__similar-list">
             {similarProducts.map((el) => {
-              return (<>
-                <BaseCard
-                  key={el.id}
-                  img={`${StrapiServiceInstance.baseURL}${el.src}`}
-                  name={el.name}
-                  gost={el.gost}
-                />
-              </>
+              return (
+                <>
+                  <BaseCard
+                    key={el.id}
+                    img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                    name={el.name}
+                    gost={el.gost}
+                  />
+                </>
               );
             })}
           </div>

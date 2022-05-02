@@ -16,7 +16,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      items: res,
+      items: res.data,
     },
     revalidate: StrapiServiceInstance.timeToRebuild,
   };
@@ -99,7 +99,11 @@ export default function Catalog({ items }) {
           >
             <Link href={`/productCard/${el.id}`}>
               <a>
-                <BaseCard img={mockBaseCard.src} name={el.name} gost={el.gost} />
+                <BaseCard
+                  img={mockBaseCard.src}
+                  name={el.name}
+                  gost={el.gost}
+                />
               </a>
             </Link>
           </CSSTransition>

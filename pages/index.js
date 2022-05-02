@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      items: res,
+      items: res.data,
     },
     revalidate: StrapiServiceInstance.timeToRebuild,
   };
@@ -42,11 +42,13 @@ function index({ items }) {
   }
 
   const productionSliderContent = items.map((el) => ({
-    imgSrc: `${StrapiServiceInstance.baseURL}${el.img[0].formats.medium.url}`,
+    imgSrc: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
     description: (
       <div className="start-page__production-slider-text">
-        <p className="card-caption">{getGost(el.document)}</p>
-        <h6 className="start-page__production-item-name">{el.name}</h6>
+        <p className="card-caption">{getGost(el.attributes.document)}</p>
+        <h6 className="start-page__production-item-name">
+          {el.attributes.name}
+        </h6>
       </div>
     ),
   }));
