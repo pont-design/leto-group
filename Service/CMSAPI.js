@@ -3,7 +3,7 @@ import { StrapiHandlerInstance } from './CMSAPIHandler';
 
 const qs = require('qs');
 
-const query = qs.stringify(
+const test = qs.stringify(
   {
     populate: '*',
   },
@@ -38,21 +38,36 @@ class StrapiService {
     const itemResponse = await this._strapiInstance.get(
       `/api/items/${id}?populate=*`
     );
-    return await itemResponse.data;
+    return await itemResponse.data.data;
   }
 
   async getProducts() {
     const productsResponse = await this._strapiInstance.get(
-      '/api/items?populate=*'
+      `/api/items?${test}`
     );
     return await productsResponse.data;
   }
 
   async getSimilarProducts(query) {
-    const similarProductsResponse = await this._strapiInstance.get(
-      `/api/items?populate=*?category_eq=${query}`
+    const filterValue = qs.stringify(
+      {
+        filters: {
+          category: {
+            $eq: query,
+          },
+        },
+        populate: ['img'],
+      },
+      {
+        encodeValuesOnly: true,
+      }
     );
-    return similarProductsResponse.data;
+
+    const similarProductsResponse = await this._strapiInstance.get(
+      // `/api/items?populate=*?category_eq=${query}`
+      `/api/items?${filterValue}`
+    );
+    return similarProductsResponse.data.data;
   }
 
   async getAllIds(nameOfPage) {

@@ -8,8 +8,7 @@ class StrapiHandler {
   handleCatalog(res) {
     return res.map((el) => ({
       id: el.id,
-      // image: `${StrapiServiceInstance.baseURL}${el.img[0].formats.medium.url}`,
-      image: mockImg.src,
+      image: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
       name: el.attributes.name,
       gost: this.getGost(el.attributes.document),
       Категория: this.translateCategory(el.attributes.category),

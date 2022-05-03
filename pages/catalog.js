@@ -99,11 +99,7 @@ export default function Catalog({ items }) {
           >
             <Link href={`/productCard/${el.id}`}>
               <a>
-                <BaseCard
-                  img={mockBaseCard.src}
-                  name={el.name}
-                  gost={el.gost}
-                />
+                <BaseCard img={el.image} name={el.name} gost={el.gost} />
               </a>
             </Link>
           </CSSTransition>

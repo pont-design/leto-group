@@ -23,10 +23,8 @@ export const getStaticProps = async (context) => {
   const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
 
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
-    currentProduct.data.attributes.category
+    currentProduct.attributes.category
   );
-
-  console.log(currentProduct.data.attributes.img);
 
   const {
     name,
@@ -37,28 +35,26 @@ export const getStaticProps = async (context) => {
     storage_condition,
     category,
     consistency,
-  } = currentProduct.data.attributes;
+  } = currentProduct.attributes;
 
-  // const indicators = currentProduct.data.attributes.other_info;
+  const indicators = currentProduct.attributes.additional_info;
 
-  const mediumImageUrl = currentProduct.data.attributes.img.data.attributes.url;
+  const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
   const gost = getGostFromString(document);
 
-  similarProducts = similarProducts.data.map((similarProduct) => {
-    console.log(similarProduct);
+  similarProducts = similarProducts.map((similarProduct) => {
     return {
       id: similarProduct.id,
       gost: `ГОСТ - 1234`,
       name: similarProduct.attributes.name,
-      // src: similarProduct.attributes.img.data.attributes.url,
-      src: mockImg.src,
+      src: similarProduct.attributes.img.data.attributes.url,
     };
   });
 
   return {
     props: {
-      // indicators,
+      indicators,
       name,
       structure,
       description,
@@ -75,7 +71,7 @@ export const getStaticProps = async (context) => {
 };
 
 export default function productCard({
-  // indicators,
+  indicators,
   name,
   gost,
   structure,
@@ -87,20 +83,20 @@ export default function productCard({
   category,
   consistency,
 }) {
-  // function addParametrs() {
-  //   const indicatorsArr = Object.entries(indicators);
+  function addParametrs() {
+    const indicatorsArr = Object.entries(indicators);
 
-  //   return (
-  //     <div className="product-card__parametrs-table">
-  //       {indicatorsArr.map((el) => (
-  //         <div className="product-card__parametrs-item">
-  //           <p className="product-card__parametr-name text-1">{el[0]}</p>
-  //           <p className="product-card__parametr-desc text-1">{el[1]}</p>
-  //         </div>
-  //       ))}
-  //     </div>
-  //   );
-  // }
+    return (
+      <div className="product-card__parametrs-table">
+        {indicatorsArr.map((el) => (
+          <div className="product-card__parametrs-item">
+            <p className="product-card__parametr-name text-1">{el[0]}</p>
+            <p className="product-card__parametr-desc text-1">{el[1]}</p>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   const similarSliderContent = similarProducts.map((el) => {
     return {
