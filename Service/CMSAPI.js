@@ -64,7 +64,6 @@ class StrapiService {
     );
 
     const similarProductsResponse = await this._strapiInstance.get(
-      // `/api/items?populate=*?category_eq=${query}`
       `/api/items?${filterValue}`
     );
     return similarProductsResponse.data.data;
