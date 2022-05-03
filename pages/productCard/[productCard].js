@@ -26,6 +26,8 @@ export const getStaticProps = async (context) => {
     currentProduct.attributes.category
   );
 
+  console.log(currentProduct);
+
   const {
     name,
     document,
@@ -77,12 +79,14 @@ export default function productCard({
   structure,
   description,
   worth,
-  storage_conditions,
+  storage_condition,
   mediumImageUrl,
   similarProducts,
   category,
   consistency,
 }) {
+  console.log(structure, description, storage_condition);
+
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
 
@@ -128,9 +132,11 @@ export default function productCard({
     },
     {
       title: 'Упаковка',
-      desc: storage_conditions,
+      desc: storage_condition,
     },
   ];
+
+  console.log(productCardAccordionContent);
 
   return (
     <>
@@ -160,13 +166,13 @@ export default function productCard({
             </div>
             <CustomButton label="Оставить заявку" />
             <div className="product-card__accordion">
-              <CustomAccordion list={productCardAccordionContent} />
+              <CustomAccordion accordionList={productCardAccordionContent} />
             </div>
           </div>
         </div>
         <div className="product-card__parametrs">
           <h5>Показатели</h5>
-          {/* {addParametrs()} */}
+          {addParametrs()}
         </div>
 
         <div className="product-card__similar">

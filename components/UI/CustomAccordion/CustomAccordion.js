@@ -29,7 +29,7 @@ export const CustomAccordion = ({ accordionList }) => {
           title={item.title}
           blockOpenStatus={blockOpenStatus}
           toggle={toggle(index + 1)}
-          content={item.content}
+          content={item.desc}
         />
       ))}
     </div>
