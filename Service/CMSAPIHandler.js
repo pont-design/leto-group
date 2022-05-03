@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import { StrapiServiceInstance } from './CMSAPI';
 
 class StrapiHandler {
@@ -65,6 +63,7 @@ class StrapiHandler {
     })
     return paths
   }
+
 }
 
 export const StrapiHandlerInstance = new StrapiHandler();
