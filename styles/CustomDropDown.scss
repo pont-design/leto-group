@@ -7,7 +7,7 @@
 .drop-down__button {
   display: inline-block;
   cursor: pointer;
-  padding: 0.8rem 2rem;
+  padding: 8px 20px;
   line-height: 24px;
   border: 1px solid $gray5;
   border-radius: 20px;
@@ -24,7 +24,7 @@
 
 .drop-down__custom-radio {
   position: absolute;
-  top: 5rem;
+  top: 50px;
 }
 
 .dropdown__wrapper {
