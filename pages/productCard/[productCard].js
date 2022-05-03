@@ -1,15 +1,17 @@
+import React, { useState } from 'react';
+
 import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
+import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
+import { CustomForm } from '../../components/UI/customForm/CustomForm';
 
 import { StrapiServiceInstance } from '../../Service/CMSAPI';
 import { getGostFromString } from '../../utils/getGostfromString';
 import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
-
-import mockImg from '../../public/images/ProductCard/mockBaseCard.jpg';
 
 export async function getStaticPaths() {
   const paths = await StrapiServiceInstance.getAllIds('productCard');
@@ -85,7 +87,8 @@ export default function productCard({
   category,
   consistency,
 }) {
-  console.log(structure, description, storage_condition);
+  const [modalActive, setModalActive] = useState(false);
+  const [voluemValue, setVoluemValue] = useState('');
 
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
@@ -136,7 +139,7 @@ export default function productCard({
     },
   ];
 
-  console.log(productCardAccordionContent);
+  console.log(modalActive);
 
   return (
     <>
@@ -162,9 +165,17 @@ export default function productCard({
             <p className="product-card__product-desc text-1">{worth}</p>
             <div className="product-card__voluem-options">
               <p className="caption-2 product-card__voluem-text">Объём</p>
-              <CustomRadioButton buttonsLabels={['5 л.', '10 л.', '25 л.']} />
+              <CustomRadioButton
+                handleValue={setVoluemValue}
+                buttonsLabels={['5 л.', '10 л.', '25 л.']}
+              />
             </div>
-            <CustomButton label="Оставить заявку" />
+            <CustomButton
+              onClick={() => {
+                setModalActive(true);
+              }}
+              label="Оставить заявку"
+            />
             <div className="product-card__accordion">
               <CustomAccordion accordionList={productCardAccordionContent} />
             </div>
@@ -201,6 +212,13 @@ export default function productCard({
             />
           </div>
         </div>
+        <CustomModal active={modalActive} setActive={setModalActive}>
+          <h2>Оставьте заявку</h2>
+          <p className="text-1">
+            В ближайщее время наш менеджер свяжется с Вами
+          </p>
+          <CustomForm buttonLabel="Отправить" />
+        </CustomModal>
       </section>
     </>
   );
