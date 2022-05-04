@@ -73,18 +73,24 @@ function Quality() {
               Мы производим <br /> качественный продукт
             </h2>
             <div className="quality-certification__imgs">
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
             </div>
           </div>
           <div className="quality-certification-description">
@@ -159,7 +165,7 @@ function Quality() {
           <CustomSlider
             list={list}
             swiperWrapperStyle="quality-swiper-wrapper"
-            slideImgStyle="quality-swiper-slide"
+            swiperItemStyles="quality-swiper-slide"
             breakpointsObj={qualitySliderBreakPoint}
           />
         </div>

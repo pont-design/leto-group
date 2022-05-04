@@ -107,7 +107,7 @@ function index({ items }) {
           className="start-page__number-block"
         >
           <h2>Наши показатели</h2>
-          <div className="start-pahe__number-img">
+          <div className="start-page__number-img">
             <img src={numbersImg.src} alt="factory" />
           </div>
           <div className="start-page__number-text">
@@ -159,6 +159,7 @@ function index({ items }) {
                     img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
                     name={el.attributes.name}
                     gost={el.attributes.document}
+                    imgStyles="start-page__production-slider-item-img"
                   />
                 </a>
               </Link>

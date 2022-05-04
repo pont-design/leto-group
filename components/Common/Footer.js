@@ -123,10 +123,14 @@ export const Footer = () => {
               Есть предложения? <br /> Оставьте заявку
             </h5>
             <div className="footer__request-button">
-              <CustomOutlinedButton
-                label="Оставить заявку"
-                isButtonSmall={false}
-              />
+              <Link href="/contacts">
+                <a>
+                  <CustomOutlinedButton
+                    label="Оставить заявку"
+                    isButtonSmall={false}
+                  />
+                </a>
+              </Link>
             </div>
           </div>
           <div className="footer__mark-wrapper link-text">

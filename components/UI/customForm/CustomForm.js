@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { StrapiServiceInstance } from '../../../Service/CMSAPI';
 import { CustomButton } from '../customButton/CustomButton';
 import { CustomTextArea } from '../customTextArea/CustomTextArea';
 import { CustomTextField } from '../customTextField/CustomTextField';
@@ -14,15 +15,16 @@ export const CustomForm = ({ buttonLabel }) => {
 
   const sendEmail = (form) => {
     axios
-      .post('http://188.225.45.114:1337/api/email', {
-        to: 'nagibin.artyom@mail.ru',
-        from: form.email,
-        subject: 'Заказ с яиц',
+      .post(`${StrapiServiceInstance.baseURL}/api/email`, {
+        to: `${StrapiServiceInstance._sendAddress}`,
+        from: 'leto-group',
+        subject: 'Заявка с сайта',
+        html: `<h1>${form.name}</h1>
+        <p><strong>Почта:</strong>: ${form['email']}</p>
+        <p><strong>Интересует:</strong>: ${form.interesting}</p>
+        <p><strong>Детали:</strong>: ${form.message}</p>
+        `,
         text: form.message,
-        html: `<h1>${form.name}</h1>`,
-      })
-      .then((res) => {
-        console.log(res);
       })
       .catch((error) => {
         console.log(error);
@@ -40,18 +42,21 @@ export const CustomForm = ({ buttonLabel }) => {
         placeholder="Ваше имя"
         isFullField={!!formsData['name']}
         setCurrentFormData={setCurrentFormData}
+        type="text"
       />
       <CustomTextField
         inputName="email"
         placeholder="Ваш email"
         isFullField={!!formsData['email']}
         setCurrentFormData={setCurrentFormData}
+        type="email"
       />
       <CustomTextField
         inputName="interesting"
         placeholder="Что вас интересует?"
         isFullField={!!formsData['interesting']}
         setCurrentFormData={setCurrentFormData}
+        type="text"
       />
       <CustomTextArea
         inputName="message"

@@ -187,6 +187,7 @@ export default function productCard({
                         img={`${StrapiServiceInstance.baseURL}${el.src}`}
                         name={el.name}
                         gost={el.gost}
+                        imgStyles="product-card__similar-item-img"
                       />
                     </a>
                   </Link>
@@ -209,6 +210,7 @@ export default function productCard({
                         img={`${StrapiServiceInstance.baseURL}${el.src}`}
                         name={el.name}
                         gost={el.gost}
+                        imgStyles="product-card__similar-item-img"
                       />
                     </a>
                   </Link>
