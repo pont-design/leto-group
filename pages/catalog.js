@@ -9,8 +9,6 @@ import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';
 
-import mockBaseCard from '../public/images/ProductCard/mockBaseCard.jpg';
-
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
 

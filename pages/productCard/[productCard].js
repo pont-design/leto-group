@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 
-import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
+import Link from 'next/link';
 
+import { SwiperSlide } from 'swiper/react';
+
+import { StrapiServiceInstance } from '../../Service/CMSAPI';
+import { getGostFromString } from '../../utils/getGostfromString';
+
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
@@ -9,8 +15,6 @@ import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
 import { CustomForm } from '../../components/UI/customForm/CustomForm';
 
-import { StrapiServiceInstance } from '../../Service/CMSAPI';
-import { getGostFromString } from '../../utils/getGostfromString';
 import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
 
 export async function getStaticPaths() {
@@ -27,8 +31,6 @@ export const getStaticProps = async (context) => {
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
     currentProduct.attributes.category
   );
-
-  console.log(currentProduct);
 
   const {
     name,
@@ -105,18 +107,6 @@ export default function productCard({
     );
   }
 
-  const similarSliderContent = similarProducts.map((el) => {
-    return {
-      imgSrc: el.src,
-      description: (
-        <div className="product-card__similar-slider-desc">
-          <p className="card-caption">{el.gost}</p>
-          <h6>{el.name}</h6>
-        </div>
-      ),
-    };
-  });
-
   const similarSliderBreakPoint = {
     gapxl: 20,
     slidesPerViewXl: 3.5,
@@ -138,8 +128,6 @@ export default function productCard({
       desc: storage_condition,
     },
   ];
-
-  console.log(modalActive);
 
   return (
     <>
@@ -192,24 +180,41 @@ export default function productCard({
             {similarProducts.map((el) => {
               return (
                 <>
-                  <BaseCard
-                    key={el.id}
-                    img={`${StrapiServiceInstance.baseURL}${el.src}`}
-                    name={el.name}
-                    gost={el.gost}
-                  />
+                  <Link href={`/productCard/${el.id}`}>
+                    <a>
+                      <BaseCard
+                        key={el.id}
+                        img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                        name={el.name}
+                        gost={el.gost}
+                      />
+                    </a>
+                  </Link>
                 </>
               );
             })}
           </div>
           <div className="product-card__similar-slider">
             <CustomSlider
-              list={similarSliderContent}
               swiperWrapperStyle=""
               swiperItemStyles=""
               slideImgStyle=""
               breakpointsObj={similarSliderBreakPoint}
-            />
+            >
+              {similarProducts.map((el) => (
+                <SwiperSlide key={el.id}>
+                  <Link href={`/productCard/${el.id}`}>
+                    <a>
+                      <BaseCard
+                        img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                        name={el.name}
+                        gost={el.gost}
+                      />
+                    </a>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </CustomSlider>
           </div>
         </div>
         <CustomModal active={modalActive} setActive={setModalActive}>

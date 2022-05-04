@@ -2,12 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
+import { SwiperSlide } from 'swiper/react';
 
 import { StrapiServiceInstance } from '../Service/CMSAPI';
 
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import { CustomButton } from '../components/UI/customButton/CustomButton';
+import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
 import mainImg from '../public/images/StartPage/start-page-main-img.jpg';
@@ -32,7 +34,7 @@ export const getStaticProps = async () => {
 };
 
 function index({ items }) {
-  const catalogLink = 'catalog/catalog';
+  const catalogLink = '/catalog';
 
   function getGost(str) {
     if (str) {
@@ -40,18 +42,6 @@ function index({ items }) {
       return `${gost[0]} ${gost[1]}`;
     }
   }
-
-  const productionSliderContent = items.map((el) => ({
-    imgSrc: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
-    description: (
-      <div className="start-page__production-slider-text">
-        <p className="card-caption">{getGost(el.attributes.document)}</p>
-        <h6 className="start-page__production-item-name">
-          {el.attributes.name}
-        </h6>
-      </div>
-    ),
-  }));
 
   const productionSliderBreakPoint = {
     gapxl: 24,
@@ -158,18 +148,31 @@ function index({ items }) {
       >
         <h2 className="start-page__production-heading container">Продукция</h2>
         <CustomSlider
-          list={productionSliderContent}
           breakpointsObj={productionSliderBreakPoint}
           swiperWrapperStyle="start-page__production-slider"
-        />
+        >
+          {items.map((el) => (
+            <SwiperSlide key={el.id}>
+              <Link href={`/productCard/${el.id}`}>
+                <a>
+                  <BaseCard
+                    img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
+                    name={el.attributes.name}
+                    gost={el.attributes.document}
+                  />
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </CustomSlider>
         <div className="start-page__production-nav">
           <Link href={catalogLink}>
-            <>
+            <a>
               <CustomButton
                 styles="start-page__button-nav"
                 label="Вся продукция"
               />
-            </>
+            </a>
           </Link>
         </div>
       </motion.div>

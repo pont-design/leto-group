@@ -15,10 +15,11 @@ export const CustomForm = ({ buttonLabel }) => {
   const sendEmail = (form) => {
     axios
       .post('http://188.225.45.114:1337/api/email', {
-        to: form.name,
+        to: 'nagibin.artyom@mail.ru',
         from: form.email,
-        subject: form.interesting,
+        subject: 'Заказ с яиц',
         text: form.message,
+        html: `<h1>${form.name}</h1>`,
       })
       .then((res) => {
         console.log(res);

@@ -68,19 +68,23 @@ export const Footer = () => {
                 Есть предложения? <br /> Оставьте заявку
               </h5>
               <div className="footer__request-button">
-                <CustomOutlinedButton
-                  label="Оставить заявку"
-                  isButtonSmall={false}
-                />
+                <Link href="/contacts">
+                  <a>
+                    <CustomOutlinedButton
+                      label="Оставить заявку"
+                      isButtonSmall={false}
+                    />
+                  </a>
+                </Link>
               </div>
             </div>
             <ul className="footer__contacts-list footer__contacts-list_media">
               <li className="footer__contacts-list_title">
                 <h6>{media.title}</h6>
               </li>
-              {media.list.map(link => (
-                <li className='link-text' >
-                  <a href='#' className="footer__vk-logo" link={link.link}>
+              {media.list.map((link) => (
+                <li className="link-text">
+                  <a href="#" className="footer__vk-logo" link={link.link}>
                     <img className="footer__vk-logo_img" src={vkLogo.src} />
                     <p className="footer-link-content">{link.label}</p>
                   </a>
