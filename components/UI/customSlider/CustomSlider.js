@@ -12,6 +12,7 @@ export const CustomSlider = ({
   swiperItemStyles,
   slideImgStyle,
   breakpointsObj,
+  children,
 }) => {
   return (
     <div className="custom-swiper-wrapper ">
@@ -32,19 +33,21 @@ export const CustomSlider = ({
           },
         }}
       >
-        {list.map((slide, idx) => {
-          return (
-            <SwiperSlide key={idx}>
-              <div className={swiperItemStyles}>
-                <img
-                  className={['slider-slide-img', slideImgStyle].join(' ')}
-                  src={slide.imgSrc}
-                />
-              </div>
-              {slide.description}
-            </SwiperSlide>
-          );
-        })}
+        {children
+          ? children
+          : list.map((slide, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <div className={swiperItemStyles}>
+                    <img
+                      className={['slider-slide-img', slideImgStyle].join(' ')}
+                      src={slide.imgSrc}
+                    />
+                  </div>
+                  {slide.description}
+                </SwiperSlide>
+              );
+            })}
       </Swiper>
     </div>
   );
