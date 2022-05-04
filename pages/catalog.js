@@ -9,8 +9,6 @@ import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';
 
-import mockBaseCard from '../public/images/ProductCard/mockBaseCard.jpg';
-
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
 
@@ -99,7 +97,12 @@ export default function Catalog({ items }) {
           >
             <Link href={`/productCard/${el.id}`}>
               <a>
-                <BaseCard img={el.image} name={el.name} gost={el.gost} />
+                <BaseCard
+                  img={el.image}
+                  name={el.name}
+                  gost={el.gost}
+                  imgStyles="catalog-page__products-item-img"
+                />
               </a>
             </Link>
           </CSSTransition>

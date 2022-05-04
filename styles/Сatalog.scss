@@ -52,6 +52,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.4rem;
+
+    .catalog-page__products-item-img {
+      border-radius: 8px;
+      overflow: hidden;
+    }
   }
 }
 
