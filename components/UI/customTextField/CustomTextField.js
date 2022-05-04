@@ -7,7 +7,7 @@ export const CustomTextField = ({
   setCurrentFormData,
   type,
 }) => {
-  const customTextFieldStyles = `custom-text-field text-1 ${
+  const customTextFieldStyles = `custom-text-field custom-text-field__text ${
     isFullField && 'custom-text-field__full-field'
   }`;
 

@@ -1,6 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 
-export const CustomLink = ({ label }) => {
+export const CustomLink = ({ label, route }) => {
   const arrow = (
     <svg
       width="20"
@@ -14,11 +15,13 @@ export const CustomLink = ({ label }) => {
   );
 
   return (
-    <div className="d-flex custom-link">
-      <a href="#" className="btn-link custom-link__text">
-        {label}
+    <Link href={route}>
+      <a>
+        <div className="d-flex custom-link">
+          <span className="btn-link custom-link__text">{label}</span>
+          {arrow}
+        </div>
       </a>
-      {arrow}
-    </div>
+    </Link>
   );
 };

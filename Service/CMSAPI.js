@@ -18,11 +18,11 @@ const sendAddress = 'ch69865@868749-ch69865.tmweb.ru';
 const timeToRebuild = 10;
 
 const strapiInstance = axios.create({
-  baseURL: baseURL,
+  baseURL,
 });
 
 class StrapiService {
-  constructor(strapiInstance, baseURL, timeToRebuild) {
+  constructor(strapiInstance, sendAddress, baseURL, timeToRebuild) {
     this._strapiInstance = strapiInstance;
     this._sendAddress = sendAddress;
     this.baseURL = baseURL;
