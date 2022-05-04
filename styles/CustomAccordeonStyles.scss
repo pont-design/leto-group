@@ -20,7 +20,7 @@
   .accordion-content {
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.8s ease-in;
+    transition: max-height 2s ease-out;
 
     p {
       padding-top: 12px;
@@ -32,6 +32,7 @@
     &.is-opened {
       max-height: 500px;
       overflow: hidden;
+      transition: max-height 2s ease-out;
       p {
         opacity: 1;
       }
@@ -46,11 +47,11 @@
   .accordion-arrow_open svg {
     transform: rotate(90deg);
     fill: $green;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease-out;
   }
 
   .accordion-arrow_close svg {
     fill: $gray600;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease-out;
   }
 }

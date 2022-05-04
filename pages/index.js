@@ -71,10 +71,18 @@ function index({ items }) {
   return (
     <section className="start-page">
       <div className="container">
-        <div className="start-page__main-block">
-          <h1 className="start-page__main-heading">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="start-page__main-block"
+        >
+          <motion.h1
+            variants={startPageAnimationSecond}
+            className="start-page__main-heading"
+          >
             Только <br /> натуральный продукт
-          </h1>
+          </motion.h1>
           <div className="start-page__main-img-wrapper">
             <img
               className="start-page__main-img"
@@ -82,7 +90,7 @@ function index({ items }) {
               alt="main-img"
             />
           </div>
-        </div>
+        </motion.div>
         <div className="start-page__about-block">
           <div className="start-page__about-text">
             <p className="text-4">
@@ -96,7 +104,7 @@ function index({ items }) {
               оборудование изготовленное датской компанией SANOVO, являющиеся
               мировым лидером в этой отрасли
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Подробнее" route="/about" />
           </div>
         </div>
         <motion.div
@@ -209,7 +217,7 @@ function index({ items }) {
               развивать рынок продукции ГПЯ, так и экспортировать продукты на
               целевые экспортные рынки
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Подробнее" route="/quality" />
           </div>
         </motion.div>
       </div>
@@ -242,7 +250,7 @@ function index({ items }) {
               цикла и наличие двух лабораторий позволяет осуществлять экспорт
               высококачественной продукции
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Наши технологии" route="/technologies" />
           </div>
           <motion.div
             variants={startPageAnimationSecond}

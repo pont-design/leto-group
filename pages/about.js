@@ -84,10 +84,10 @@ export default function about() {
           className="about__heading"
         >
           <motion.h1
-            variants={startPageAnimation}
+            variants={startPageAnimationSecond}
             className="about__heading-text"
           >
-            Входим в топ-10 производителей яиц
+            Входим в топ-10 <br /> производителей яиц
           </motion.h1>
           <div className="about__heading-img-wrapper">
             <img
@@ -121,7 +121,7 @@ export default function about() {
               Наша команда имеет высокий уровень компетенции и дальше надо
               что-то дописать
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="О качестве" route="/quality" />
           </div>
           <div className="about__ideas-img">
             <img src={ideasImage.src} alt="Ideas" />

@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
+
+import { CustomModal } from '../UI/CustomModal/CustomModal';
+import { CustomForm } from '../UI/customForm/CustomForm';
 
 import logoLeto from '../../public/images/header/logoLeto.svg';
 import vkLogo from '../../public/images/Footer/VkLogo.svg';
 
 export const Footer = () => {
+  const [modalActive, setModalActive] = useState(false);
+
+  const openModal = () => {
+    setModalActive(true);
+  };
+
   const linksCompany = [
     { label: 'Продукция', link: 'production' },
     { label: 'О компании', link: 'about' },
@@ -68,14 +77,11 @@ export const Footer = () => {
                 Есть предложения? <br /> Оставьте заявку
               </h5>
               <div className="footer__request-button">
-                <Link href="/contacts">
-                  <a>
-                    <CustomOutlinedButton
-                      label="Оставить заявку"
-                      isButtonSmall={false}
-                    />
-                  </a>
-                </Link>
+                <CustomOutlinedButton
+                  label="Оставить заявку"
+                  isButtonSmall={false}
+                  onClick={() => openModal()}
+                />
               </div>
             </div>
             <ul className="footer__contacts-list footer__contacts-list_media">
@@ -123,14 +129,11 @@ export const Footer = () => {
               Есть предложения? <br /> Оставьте заявку
             </h5>
             <div className="footer__request-button">
-              <Link href="/contacts">
-                <a>
-                  <CustomOutlinedButton
-                    label="Оставить заявку"
-                    isButtonSmall={false}
-                  />
-                </a>
-              </Link>
+              <CustomOutlinedButton
+                label="Оставить заявку"
+                isButtonSmall={false}
+                onClick={() => openModal()}
+              />
             </div>
           </div>
           <div className="footer__mark-wrapper link-text">
@@ -140,6 +143,11 @@ export const Footer = () => {
           </div>
         </footer>
       </div>
+      <CustomModal active={modalActive} setActive={setModalActive}>
+        <h2>Оставьте заявку</h2>
+        <p className="text-1">В ближайщее время наш менеджер свяжется с Вами</p>
+        <CustomForm buttonLabel="Отправить" />
+      </CustomModal>
     </div>
   );
 };
