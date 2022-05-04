@@ -1,7 +1,3 @@
-import axios from 'axios';
-
-import mockImg from '../public/images/ProductCard/mockBaseCard.jpg';
-
 import { StrapiServiceInstance } from './CMSAPI';
 
 class StrapiHandler {
