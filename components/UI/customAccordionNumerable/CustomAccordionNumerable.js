@@ -57,7 +57,7 @@ const AccordionTab = ({ title, content, number }) => {
         </CSSTransition>
       </div>
       <div className={classOfArrow} >
-        <div onClick={() => {
+        <div className="small-arrow-container" onClick={() => {
           setIsActive(!isActive);
           setShowMessage(!showMessage)
         }}>

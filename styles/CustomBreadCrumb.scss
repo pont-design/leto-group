@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.custom-breadcrumb-wrapper__link {
+  color: $gray400;
+}
+
+.custom-breadcrumb-wrapper__link_active {
+  color: $active-gray;
+}
+
+.custom-breadcrumb-wrapper {
+  display: flex;
+  gap: 8px;
+}

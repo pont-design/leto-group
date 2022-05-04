@@ -1,21 +1,54 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { motion } from 'framer-motion';
+
+import { StrapiServiceInstance } from '../Service/CMSAPI';
+
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import { CustomButton } from '../components/UI/customButton/CustomButton';
 
-import mockProduct from '../public/images/ProductCard/mockProduct.jpg';
-import { mockCatalog } from '../assets/mockCatalog';
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import mainImg from '../public/images/StartPage/start-page-main-img.jpg';
+import numbersImg from '../public/images/StartPage/start-page-numbers-img.jpg';
+import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
+import qualitativeProduction from '../public/images/StartPage/start-page-qualitative-product.jpg';
 
-function index() {
-  const productionSliderContent = mockCatalog.map((el) => ({
-    imgSrc: mockProduct.src,
+import {
+  startPageAnimation,
+  startPageAnimationSecond,
+} from '../assets/animations/animations';
+
+export const getStaticProps = async () => {
+  const res = await StrapiServiceInstance.getProducts();
+
+  return {
+    props: {
+      items: res.data,
+    },
+    revalidate: StrapiServiceInstance.timeToRebuild,
+  };
+};
+
+function index({ items }) {
+  const catalogLink = 'catalog/catalog';
+
+  function getGost(str) {
+    if (str) {
+      const gost = str.split(' ');
+      return `${gost[0]} ${gost[1]}`;
+    }
+  }
+
+  const productionSliderContent = items.map((el) => ({
+    imgSrc: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
     description: (
       <div className="start-page__production-slider-text">
-        <p className="card-caption">{el.gost}</p>
-        <h6 className="start-page__production-item-name">{el.name}</h6>
+        <p className="card-caption">{getGost(el.attributes.document)}</p>
+        <h6 className="start-page__production-item-name">
+          {el.attributes.name}
+        </h6>
       </div>
     ),
   }));
@@ -28,14 +61,14 @@ function index() {
   };
 
   const factorySliderContent = [
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
-    { imgSrc: mockProduct.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
   ];
 
   const factorySliderBreakPoint = {
@@ -50,12 +83,12 @@ function index() {
       <div className="container">
         <div className="start-page__main-block">
           <h1 className="start-page__main-heading">
-            Только натуральный продукт
+            Только <br /> натуральный продукт
           </h1>
           <div className="start-page__main-img-wrapper">
             <img
               className="start-page__main-img"
-              src={mockProduct.src}
+              src={mainImg.src}
               alt="main-img"
             />
           </div>
@@ -76,10 +109,16 @@ function index() {
             <CustomLink label="Наши процессы" />
           </div>
         </div>
-        <div className="start-page__number-block">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={startPageAnimation}
+          className="start-page__number-block"
+        >
           <h2>Наши показатели</h2>
           <div className="start-pahe__number-img">
-            <img src={mockProduct.src} alt="factory" />
+            <img src={numbersImg.src} alt="factory" />
           </div>
           <div className="start-page__number-text">
             <div className="start-page__number-item">
@@ -108,9 +147,15 @@ function index() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="start-page__production-block">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={startPageAnimationSecond}
+        className="start-page__production-block"
+      >
         <h2 className="start-page__production-heading container">Продукция</h2>
         <CustomSlider
           list={productionSliderContent}
@@ -118,16 +163,24 @@ function index() {
           swiperWrapperStyle="start-page__production-slider"
         />
         <div className="start-page__production-nav">
-          <Link href="/catalog/catalog">
-            <CustomButton
-              styles="start-page__button-nav"
-              label="Вся продукция"
-            />
+          <Link href={catalogLink}>
+            <>
+              <CustomButton
+                styles="start-page__button-nav"
+                label="Вся продукция"
+              />
+            </>
           </Link>
         </div>
-      </div>
+      </motion.div>
       <div className="container">
-        <div className="start-page__certification-wrapper">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={startPageAnimation}
+          className="start-page__certification-wrapper"
+        >
           <div className="start-page__certification__imgs-wrapper">
             <h2>Качественная продукция</h2>
             <div className="start-page__certification__imgs">
@@ -154,9 +207,15 @@ function index() {
             </p>
             <CustomLink label="Наши процессы" />
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="start-page__certification-slider">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={startPageAnimationSecond}
+        className="start-page__certification-slider"
+      >
         <CustomSlider
           list={factorySliderContent}
           swiperWrapperStyle="start-page__certification-swiper-wrapper"
@@ -164,9 +223,14 @@ function index() {
           slideImgStyle=""
           breakpointsObj={factorySliderBreakPoint}
         />
-      </div>
+      </motion.div>
       <div className="container">
-        <div className="start-page__last-block">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="start-page__last-block"
+        >
           <div className="start-page__last-block-text">
             <h1>Мы производим качественный продукт</h1>
             <p className="text-1">
@@ -176,10 +240,13 @@ function index() {
             </p>
             <CustomLink label="Наши процессы" />
           </div>
-          <div className="start-page__last-block-img-wrapper">
-            <img src={mockProduct.src} alt="factory" />
-          </div>
-        </div>
+          <motion.div
+            variants={startPageAnimationSecond}
+            className="start-page__last-block-img-wrapper"
+          >
+            <img src={qualitativeProduction.src} alt="factory" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

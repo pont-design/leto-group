@@ -1,11 +1,19 @@
+import { motion } from 'framer-motion';
+
 import { StatisticBlock } from '../components/StatisticBlock/StatisticBlock';
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mainImage from '../public/images/AboutPage/about-main.jpg';
-import ideasImage from '../public/images/AboutPage/ideas.jpg';
+import ideasImage from '../public/images/AboutPage/about-ideas-img.jpg';
+import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
 
 import mockAboutFactorySlider from '../public/images/ProductCard/mockBaseCard.jpg';
+
+import {
+  startPageAnimation,
+  startPageAnimationSecond,
+} from '../assets/animations/animations';
 
 export default function about() {
   const companyIdeas = ['Развитие', 'Партнерство', 'Качество', 'Инновации'];
@@ -18,14 +26,14 @@ export default function about() {
   );
 
   const factorySliderContent = [
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
-    { imgSrc: mockAboutFactorySlider.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderFirstImg.src },
   ];
 
   const teamSliderContent = [
@@ -69,10 +77,18 @@ export default function about() {
   return (
     <section className="about">
       <div className="container">
-        <div className="about__heading">
-          <h1 className="about__heading-text">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="about__heading"
+        >
+          <motion.h1
+            variants={startPageAnimation}
+            className="about__heading-text"
+          >
             Входим в топ-10 производителей яиц
-          </h1>
+          </motion.h1>
           <div className="about__heading-img-wrapper">
             <img
               className="about__heading-img"
@@ -80,8 +96,14 @@ export default function about() {
               alt="view"
             />
           </div>
-        </div>
-        <div className="about__eco-products">
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={startPageAnimation}
+          className="about__eco-products"
+        >
           <h2 className="about__eco-products-heading">
             Только экологически чистые и здоровые продукты питания
           </h2>
@@ -90,7 +112,7 @@ export default function about() {
             производителя высококачественной брендированной продукции, а также
             усиления вертикальной интеграции.
           </p>
-        </div>
+        </motion.div>
         <StatisticBlock />
         <div className="about__ideas">
           <div className="about__ideas-text">
@@ -105,7 +127,13 @@ export default function about() {
             <img src={ideasImage.src} alt="Ideas" />
           </div>
         </div>
-        <div className="about__design-factories">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={startPageAnimation}
+          className="about__design-factories"
+        >
           <h2 className="about__design-factories-heading">
             Проектирование завода
           </h2>
@@ -122,9 +150,15 @@ export default function about() {
               требованиях стандартов пищевой безопасности.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="about__design-factories-slider">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        variants={startPageAnimationSecond}
+        className="about__design-factories-slider"
+      >
         <CustomSlider
           list={factorySliderContent}
           swiperWrapperStyle="about__design-factory-swiper-wrapper"
@@ -132,7 +166,7 @@ export default function about() {
           slideImgStyle=""
           breakpointsObj={factorySliderBreakPoint}
         />
-      </div>
+      </motion.div>
       <div className="about__team-slider">
         <h2 className="about__team-slider-heading container">Команда</h2>
         <CustomSlider

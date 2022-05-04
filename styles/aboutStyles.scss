@@ -30,7 +30,7 @@
   row-gap: 3.2rem;
 
   .about__heading-text {
-    grid-column: 1/7;
+    grid-column: 1/12;
     grid-row: 1/2;
   }
 
@@ -60,7 +60,7 @@
   }
 
   .about__eco-products-caption {
-    grid-column: 9/13;
+    grid-column: 8/13;
     grid-row: 2/3;
     color: $gray700;
   }
@@ -164,116 +164,120 @@
 //MOBILE
 //MOBILE
 @media (max-width: 768px) {
-  .about__heading,
-  .about__eco-products,
-  .about__numbers,
-  .about__ideas,
-  .about__design-factories {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 4rem;
-    grid-template-rows: repeat(2, auto);
-  }
+  .about {
+    margin-top: 48px;
 
-  .about__heading {
-    row-gap: 8rem;
-
-    .about__heading-text {
-      grid-column: 1/5;
-      grid-row: 1/2;
+    .about__heading,
+    .about__eco-products,
+    .about__numbers,
+    .about__ideas,
+    .about__design-factories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 4rem;
+      grid-template-rows: repeat(2, auto);
     }
 
-    .about__heading-img-wrapper {
-      grid-column: 1/5;
-      grid-row: 2/3;
-      height: 145rem;
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-    }
-  }
+    .about__heading {
+      row-gap: 8rem;
 
-  .about__eco-products {
-    row-gap: 4rem;
-    margin-top: 20rem;
-    margin-bottom: 20rem;
-    padding-top: 4rem;
+      .about__heading-text {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
 
-    .about__eco-products-heading {
-      grid-column: 1/5;
-      grid-row: 1/2;
+      .about__heading-img-wrapper {
+        grid-column: 1/5;
+        grid-row: 2/3;
+        height: 145rem;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+      }
     }
 
-    .about__eco-products-caption {
-      grid-column: 1/5;
-      grid-row: 2/3;
-    }
-  }
+    .about__eco-products {
+      row-gap: 4rem;
+      margin-top: 20rem;
+      margin-bottom: 20rem;
+      padding-top: 4rem;
 
-  .about__ideas {
-    margin-top: 20rem;
-    align-items: start;
-    row-gap: 6rem;
+      .about__eco-products-heading {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
 
-    .about__ideas-text {
-      grid-column: 1/5;
-      grid-row: 2/3;
-    }
-
-    .about__ideas-list {
-      margin-bottom: 6rem;
+      .about__eco-products-caption {
+        grid-column: 1/5;
+        grid-row: 2/3;
+      }
     }
 
-    .about__ideas-item {
-      display: flex;
+    .about__ideas {
+      margin-top: 20rem;
       align-items: start;
-      gap: 3rem;
-      padding: 4rem 0;
+      row-gap: 6rem;
+
+      .about__ideas-text {
+        grid-column: 1/5;
+        grid-row: 2/3;
+      }
+
+      .about__ideas-list {
+        margin-bottom: 6rem;
+      }
+
+      .about__ideas-item {
+        display: flex;
+        align-items: start;
+        gap: 3rem;
+        padding: 4rem 0;
+      }
+
+      .about__ideas-team {
+        margin-bottom: 4rem;
+      }
+
+      .about__ideas-img {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
     }
 
-    .about__ideas-team {
-      margin-bottom: 4rem;
+    .about__design-factories {
+      margin-top: 35rem;
+      row-gap: 4rem;
+
+      .about__design-factories-heading {
+        grid-column: 1/5;
+        grid-row: 1/2;
+      }
+
+      .about__design-factories-text {
+        grid-column: 1/5;
+        grid-row: 2/3;
+        flex-direction: column;
+        justify-content: start;
+        gap: 4rem;
+      }
     }
 
-    .about__ideas-img {
-      grid-column: 1/5;
-      grid-row: 1/2;
-    }
-  }
-
-  .about__design-factories {
-    margin-top: 35rem;
-    row-gap: 4rem;
-
-    .about__design-factories-heading {
-      grid-column: 1/5;
-      grid-row: 1/2;
+    .about__design-factories-slider {
+      margin-top: 6rem;
+      margin-left: 0;
     }
 
-    .about__design-factories-text {
-      grid-column: 1/5;
-      grid-row: 2/3;
-      flex-direction: column;
-      justify-content: start;
-      gap: 4rem;
-    }
-  }
+    .about__team-slider {
+      margin-top: 10rem;
+      margin-left: 0;
 
-  .about__design-factories-slider {
-    margin-top: 6rem;
-    margin-left: 4rem;
-  }
+      .about__team-slider-heading {
+        margin-bottom: 4rem;
+      }
 
-  .about__team-slider {
-    margin-top: 10rem;
-    margin-left: 4rem;
-
-    .about__team-slider-heading {
-      margin-bottom: 4rem;
-    }
-
-    .about__team-slider-desc {
-      margin-top: 3rem;
-      gap: 1rem;
+      .about__team-slider-desc {
+        margin-top: 3rem;
+        gap: 1rem;
+      }
     }
   }
 }

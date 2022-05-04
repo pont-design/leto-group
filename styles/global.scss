@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 @font-face {
   font-family: 'nunito_sansregular';
   src: url('../public/fonts/NunitoSans-Regular.ttf') format('truetype');
@@ -101,7 +106,7 @@ h6 {
   font-family: 'nunito_sansregular', sans-serif;
   font-size: clamp(16px, 1.5vw, 24px);
   line-height: 150%;
-  color: $gray700;
+  color: $gray900;
 }
 
 .text-3 {
