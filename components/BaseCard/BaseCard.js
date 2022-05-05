@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const BaseCard = ({ img, name, gost }) => {
+export const BaseCard = ({ img, name, gost, imgStyles }) => {
   return (
     <div className="base-card">
-      <div className="base-card__img">
+      <div className={`base-card__img ${imgStyles}`}>
         <img src={img} alt={name} />
       </div>
       <div className="base-card__text">

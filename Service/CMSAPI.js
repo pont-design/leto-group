@@ -13,16 +13,18 @@ const test = qs.stringify(
 );
 
 const baseURL = 'http://188.225.45.114:1337';
+const sendAddress = 'ch69865@868749-ch69865.tmweb.ru';
 
 const timeToRebuild = 10;
 
 const strapiInstance = axios.create({
-  baseURL: baseURL,
+  baseURL,
 });
 
 class StrapiService {
-  constructor(strapiInstance, baseURL, timeToRebuild) {
+  constructor(strapiInstance, sendAddress, baseURL, timeToRebuild) {
     this._strapiInstance = strapiInstance;
+    this._sendAddress = sendAddress;
     this.baseURL = baseURL;
     this.timeToRebuild = timeToRebuild;
   }
@@ -64,7 +66,6 @@ class StrapiService {
     );
 
     const similarProductsResponse = await this._strapiInstance.get(
-      // `/api/items?populate=*?category_eq=${query}`
       `/api/items?${filterValue}`
     );
     return similarProductsResponse.data.data;
@@ -83,6 +84,7 @@ class StrapiService {
 
 export const StrapiServiceInstance = new StrapiService(
   strapiInstance,
+  sendAddress,
   baseURL,
   timeToRebuild
 );

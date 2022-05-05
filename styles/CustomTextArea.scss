@@ -10,6 +10,10 @@
   border: 1px solid $gray300;
 }
 
+.custom-text-area__text {
+  font-size: 20px;
+}
+
 .custom-text-area:hover {
   color: $gray900;
   border: 1px solid $gray600;
@@ -25,4 +29,10 @@
 .custom-text-area__full-field {
   color: $gray900;
   transition: all 0.3s ease-in;
+}
+
+@media (max-width: 768px) {
+  .custom-text-area {
+    height: 120px;
+  }
 }

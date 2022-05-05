@@ -75,7 +75,11 @@ function technologies() {
         className="technologies__quality-productivity"
       >
         <div className="quality-productivity-logo">
-          <img className="quality-productivity-logo__sanovo-logo" src={logoSanovo.src} alt="logo sanovo" />
+          <img
+            className="quality-productivity-logo__sanovo-logo"
+            src={logoSanovo.src}
+            alt="logo sanovo"
+          />
         </div>
         <div className="quality-productivity-hero-text">
           <h2>Высокое качество и производительность</h2>
@@ -88,16 +92,12 @@ function technologies() {
           </p>
         </div>
         <div className="quality-productivity__sertificates">
-          <img
-            className="quality-productivity__sertificates_atex"
-            src={atexSertificate.src}
-            alt="atex sertificate"
-          />
-          <img
-            className="quality-productivity__sertificates_iso"
-            src={ISOCertificate.src}
-            alt="ISO sertificate"
-          />
+          <div className="quality-productivity__sertificates_atex">
+            <img src={atexSertificate.src} alt="atex sertificate" />
+          </div>
+          <div className="quality-productivity__sertificates_iso">
+            <img src={ISOCertificate.src} alt="ISO sertificate" />
+          </div>
         </div>
       </motion.div>
       <div className="technologies__equipment">
@@ -105,15 +105,19 @@ function technologies() {
         {equipment.equipment.map((equipmentEl, i) => {
           return (
             <div
-              className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
-                }`}
+              className={`technologies__equipment-wrapper ${
+                i === 0 && 'technologies__equipment-wrapper_first-elem'
+              }`}
               key={equipmentEl.title}
             >
-              <img
-                className="technologies__equipment_img"
-                src={mockImage.src}
-                alt={equipmentEl.title}
-              />
+              <div className="technologies__equipment_img-wrapper">
+                <img
+                  className="technologies__equipment_img"
+                  src={mockImage.src}
+                  alt={equipmentEl.title}
+                />
+              </div>
+
               <div className="technologies__equipment-description">
                 <h4 className="equipment-description-title">
                   {equipmentEl.title}

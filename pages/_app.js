@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Header } from '../Components/Common/Header';
 import { Footer } from '../components/Common/Footer';
 
@@ -34,6 +36,8 @@ import '../styles/Сatalog.scss';
 import '../styles/StartPageStyles.scss';
 
 import '../styles/CustomAccordionPure.scss';
+
+import '../styles/Scroll.css';
 
 function MyApp({ Component, pageProps }) {
   return (

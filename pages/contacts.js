@@ -1,5 +1,13 @@
 import React from 'react';
+
+import { motion } from 'framer-motion';
+
 import { CustomForm } from '../components/UI/customForm/customForm';
+
+import {
+  startPageAnimation,
+  startPageAnimationSecond,
+} from '../assets/animations/animations';
 
 function Contacts() {
   const contactsDepartments = [
@@ -37,12 +45,19 @@ function Contacts() {
         <p className="contacts-communication-links__title text-4">
           01017, Тульская обл., Заокский р-н, п. Сосновый, стр. 1
         </p>
-        <div className="contacts-communication-links">
-          {contactsDepartments.map((department) => {
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="contacts-communication-links"
+        >
+          {contactsDepartments.map((department, i) => {
             return (
-              <div
+              <motion.div
                 className="contacts-communication-links__block"
                 key={department.number}
+                custom={i}
+                variants={startPageAnimation}
               >
                 <p className="caption-1">{department.department}</p>
                 <a
@@ -59,17 +74,16 @@ function Contacts() {
                     {department.email}
                   </a>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
       <div className="contacts-form-wrapper">
         <div className="contacts-form__form">
           <h4>Оставьте заявку</h4>
           <p className="text-1">
-            We're proud to be an accredited 'Australian Trusted Trader'. This
-            internationally recognised, Australian Government accreditation.{' '}
+            В ближайщее время наш менеджер свяжется с Вами
           </p>
           <CustomForm buttonLabel="Отправить" />
         </div>

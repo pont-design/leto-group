@@ -2,12 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 
 import { motion } from 'framer-motion';
+import { SwiperSlide } from 'swiper/react';
 
 import { StrapiServiceInstance } from '../Service/CMSAPI';
 
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import { CustomButton } from '../components/UI/customButton/CustomButton';
+import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
 import mainImg from '../public/images/StartPage/start-page-main-img.jpg';
@@ -32,7 +34,7 @@ export const getStaticProps = async () => {
 };
 
 function index({ items }) {
-  const catalogLink = 'catalog/catalog';
+  const catalogLink = '/catalog';
 
   function getGost(str) {
     if (str) {
@@ -40,18 +42,6 @@ function index({ items }) {
       return `${gost[0]} ${gost[1]}`;
     }
   }
-
-  const productionSliderContent = items.map((el) => ({
-    imgSrc: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
-    description: (
-      <div className="start-page__production-slider-text">
-        <p className="card-caption">{getGost(el.attributes.document)}</p>
-        <h6 className="start-page__production-item-name">
-          {el.attributes.name}
-        </h6>
-      </div>
-    ),
-  }));
 
   const productionSliderBreakPoint = {
     gapxl: 24,
@@ -81,10 +71,18 @@ function index({ items }) {
   return (
     <section className="start-page">
       <div className="container">
-        <div className="start-page__main-block">
-          <h1 className="start-page__main-heading">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          className="start-page__main-block"
+        >
+          <motion.h1
+            variants={startPageAnimationSecond}
+            className="start-page__main-heading"
+          >
             Только <br /> натуральный продукт
-          </h1>
+          </motion.h1>
           <div className="start-page__main-img-wrapper">
             <img
               className="start-page__main-img"
@@ -92,7 +90,7 @@ function index({ items }) {
               alt="main-img"
             />
           </div>
-        </div>
+        </motion.div>
         <div className="start-page__about-block">
           <div className="start-page__about-text">
             <p className="text-4">
@@ -106,7 +104,7 @@ function index({ items }) {
               оборудование изготовленное датской компанией SANOVO, являющиеся
               мировым лидером в этой отрасли
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Подробнее" route="/about" />
           </div>
         </div>
         <motion.div
@@ -117,7 +115,7 @@ function index({ items }) {
           className="start-page__number-block"
         >
           <h2>Наши показатели</h2>
-          <div className="start-pahe__number-img">
+          <div className="start-page__number-img">
             <img src={numbersImg.src} alt="factory" />
           </div>
           <div className="start-page__number-text">
@@ -158,18 +156,32 @@ function index({ items }) {
       >
         <h2 className="start-page__production-heading container">Продукция</h2>
         <CustomSlider
-          list={productionSliderContent}
           breakpointsObj={productionSliderBreakPoint}
           swiperWrapperStyle="start-page__production-slider"
-        />
+        >
+          {items.map((el) => (
+            <SwiperSlide key={el.id}>
+              <Link href={`/productCard/${el.id}`}>
+                <a>
+                  <BaseCard
+                    img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
+                    name={el.attributes.name}
+                    gost={el.attributes.document}
+                    imgStyles="start-page__production-slider-item-img"
+                  />
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </CustomSlider>
         <div className="start-page__production-nav">
           <Link href={catalogLink}>
-            <>
+            <a>
               <CustomButton
                 styles="start-page__button-nav"
                 label="Вся продукция"
-              />
-            </>
+              ></CustomButton>
+            </a>
           </Link>
         </div>
       </motion.div>
@@ -205,7 +217,7 @@ function index({ items }) {
               развивать рынок продукции ГПЯ, так и экспортировать продукты на
               целевые экспортные рынки
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Подробнее" route="/quality" />
           </div>
         </motion.div>
       </div>
@@ -238,7 +250,7 @@ function index({ items }) {
               цикла и наличие двух лабораторий позволяет осуществлять экспорт
               высококачественной продукции
             </p>
-            <CustomLink label="Наши процессы" />
+            <CustomLink label="Наши технологии" route="/technologies" />
           </div>
           <motion.div
             variants={startPageAnimationSecond}
