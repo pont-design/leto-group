@@ -120,6 +120,10 @@
     justify-content: center;
     margin-top: 6.4rem;
 
+    a {
+      width: 276px;
+    }
+
     .start-page__button-nav {
       max-width: 276px;
     }
@@ -301,6 +305,10 @@
       justify-content: center;
       margin-top: 8rem;
       padding-right: 4rem;
+
+      a {
+        width: 100%;
+      }
 
       .start-page__button-nav {
         max-width: none;
