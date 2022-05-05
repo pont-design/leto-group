@@ -180,7 +180,7 @@ function index({ items }) {
               <CustomButton
                 styles="start-page__button-nav"
                 label="Вся продукция"
-              />
+              ></CustomButton>
             </a>
           </Link>
         </div>
