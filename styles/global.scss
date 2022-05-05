@@ -209,6 +209,14 @@ button:focus {
   outline: none;
 }
 
+input:focus-visible {
+  outline: none !important;
+}
+
+textarea:focus-visible {
+  outline: none !important;
+}
+
 @media (max-width: 768px) {
   .btn-text {
     font-size: 5rem;
