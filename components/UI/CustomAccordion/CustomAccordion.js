@@ -16,6 +16,7 @@ export const CustomAccordion = ({ accordionList }) => {
 
   const toggle = (index) => () => {
     setBlockOpenStatus({
+      ...blockOpenStatus,
       [`block${index}`]: !blockOpenStatus[`block${index}`],
     });
     setIsActive(!isActive);
@@ -29,7 +30,7 @@ export const CustomAccordion = ({ accordionList }) => {
           title={item.title}
           blockOpenStatus={blockOpenStatus}
           toggle={toggle(index + 1)}
-          content={item.content}
+          content={item.desc}
         />
       ))}
     </div>

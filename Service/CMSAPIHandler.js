@@ -2,14 +2,13 @@ import { StrapiServiceInstance } from './CMSAPI';
 
 class StrapiHandler {
   handleCatalog(res) {
-
     return res.map((el) => ({
       id: el.id,
-      image: `${StrapiServiceInstance.baseURL}${el.img[0].formats.medium.url}`,
-      name: el.name,
-      gost: this.getGost(el.document),
-      Категория: this.translateCategory(el.category),
-      Консистенция: this.translateConsistency(el.consistency),
+      image: `${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`,
+      name: el.attributes.name,
+      gost: this.getGost(el.attributes.document),
+      Категория: this.translateCategory(el.attributes.category),
+      Консистенция: this.translateConsistency(el.attributes.consistency),
     }));
   }
 
@@ -53,17 +52,16 @@ class StrapiHandler {
   }
 
   getPaths(nameOfPage, allItems) {
-    const paths = []
-    allItems.forEach(item => {
+    const paths = [];
+    allItems.forEach((item) => {
       paths.push({
         params: {
-          [nameOfPage]: String(item.id)
-        }
-      })
-    })
-    return paths
+          [nameOfPage]: String(item.id),
+        },
+      });
+    });
+    return paths;
   }
-
 }
 
 export const StrapiHandlerInstance = new StrapiHandler();

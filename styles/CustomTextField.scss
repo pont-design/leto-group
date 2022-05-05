@@ -9,6 +9,10 @@
   border: 1px solid $gray300;
 }
 
+.custom-text-field__text {
+  font-size: 20px;
+}
+
 .custom-text-field:hover {
   color: $gray900;
   border: 1px solid $gray600;

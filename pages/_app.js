@@ -22,6 +22,7 @@ import '../styles/CustomOutlinedButton.scss';
 import '../styles/CustomRadioButtonStyle.scss';
 import '../styles/CustomBreadCrumb.scss';
 import '../styles/BaseCardStyles.scss';
+import '../styles/CustomModal.scss';
 
 import '../styles/Footer.scss';
 import '../styles/Header.scss';
@@ -33,6 +34,8 @@ import '../styles/Сatalog.scss';
 import '../styles/StartPageStyles.scss';
 
 import '../styles/CustomAccordionPure.scss';
+
+import '../styles/Scroll.css';
 
 function MyApp({ Component, pageProps }) {
   return (

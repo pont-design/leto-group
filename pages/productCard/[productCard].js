@@ -1,18 +1,26 @@
-import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
+import React, { useState } from 'react';
 
+import Link from 'next/link';
+
+import { SwiperSlide } from 'swiper/react';
+
+import { StrapiServiceInstance } from '../../Service/CMSAPI';
+import { getGostFromString } from '../../utils/getGostfromString';
+
+import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
+import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
+import { CustomForm } from '../../components/UI/customForm/CustomForm';
 
-import { StrapiServiceInstance } from "../../Service/CMSAPI";
-import { getGostFromString } from "../../utils/getGostfromString";
-import { CustomBreadCrumb } from "../../components/Breadcrumbs/CustomBreadCrumb";
+import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
 
 export async function getStaticPaths() {
-  const paths = await StrapiServiceInstance.getAllIds('productCard')
+  const paths = await StrapiServiceInstance.getAllIds('productCard');
 
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }
 
 export const getStaticProps = async (context) => {
@@ -20,33 +28,35 @@ export const getStaticProps = async (context) => {
 
   const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
 
-  let similarProducts = await StrapiServiceInstance.getSimilarProducts(currentProduct.category)
+  let similarProducts = await StrapiServiceInstance.getSimilarProducts(
+    currentProduct.attributes.category
+  );
 
-  const { name,
+  const {
+    name,
     document,
     structure,
     description,
     worth,
-    storage_conditions,
+    storage_condition,
     category,
-    consistency
-  } = currentProduct
+    consistency,
+  } = currentProduct.attributes;
 
-  const indicators = currentProduct.other_info
+  const indicators = currentProduct.attributes.additional_info;
 
-  const mediumImageUrl = currentProduct.img[0].formats.medium.url
+  const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
-  const gost = getGostFromString(document)
+  const gost = getGostFromString(document);
 
-  similarProducts = similarProducts.map(similarProduct => {
+  similarProducts = similarProducts.map((similarProduct) => {
     return {
       id: similarProduct.id,
       gost: `ГОСТ - 1234`,
-      name: similarProduct.name,
-      src: similarProduct.img[0].formats.small.url,
-    }
-
-  })
+      name: similarProduct.attributes.name,
+      src: similarProduct.attributes.img.data.attributes.url,
+    };
+  });
 
   return {
     props: {
@@ -55,39 +65,38 @@ export const getStaticProps = async (context) => {
       structure,
       description,
       worth,
-      storage_conditions,
+      storage_condition,
       mediumImageUrl,
       gost,
       similarProducts,
       category,
-      consistency
+      consistency,
     },
     revalidate: StrapiServiceInstance.timeToRebuild,
   };
 };
 
-export default function productCard(
-  {
-    indicators,
-    name,
-    gost,
-    structure,
-    description,
-    worth,
-    storage_conditions,
-    mediumImageUrl,
-    similarProducts,
-    category,
-    consistency
-  }
-) {
+export default function productCard({
+  indicators,
+  name,
+  gost,
+  structure,
+  description,
+  worth,
+  storage_condition,
+  mediumImageUrl,
+  similarProducts,
+  category,
+  consistency,
+}) {
+  const [modalActive, setModalActive] = useState(false);
+  const [voluemValue, setVoluemValue] = useState('');
 
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
 
     return (
       <div className="product-card__parametrs-table">
-
         {indicatorsArr.map((el) => (
           <div className="product-card__parametrs-item">
             <p className="product-card__parametr-name text-1">{el[0]}</p>
@@ -97,18 +106,6 @@ export default function productCard(
       </div>
     );
   }
-
-  const similarSliderContent = similarProducts.map((el) => {
-    return {
-      imgSrc: el.src,
-      description: (
-        <div className="product-card__similar-slider-desc">
-          <p className="card-caption">{el.gost}</p>
-          <h6>{el.name}</h6>
-        </div>
-      ),
-    };
-  });
 
   const similarSliderBreakPoint = {
     gapxl: 20,
@@ -128,7 +125,7 @@ export default function productCard(
     },
     {
       title: 'Упаковка',
-      desc: storage_conditions,
+      desc: storage_condition,
     },
   ];
 
@@ -140,7 +137,6 @@ export default function productCard(
         </div>
       </div>
       <section className="product-card container">
-
         <div className="product-card__main-info">
           <div className="product-card__image-block">
             <img
@@ -154,16 +150,22 @@ export default function productCard(
               {`ГОСТ - ${gost}`}
             </p>
             <h5 className="product-card__product-name">{name}</h5>
-            <p className="product-card__product-desc text-1">
-              {worth}
-            </p>
+            <p className="product-card__product-desc text-1">{worth}</p>
             <div className="product-card__voluem-options">
               <p className="caption-2 product-card__voluem-text">Объём</p>
-              <CustomRadioButton buttonsLabels={['5 л.', '10 л.', '25 л.']} />
+              <CustomRadioButton
+                handleValue={setVoluemValue}
+                buttonsLabels={['5 л.', '10 л.', '25 л.']}
+              />
             </div>
-            <CustomButton label='Оставить заявку' />
+            <CustomButton
+              onClick={() => {
+                setModalActive(true);
+              }}
+              label="Оставить заявку"
+            />
             <div className="product-card__accordion">
-              <CustomAccordion list={productCardAccordionContent} />
+              <CustomAccordion accordionList={productCardAccordionContent} />
             </div>
           </div>
         </div>
@@ -176,27 +178,54 @@ export default function productCard(
           <h3>Может такое возьмёте?</h3>
           <div className="product-card__similar-list">
             {similarProducts.map((el) => {
-              return (<>
-                <BaseCard
-                  key={el.id}
-                  img={`${StrapiServiceInstance.baseURL}${el.src}`}
-                  name={el.name}
-                  gost={el.gost}
-                />
-              </>
+              return (
+                <>
+                  <Link href={`/productCard/${el.id}`}>
+                    <a>
+                      <BaseCard
+                        key={el.id}
+                        img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                        name={el.name}
+                        gost={el.gost}
+                        imgStyles="product-card__similar-item-img"
+                      />
+                    </a>
+                  </Link>
+                </>
               );
             })}
           </div>
           <div className="product-card__similar-slider">
             <CustomSlider
-              list={similarSliderContent}
               swiperWrapperStyle=""
               swiperItemStyles=""
               slideImgStyle=""
               breakpointsObj={similarSliderBreakPoint}
-            />
+            >
+              {similarProducts.map((el) => (
+                <SwiperSlide key={el.id}>
+                  <Link href={`/productCard/${el.id}`}>
+                    <a>
+                      <BaseCard
+                        img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                        name={el.name}
+                        gost={el.gost}
+                        imgStyles="product-card__similar-item-img"
+                      />
+                    </a>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </CustomSlider>
           </div>
         </div>
+        <CustomModal active={modalActive} setActive={setModalActive}>
+          <h2>Оставьте заявку</h2>
+          <p className="text-1">
+            В ближайщее время наш менеджер свяжется с Вами
+          </p>
+          <CustomForm buttonLabel="Отправить" />
+        </CustomModal>
       </section>
     </>
   );

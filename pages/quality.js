@@ -1,5 +1,5 @@
-import React from 'react'
-import { CustomAccordionPure } from "../components/UI/customAccordionPure/CustomAccordionPure"
+import React from 'react';
+import { CustomAccordionPure } from '../components/UI/customAccordionPure/CustomAccordionPure';
 
 import { motion } from 'framer-motion';
 
@@ -10,7 +10,10 @@ import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
 import mainImg from '../public/images/QualityPage/quality-main-img.jpg';
 import controlImg from '../public/images/QualityPage/quality-control-img.jpg';
 
-import { startPageAnimation } from '../assets/animations/animations';
+import {
+  startPageAnimation,
+  startPageAnimationSecond,
+} from '../assets/animations/animations';
 
 function Quality() {
   const description = (
@@ -36,9 +39,9 @@ function Quality() {
 
   const qualitySliderBreakPoint = {
     gapxl: 24,
-    slidesPerViewXl: 1,
-    slidesPerViewMd: 2,
-    slidesPerViewXs: 1,
+    slidesPerViewXl: 4.2,
+    slidesPerViewMd: 3.2,
+    slidesPerViewXs: 1.2,
   };
 
   return (
@@ -51,7 +54,7 @@ function Quality() {
           className="quality-hero-text"
         >
           <motion.h3
-            variants={startPageAnimation}
+            variants={startPageAnimationSecond}
             className="quality-hero-text__text"
           >
             Сертификация продукции по международным стандартам: для целей
@@ -69,20 +72,28 @@ function Quality() {
           className="quality-certification-wrapper"
         >
           <div className="quality-certification__imgs-wrapper">
-            <h2>Мы производим <br /> качественный продукт</h2>
+            <h2>
+              Мы производим <br /> качественный продукт
+            </h2>
             <div className="quality-certification__imgs">
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="quality-certification__imgs_img"
-                src={mockImage.src}
-              />
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
+              <div className="quality-certification__img-container">
+                <img
+                  className="quality-certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
             </div>
           </div>
           <div className="quality-certification-description">
@@ -101,12 +112,18 @@ function Quality() {
         <div className="quality-steps-wrapper">
           <div className="quality-steps-description">
             <h2>Многоступенчатый контроль качества </h2>
-            <CustomAccordionPure accordionList={[{ title: '123', content: '321' }, { title: '123', content: '321' }, { title: '123', content: '321' }]} />
-          </div >
+            <CustomAccordionPure
+              accordionList={[
+                { title: '123', content: '321' },
+                { title: '123', content: '321' },
+                { title: '123', content: '321' },
+              ]}
+            />
+          </div>
           <div className="quality-steps-img-wrapper">
             <img src={controlImg.src} />
           </div>
-        </div >
+        </div>
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -129,7 +146,7 @@ function Quality() {
                   самым современным стандартам и требованиям
                 </p>
                 <div className="quality-process-description__content-linked_link">
-                  <CustomLink label="Наши процессы" />
+                  <CustomLink label="Наши технологии" route="/technologies" />
                 </div>
               </div>
               <p className="text-1">
@@ -137,12 +154,12 @@ function Quality() {
                 компьютера, а так же контроль за всеми процессами дистанционно
               </p>
               <div className="quality-process-description__content-linked_link-mobile">
-                <CustomLink label="Наши процессы" />
+                <CustomLink label="Наши технологии" route="/technologies" />
               </div>
             </div>
           </div>
         </motion.div>
-      </section >
+      </section>
       <div className="certificates">
         <div className="container">
           <h2>Сертификаты</h2>
@@ -151,7 +168,7 @@ function Quality() {
           <CustomSlider
             list={list}
             swiperWrapperStyle="quality-swiper-wrapper"
-            slideImgStyle="quality-swiper-slide"
+            swiperItemStyles="quality-swiper-slide"
             breakpointsObj={qualitySliderBreakPoint}
           />
         </div>

@@ -28,6 +28,8 @@
   height: 100%;
   width: 100%;
   max-height: 45.2rem;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .technologies__quality-productivity {
@@ -59,6 +61,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 2.4rem;
+
+  div {
+    border-radius: 4px;
+    overflow: hidden;
+  }
 }
 
 .technologies__equipment {
@@ -76,6 +83,11 @@
 
 .technologies__equipment-wrapper_first-elem {
   border-top: none;
+}
+
+.technologies__equipment_img-wrapper {
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .technologies__equipment_img {
@@ -175,6 +187,7 @@
 
   .technologies__quality-productivity {
     display: block;
+    margin-top: 8rem;
   }
 
   .quality-productivity-hero-text {

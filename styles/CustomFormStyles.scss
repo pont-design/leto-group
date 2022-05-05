@@ -7,7 +7,7 @@
 }
 
 .form-button {
-  margin-top: 32px;
+  margin-top: 12px;
   max-width: 27.6rem;
   padding: 16px 0;
 }
@@ -16,6 +16,10 @@
 //MOBILE
 //MOBILE
 @media (max-width: 768px) {
+  .custom-form-wrapper {
+    gap: 5rem;
+  }
+
   .form-button {
     max-width: 100%;
   }

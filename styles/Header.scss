@@ -62,39 +62,39 @@
 
 .hamburger-menu {
   display: none;
-}
 
-#menu__toggle {
-  opacity: 0;
-}
+  #menu__toggle {
+    opacity: 0;
+  }
 
-#menu__toggle:checked ~ .menu__btn > span {
-  transform: rotate(45deg);
-}
-#menu__toggle:checked ~ .menu__btn > span::before {
-  top: 0;
-  transform: rotate(0);
-}
-#menu__toggle:checked ~ .menu__btn > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-#menu__toggle:checked ~ .menu__box {
-  visibility: visible;
-  left: 0;
-}
+  #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu-box__shadow {
+    opacity: 1;
+    visibility: visible;
+  }
 
-.menu__btn {
-  z-index: 50;
-  position: relative;
-  bottom: 5px;
-  display: flex;
-  align-items: center;
+  .menu__btn {
+    z-index: 50;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
 
-  width: 26px;
-  height: 26px;
-
-  cursor: pointer;
+    cursor: pointer;
+  }
 }
 
 .menu__btn > span,
@@ -119,25 +119,66 @@
 }
 
 .menu__box {
-  z-index: 10;
-  display: block;
+  z-index: 100;
   position: fixed;
-  visibility: hidden;
-  top: 0;
-  left: -100%;
-
-  width: 100%;
-  height: 100%;
-
+  top: 65px;
+  width: 538px;
+  height: calc(100vh - 64px);
   margin: 0;
-  padding: 80px 0;
-
+  padding-left: 40px;
   list-style: none;
-
   background-color: white;
-  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-
   transition-duration: 0.25s;
+
+  .menu__box-nav {
+    height: 100%;
+    padding-top: 40px;
+    padding-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .menu__box-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .link-text__burger {
+        font-size: 36px;
+        line-height: 140%;
+        font-weight: 600;
+        color: $gray800;
+      }
+    }
+  }
+
+  .menu__box-additional-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    a {
+      display: block;
+    }
+
+    .custom-outlined-button {
+      max-width: 256px;
+      padding: 11px 0;
+    }
+  }
+}
+
+.menu-box__shadow {
+  z-index: 100;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 65px;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-out;
 }
 
 //MOBILE
@@ -168,5 +209,48 @@
   .header__sanovo-label {
     max-height: 5rem;
     margin-left: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 16px;
+    padding-right: 16px;
+    width: 100vw;
+
+    .menu__box-nav {
+      grid-column: 1/5;
+      padding-top: 20px;
+      padding-bottom: 32px;
+      border-right: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+
+      .menu__box-nav-links {
+        gap: 12px;
+
+        .link-text__burger {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .menu__box-additional-info {
+      gap: 24px;
+      align-items: center;
+
+      a {
+        width: 100%;
+      }
+
+      .custom-outlined-button {
+        max-width: none;
+        width: 100%;
+      }
+    }
   }
 }

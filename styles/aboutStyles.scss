@@ -37,6 +37,8 @@
   .about__heading-img-wrapper {
     grid-row: 2/3;
     grid-column: 1/13;
+    border-radius: 4px;
+    overflow: hidden;
 
     .about__heading-img {
       width: 100%;
@@ -106,6 +108,8 @@
 
   .about__ideas-img {
     grid-column: 8/13;
+    border-radius: 8px;
+    overflow: hidden;
   }
 }
 
@@ -135,6 +139,8 @@
 
 .about__design-factory-swiper-item {
   height: clamp(244px, 37.75vw, 604px);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .about__team-slider {
@@ -142,6 +148,8 @@
 
   .about__team-slider-item {
     height: clamp(420px, 33vw, 604px);
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   .about__team-slider-heading {
@@ -263,12 +271,12 @@
 
     .about__design-factories-slider {
       margin-top: 6rem;
-      margin-left: 4rem;
+      margin-left: 0;
     }
 
     .about__team-slider {
       margin-top: 10rem;
-      margin-left: 4rem;
+      margin-left: 0;
 
       .about__team-slider-heading {
         margin-bottom: 4rem;

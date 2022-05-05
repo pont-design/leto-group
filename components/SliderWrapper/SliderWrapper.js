@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { FreeMode } from 'swiper';
+
 import 'swiper/css';
 
 export const SliderWrapper = ({
@@ -12,6 +14,8 @@ export const SliderWrapper = ({
   return (
     <Swiper
       className={swiperWrapperStyle}
+      freeMode={true}
+      modules={[FreeMode]}
       breakpoints={{
         320: {
           spaceBetween: breakpointsObj.gapXs,
@@ -25,13 +29,8 @@ export const SliderWrapper = ({
       }}
     >
       {listOfElems.map((slide) => {
-        return (
-          <SwiperSlide >
-            {slide}
-          </SwiperSlide>
-        );
+        return <SwiperSlide>{slide}</SwiperSlide>;
       })}
-    </Swiper >
-
+    </Swiper>
   );
 };
