@@ -4,7 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { StrapiServiceInstance } from '../Service/CMSAPI';
 import { StrapiHandlerInstance } from '../Service/CMSAPIHandler';
 
-import { CustomFilters } from '../components/UI/customFilters/CustomFilters';
+import { CustomFilters } from '../components/UI/CustomFilters/CustomFilters';
 import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';

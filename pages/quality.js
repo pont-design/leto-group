@@ -3,7 +3,7 @@ import { CustomAccordionPure } from '../components/UI/customAccordionPure/Custom
 
 import { motion } from 'framer-motion';
 
-import { CustomLink } from '../components/UI/CustomLink/customLink';
+import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';

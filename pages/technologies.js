@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { StatisticBlock } from '../components/StatisticBlock/StatisticBlock';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
-import logoSanovo from '../public/images/Header/logoSanovo.svg';
+import logoSanovo from '../public/images/header/logoSanovo.svg';
 import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
 import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
 import mainBlockFirst from '../public/images/Technologies/technologies-main-block-first-img.jpg';

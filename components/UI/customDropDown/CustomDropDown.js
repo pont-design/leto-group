@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { CustomRadioButton } from '../CustomRadioButton/CustomRadioButton';
+import { CustomRadioButton } from '../customRadioButton/CustomRadioButton';
 
 export const CustomDropDown = ({
   label,

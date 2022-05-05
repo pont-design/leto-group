@@ -2,13 +2,9 @@ import React, { useState, useCallback } from 'react';
 
 import Link from 'next/link';
 
-import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
-import { CustomLanguageSwitcher } from '../UI/сustomLanguageSwitcher/CustomLanguageSwitcher';
-
 import logoLeto from '../../public/images/header/logoLeto.svg';
 import logoSanovo from '../../public/images/header/logoSanovo.svg';
 
-import Link from 'next/link';
 import { CustomOutlinedButton } from '../UI/customOutlinedButton/CustomOutlinedButton';
 import { CustomLanguageSwitcher } from '../UI/сustomLanguageSwitcher/CustomLanguageSwitcher';
 import { CustomModal } from '../UI/CustomModal/CustomModal';

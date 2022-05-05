@@ -2,7 +2,7 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import { CustomForm } from '../components/UI/customForm/customForm';
+import { CustomForm } from '../components/UI/customForm/CustomForm';
 
 import {
   startPageAnimation,

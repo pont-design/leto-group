@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { SwiperSlide } from 'swiper/react';
 
 import { StrapiServiceInstance } from '../../Service/CMSAPI';
-import { getGostFromString } from '../../utils/getGostfromString';
+import { getGostFromString } from '../../utils/getGostFromString';
 
 import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
-import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
+import { CustomRadioButton } from '../../components/UI/customRadioButton/CustomRadioButton';
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
