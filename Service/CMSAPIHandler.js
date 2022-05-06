@@ -1,3 +1,4 @@
+import { translitRuEn } from "../utils/translitGenerator";
 import { StrapiServiceInstance } from './CMSAPI';
 
 class StrapiHandler {
@@ -56,7 +57,7 @@ class StrapiHandler {
     allItems.forEach((item) => {
       paths.push({
         params: {
-          [nameOfPage]: String(item.id),
+          [nameOfPage]: `${translitRuEn(String(item.attributes.name))}-${String(item.id)}`,
         },
       });
     });

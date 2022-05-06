@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 
 import Link from 'next/link';
 
@@ -18,17 +18,22 @@ import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
 import { CustomForm } from '../../components/UI/customForm/CustomForm';
 
 import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
+import { deleteAllSymbolsExpectNumbers } from "../../utils/deleteAllSymbolsExpectNumbers";
 
 export async function getStaticPaths() {
   const paths = await StrapiServiceInstance.getAllIds('productCard');
 
-  return { paths, fallback: false };
+  return {
+    paths, fallback: false
+  };
 }
 
 export const getStaticProps = async (context) => {
-  const id = context.params;
 
-  const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
+  const currentUrl = context.params;
+
+  console.log(deleteAllSymbolsExpectNumbers(currentUrl))
+  const currentProduct = await StrapiServiceInstance.getProduct(deleteAllSymbolsExpectNumbers(currentUrl.productCard));
 
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
     currentProduct.attributes.category

@@ -10,6 +10,7 @@ import { BaseCard } from '../components/BaseCard/BaseCard';
 import Link from 'next/link';
 import { FiltersValueContext } from "./_app";
 import { motion } from 'framer-motion';
+import { translitRuEn } from "../utils/translitGenerator";
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -97,7 +98,7 @@ export default function Catalog({ items }) {
               classNames="filter-transition"
               unmountOnExit
             >
-              <Link href={`/productCard/${el.id}`}>
+              <Link href={`/productCard/${translitRuEn(el.name)}-${el.id}`}>
                 <a>
                   <BaseCard
                     img={el.image}
