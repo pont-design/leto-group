@@ -23,8 +23,6 @@ export const Header = () => {
   const [scrollAbility, setScrollAbility] = useState(true);
   const [modalActive, setModalActive] = useState(false);
 
-  console.log(scrollAbility);
-
   useCallback;
 
   const toggleBurger = useCallback(() => {

@@ -4,8 +4,7 @@
   margin-top: 64px;
 
   .catalog-page__heading {
-    border-bottom: 1px solid $gray200;
-    padding-bottom: 7.2rem;
+    margin-bottom: 7.2rem;
   }
 
   .catalog-page__download-link {
@@ -29,11 +28,10 @@
   }
 
   .catalog-page__chosen-filters-list {
-    border-top: 1px solid $gray200;
-    padding-top: 1.6rem;
+    margin-top: 16px;
     display: flex;
     align-items: center;
-    gap: 1.6rem;
+    gap: 16px;
     height: 50px;
 
     .catalog-page__chosen-filter {
@@ -66,6 +64,8 @@
 
     .catalog-page__heading {
       padding-bottom: 8rem;
+      margin-bottom: 0;
+      border-bottom: 1px solid $gray200;
     }
 
     .catalog-page__download-link {
@@ -73,11 +73,12 @@
     }
 
     .catalog-page__chosen-filters-list {
+      margin-top: 32px;
+      padding-top: 16px;
       border-top: 1px solid $gray200;
-      padding-top: 1.6rem;
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      position: relative;
 
       .catalog-page__chosen-filter {
         display: flex;
