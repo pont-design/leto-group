@@ -5,7 +5,6 @@ import { CustomDropDown } from '../customDropDown/CustomDropDown';
 import { filters } from '../../../assets/mockFilters';
 
 import { amountDeclination } from '../../../utils/amountDeclination';
-import { SliderWrapper } from '../../SliderWrapper/SliderWrapper';
 
 export const CustomFilters = ({
   productWordsDeclination,
@@ -44,11 +43,6 @@ export const CustomFilters = ({
           <div className="filter-container__filters">
             <p className="tag-text">Фильтры</p>
             <div className="filter-container-swiper-quality">
-              {/* <SliderWrapper
-            listOfElems={filtersElems}
-            breakpointsObj={factorySliderBreakPoint}
-            swiperWrapperStyle='filter-container-swiper-quality'
-          /> */}
               <div className="test1">{filtersElems}</div>
             </div>
           </div>

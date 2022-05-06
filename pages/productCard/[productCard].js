@@ -90,7 +90,7 @@ export default function productCard({
   consistency,
 }) {
   const [modalActive, setModalActive] = useState(false);
-  const [voluemValue, setVoluemValue] = useState('');
+  const [volumeValue, setVolumeValue] = useState('');
 
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
@@ -154,7 +154,7 @@ export default function productCard({
             <div className="product-card__voluem-options">
               <p className="caption-2 product-card__voluem-text">Объём</p>
               <CustomRadioButton
-                handleValue={setVoluemValue}
+                handleValue={setVolumeValue}
                 buttonsLabels={['5 л.', '10 л.', '25 л.']}
               />
             </div>
