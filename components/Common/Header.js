@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 
 import Link from 'next/link';
 
@@ -11,6 +11,9 @@ import logoSanovo from '../../public/images/header/logoSanovo.svg';
 import { CustomModal } from '../UI/CustomModal/CustomModal';
 import { CustomForm } from '../UI/customForm/CustomForm';
 
+import { removeFilterSettings } from "../../utils/removeFilterSettings";
+import { FiltersValueContext } from "../../pages/_app";
+
 export const Header = () => {
   const links = [
     { label: 'Продукция', link: '/catalog' },
@@ -20,10 +23,20 @@ export const Header = () => {
     { label: 'Контакты', link: '/contacts' },
   ];
 
-  const [scrollAbility, setScrollAbility] = useState(true);
-  const [modalActive, setModalActive] = useState(false);
 
-  useCallback;
+
+  const filtersValueController = useContext(FiltersValueContext);
+
+  const deleteCategories = () => { //TODO : this function should be in context
+    filtersValueController.setFilterValue(removeFilterSettings(filtersValueController.filterValue))
+  }
+
+  const removeFiltersOnLinkClick = (link) => {
+    link === '/catalog' && deleteCategories()
+  } //TODO : this function should be in context
+
+  const [scrollAbility, setScrollAbility] = useState(true); //TODO: all this logic should be in custom hook
+  const [modalActive, setModalActive] = useState(false);
 
   const toggleBurger = useCallback(() => {
     setScrollAbility(!scrollAbility);
@@ -62,7 +75,8 @@ export const Header = () => {
             <img className="header__sanovo-label" src={logoSanovo.src} />
             <ul className="header__links">
               {links.map((link) => (
-                <li className="link-text header-link-content" key={link.label}>
+                <li onClick={() => { removeFiltersOnLinkClick(link.link) }}
+                  className="link-text header-link-content" key={link.label}>
                   <Link href={link.link}>{link.label}</Link>
                 </li>
               ))}
@@ -90,7 +104,7 @@ export const Header = () => {
             <label className="menu__btn" htmlFor="menu__toggle">
               <span></span>
             </label>
-            <div onClick={() => toggleBurger()} className="menu-box__shadow">
+            <div onClick={() => toggleBurger()} className="menu-box__shadow">    {/* TODO: to separate view (modal window menu) */}
               <div onClick={(e) => e.stopPropagation()} className="menu__box ">
                 <div className="menu__box-nav">
                   <ul className="menu__box-nav-links">
@@ -98,7 +112,10 @@ export const Header = () => {
                       <li
                         className="link-text link-text__burger"
                         key={link.label}
-                        onClick={() => toggleBurger()}
+                        onClick={() => {
+                          toggleBurger();
+                          removeFiltersOnLinkClick(link.link)
+                        }}
                       >
                         <Link href={link.link}>{link.label}</Link>
                       </li>

@@ -69,198 +69,205 @@ function index({ items }) {
   };
 
   return (
-    <section className="start-page">
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          className="start-page__main-block"
-        >
-          <motion.h1
-            variants={startPageAnimationSecond}
-            className="start-page__main-heading"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <section className="start-page">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            className="start-page__main-block"
           >
-            Только <br /> натуральный продукт
-          </motion.h1>
-          <div className="start-page__main-img-wrapper">
-            <img
-              className="start-page__main-img"
-              src={mainImg.src}
-              alt="main-img"
-            />
-          </div>
-        </motion.div>
-        <div className="start-page__about-block">
-          <div className="start-page__about-text">
-            <p className="text-4">
-              Международная сертификация и полная интеграция в технологическую
-              цепочку Sanovo Technology group.
-            </p>
-          </div>
-          <div className="start-page__about-caption">
-            <p className="text-1">
-              В арсенале завода «ЛЕТО» используется самое современное
-              оборудование изготовленное датской компанией SANOVO, являющиеся
-              мировым лидером в этой отрасли
-            </p>
-            <CustomLink label="Подробнее" route="/about" />
-          </div>
-        </div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={startPageAnimation}
-          className="start-page__number-block"
-        >
-          <h2>Наши показатели</h2>
-          <div className="start-page__number-img">
-            <img src={numbersImg.src} alt="factory" />
-          </div>
-          <div className="start-page__number-text">
-            <div className="start-page__number-item">
-              <p className="text-2">
-                При проектировании завода, учитывался самый передовой опыт
-                европейских производителей яичных продуктов. Который основан на
-                самых высоких требованиях пищевой безопасности.
-              </p>
-            </div>
-            <div className="start-page__number-item">
-              <p className="text-numbers">70 000 000 +</p>
-              <p className="text-1 start-page__number-item-desc">
-                Продаём упаковок в год
-              </p>
-            </div>
-            <div className="start-page__number-item">
-              <p className="text-numbers">3000 Га</p>
-              <p className="text-1 start-page__number-item-desc">
-                Рабочая площадь преприятия
-              </p>
-            </div>
-            <div className="start-page__number-item">
-              <p className="text-numbers">SANOVO</p>
-              <p className="text-1 start-page__number-item-desc">
-                Завод оборудован современной техникой датской компании
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={startPageAnimationSecond}
-        className="start-page__production-block"
-      >
-        <h2 className="start-page__production-heading container">Продукция</h2>
-        <CustomSlider
-          breakpointsObj={productionSliderBreakPoint}
-          swiperWrapperStyle="start-page__production-slider"
-        >
-          {items.map((el) => (
-            <SwiperSlide key={el.id}>
-              <Link href={`/productCard/${el.id}`}>
-                <a>
-                  <BaseCard
-                    img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
-                    name={el.attributes.name}
-                    gost={el.attributes.document}
-                    imgStyles="start-page__production-slider-item-img"
-                  />
-                </a>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </CustomSlider>
-        <div className="start-page__production-nav">
-          <Link href={catalogLink}>
-            <a>
-              <CustomButton
-                styles="start-page__button-nav"
-                label="Вся продукция"
-              ></CustomButton>
-            </a>
-          </Link>
-        </div>
-      </motion.div>
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={startPageAnimation}
-          className="start-page__certification-wrapper"
-        >
-          <div className="start-page__certification__imgs-wrapper">
-            <h2>Качественная продукция</h2>
-            <div className="start-page__certification__imgs">
+            <motion.h1
+              variants={startPageAnimationSecond}
+              className="start-page__main-heading"
+            >
+              Только <br /> натуральный продукт
+            </motion.h1>
+            <div className="start-page__main-img-wrapper">
               <img
-                className="start-page__certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="start-page__certification__imgs_img"
-                src={mockImage.src}
-              />
-              <img
-                className="start-page__certification__imgs_img"
-                src={mockImage.src}
+                className="start-page__main-img"
+                src={mainImg.src}
+                alt="main-img"
               />
             </div>
-          </div>
-          <div className="start-page__certification-description">
-            <p className="text-2 start-page__certification-description_subtitle">
-              Высокое и стабильное качество продукции ГПЯ – самые современные
-              технологии и стандарты работы позволяют как замещать импорт и
-              развивать рынок продукции ГПЯ, так и экспортировать продукты на
-              целевые экспортные рынки
-            </p>
-            <CustomLink label="Подробнее" route="/quality" />
-          </div>
-        </motion.div>
-      </div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={startPageAnimationSecond}
-        className="start-page__certification-slider"
-      >
-        <CustomSlider
-          list={factorySliderContent}
-          swiperWrapperStyle="start-page__certification-swiper-wrapper"
-          swiperItemStyles="start-page__certification-swiper-item"
-          slideImgStyle=""
-          breakpointsObj={factorySliderBreakPoint}
-        />
-      </motion.div>
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          className="start-page__last-block"
-        >
-          <div className="start-page__last-block-text">
-            <h1>Мы производим качественный продукт</h1>
-            <p className="text-1">
-              Использование аттестованного технологического процесса полного
-              цикла и наличие двух лабораторий позволяет осуществлять экспорт
-              высококачественной продукции
-            </p>
-            <CustomLink label="Наши технологии" route="/technologies" />
+          </motion.div>
+          <div className="start-page__about-block">
+            <div className="start-page__about-text">
+              <p className="text-4">
+                Международная сертификация и полная интеграция в технологическую
+                цепочку Sanovo Technology group.
+              </p>
+            </div>
+            <div className="start-page__about-caption">
+              <p className="text-1">
+                В арсенале завода «ЛЕТО» используется самое современное
+                оборудование изготовленное датской компанией SANOVO, являющиеся
+                мировым лидером в этой отрасли
+              </p>
+              <CustomLink label="Подробнее" route="/about" />
+            </div>
           </div>
           <motion.div
-            variants={startPageAnimationSecond}
-            className="start-page__last-block-img-wrapper"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={startPageAnimation}
+            className="start-page__number-block"
           >
-            <img src={qualitativeProduction.src} alt="factory" />
+            <h2>Наши показатели</h2>
+            <div className="start-page__number-img">
+              <img src={numbersImg.src} alt="factory" />
+            </div>
+            <div className="start-page__number-text">
+              <div className="start-page__number-item">
+                <p className="text-2">
+                  При проектировании завода, учитывался самый передовой опыт
+                  европейских производителей яичных продуктов. Который основан на
+                  самых высоких требованиях пищевой безопасности.
+                </p>
+              </div>
+              <div className="start-page__number-item">
+                <p className="text-numbers">70 000 000 +</p>
+                <p className="text-1 start-page__number-item-desc">
+                  Продаём упаковок в год
+                </p>
+              </div>
+              <div className="start-page__number-item">
+                <p className="text-numbers">3000 Га</p>
+                <p className="text-1 start-page__number-item-desc">
+                  Рабочая площадь преприятия
+                </p>
+              </div>
+              <div className="start-page__number-item">
+                <p className="text-numbers">SANOVO</p>
+                <p className="text-1 start-page__number-item-desc">
+                  Завод оборудован современной техникой датской компании
+                </p>
+              </div>
+            </div>
           </motion.div>
+        </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={startPageAnimationSecond}
+          className="start-page__production-block"
+        >
+          <h2 className="start-page__production-heading container">Продукция</h2>
+          <CustomSlider
+            breakpointsObj={productionSliderBreakPoint}
+            swiperWrapperStyle="start-page__production-slider"
+          >
+            {items.map((el) => (
+              <SwiperSlide key={el.id}>
+                <Link href={`/productCard/${el.id}`}>
+                  <a>
+                    <BaseCard
+                      img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
+                      name={el.attributes.name}
+                      gost={el.attributes.document}
+                      imgStyles="start-page__production-slider-item-img"
+                    />
+                  </a>
+                </Link>
+              </SwiperSlide>
+            ))}
+          </CustomSlider>
+          <div className="start-page__production-nav">
+            <Link href={catalogLink}>
+              <a>
+                <CustomButton
+                  styles="start-page__button-nav"
+                  label="Вся продукция"
+                ></CustomButton>
+              </a>
+            </Link>
+          </div>
         </motion.div>
-      </div>
-    </section>
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={startPageAnimation}
+            className="start-page__certification-wrapper"
+          >
+            <div className="start-page__certification__imgs-wrapper">
+              <h2>Качественная продукция</h2>
+              <div className="start-page__certification__imgs">
+                <img
+                  className="start-page__certification__imgs_img"
+                  src={mockImage.src}
+                />
+                <img
+                  className="start-page__certification__imgs_img"
+                  src={mockImage.src}
+                />
+                <img
+                  className="start-page__certification__imgs_img"
+                  src={mockImage.src}
+                />
+              </div>
+            </div>
+            <div className="start-page__certification-description">
+              <p className="text-2 start-page__certification-description_subtitle">
+                Высокое и стабильное качество продукции ГПЯ – самые современные
+                технологии и стандарты работы позволяют как замещать импорт и
+                развивать рынок продукции ГПЯ, так и экспортировать продукты на
+                целевые экспортные рынки
+              </p>
+              <CustomLink label="Подробнее" route="/quality" />
+            </div>
+          </motion.div>
+        </div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={startPageAnimationSecond}
+          className="start-page__certification-slider"
+        >
+          <CustomSlider
+            list={factorySliderContent}
+            swiperWrapperStyle="start-page__certification-swiper-wrapper"
+            swiperItemStyles="start-page__certification-swiper-item"
+            slideImgStyle=""
+            breakpointsObj={factorySliderBreakPoint}
+          />
+        </motion.div>
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            className="start-page__last-block"
+          >
+            <div className="start-page__last-block-text">
+              <h1>Мы производим качественный продукт</h1>
+              <p className="text-1">
+                Использование аттестованного технологического процесса полного
+                цикла и наличие двух лабораторий позволяет осуществлять экспорт
+                высококачественной продукции
+              </p>
+              <CustomLink label="Наши технологии" route="/technologies" />
+            </div>
+            <motion.div
+              variants={startPageAnimationSecond}
+              className="start-page__last-block-img-wrapper"
+            >
+              <img src={qualitativeProduction.src} alt="factory" />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    </motion.div>
   );
 }
 
