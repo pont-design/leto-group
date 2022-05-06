@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { SwiperSlide } from 'swiper/react';
 
 import { StrapiServiceInstance } from '../../Service/CMSAPI';
-import { getGostFromString } from '../../utils/getGostfromString';
 
 import { motion } from 'framer-motion';
 
@@ -32,7 +31,6 @@ export const getStaticProps = async (context) => {
 
   const currentUrl = context.params;
 
-  console.log(deleteAllSymbolsExpectNumbers(currentUrl))
   const currentProduct = await StrapiServiceInstance.getProduct(deleteAllSymbolsExpectNumbers(currentUrl.productCard));
 
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
@@ -41,8 +39,8 @@ export const getStaticProps = async (context) => {
 
   const {
     name,
-    document,
     structure,
+    document,
     description,
     worth,
     storage_condition,
@@ -54,15 +52,16 @@ export const getStaticProps = async (context) => {
 
   const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
-  const gost = getGostFromString(document);
+  similarProducts = similarProducts.filter(similarProduct => similarProduct.attributes.name !== name)
 
   similarProducts = similarProducts.map((similarProduct) => {
     return {
       id: similarProduct.id,
-      gost: `ГОСТ - 1234`,
+      gost: similarProduct.attributes.document,
       name: similarProduct.attributes.name,
       src: similarProduct.attributes.img.data.attributes.url,
     };
+
   });
 
   return {
@@ -74,7 +73,7 @@ export const getStaticProps = async (context) => {
       worth,
       storage_condition,
       mediumImageUrl,
-      gost,
+      document,
       similarProducts,
       category,
       consistency,
@@ -86,7 +85,7 @@ export const getStaticProps = async (context) => {
 export default function productCard({
   indicators,
   name,
-  gost,
+  document,
   structure,
   description,
   worth,
@@ -98,6 +97,8 @@ export default function productCard({
 }) {
   const [modalActive, setModalActive] = useState(false);
   const [volumeValue, setVolumeValue] = useState('');
+
+  similarProducts = similarProducts.slice(0, 3)
 
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
@@ -159,7 +160,7 @@ export default function productCard({
           </div>
           <div className="product-card__text-info">
             <p className="product-card__gost card-caption">
-              {`ГОСТ - ${gost}`}
+              {document}
             </p>
             <h5 className="product-card__product-name">{name}</h5>
             <p className="product-card__product-desc text-1">{worth}</p>
