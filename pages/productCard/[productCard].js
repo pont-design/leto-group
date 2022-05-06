@@ -7,6 +7,8 @@ import { SwiperSlide } from 'swiper/react';
 import { StrapiServiceInstance } from '../../Service/CMSAPI';
 import { getGostFromString } from '../../utils/getGostfromString';
 
+import { motion } from 'framer-motion';
+
 import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomRadioButton';
@@ -130,7 +132,12 @@ export default function productCard({
   ];
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="product-card-breadcrumbs-container">
         <div className="container">
           <CustomBreadCrumb category={category} consistency={consistency} />
@@ -227,6 +234,6 @@ export default function productCard({
           <CustomForm buttonLabel="Отправить" />
         </CustomModal>
       </section>
-    </>
+    </motion.div >
   );
 }

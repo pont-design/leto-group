@@ -9,7 +9,7 @@ import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';
 import { FiltersValueContext } from "./_app";
-
+import { motion } from 'framer-motion';
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -26,13 +26,7 @@ export default function Catalog({ items }) {
   const filtersValueController = useContext(FiltersValueContext);
   const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
 
-  // console.log(filtersValueController)
   const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
-
-  // const [filterValue, setFilterValue] = useState({
-  //   Категория: '', //TODO : this fields should come from backend
-  //   Консистенция: '',
-  // });
 
   const [inProp, setInProp] = useState(false);
 
@@ -68,50 +62,56 @@ export default function Catalog({ items }) {
     [productWordsDeclination, filtersValueController.filterValue]);
 
   return (
-    <section className="catalog-page container">
-      <div className="catalog-page__heading">
-        <h1>Продукция</h1>
-        <a className="catalog-page__download-link btn-link">
-          {downloadArrow} Скачать каталог
-        </a>
-      </div>
-      <input onChange={(e) => theme.foreground = e.target.value} />
-      <CustomFilters
-        productWordsDeclination={productWordsDeclination}
-        filterValue={filtersValueController.filterValue}
-        filteredValue={filteredValues}
-        setFilterValue={filtersValueController.setFilterValue}
-      />
-      <AddChosenFilter
-        inProp={inProp}
-        filterValue={filtersValueController.filterValue}
-        setInProp={setInProp}
-        setFilterValue={filtersValueController.setFilterValue}
-      />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <section className="catalog-page container">
+        <div className="catalog-page__heading">
+          <h1>Продукция</h1>
+          <a className="catalog-page__download-link btn-link">
+            {downloadArrow} Скачать каталог
+          </a>
+        </div>
+        <CustomFilters
+          productWordsDeclination={productWordsDeclination}
+          filterValue={filtersValueController.filterValue}
+          filteredValue={filteredValues}
+          setFilterValue={filtersValueController.setFilterValue}
+        />
+        <AddChosenFilter
+          inProp={inProp}
+          filterValue={filtersValueController.filterValue}
+          setInProp={setInProp}
+          setFilterValue={filtersValueController.setFilterValue}
+        />
 
-      <TransitionGroup className="catalog-page__products-list">
-        {filteredValues.map((el) => (
-          <CSSTransition
-            key={el.id}
-            in={inProp}
-            timeout={300}
-            classNames="filter-transition"
-            unmountOnExit
-          >
-            <Link href={`/productCard/${el.id}`}>
-              <a>
-                <BaseCard
-                  img={el.image}
-                  name={el.name}
-                  gost={el.gost}
-                  imgStyles="catalog-page__products-item-img"
-                />
-              </a>
-            </Link>
-          </CSSTransition>
-        ))}
-      </TransitionGroup>
-    </section>
+        <TransitionGroup className="catalog-page__products-list">
+          {filteredValues.map((el) => (
+            <CSSTransition
+              key={el.id}
+              in={inProp}
+              timeout={300}
+              classNames="filter-transition"
+              unmountOnExit
+            >
+              <Link href={`/productCard/${el.id}`}>
+                <a>
+                  <BaseCard
+                    img={el.image}
+                    name={el.name}
+                    gost={el.gost}
+                    imgStyles="catalog-page__products-item-img"
+                  />
+                </a>
+              </Link>
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+      </section>
+    </motion.div >
   );
 }
 

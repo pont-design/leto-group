@@ -39,6 +39,11 @@ import '../styles/CustomAccordionPure.scss';
 
 import '../styles/Scroll.css';
 
+import {
+  AnimatePresence,
+  domAnimation, LazyMotion, m
+} from "framer-motion"
+
 export const FiltersValueContext = React.createContext(null); //TODO: context should be in separate file
 
 function MyApp({ Component, pageProps }) {
@@ -51,7 +56,18 @@ function MyApp({ Component, pageProps }) {
   return (
     <FiltersValueContext.Provider value={{ filterValue, setFilterValue }}>
       <Header />
-      <Component {...pageProps} />
+      <LazyMotion features={domAnimation}>
+        <AnimatePresence exitBeforeEnter={false} >
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Component {...pageProps} />
+          </m.div>
+        </AnimatePresence>
+      </LazyMotion>
       <Footer />
     </FiltersValueContext.Provider>
   );
