@@ -20,19 +20,19 @@
   .accordion-content {
     overflow: hidden;
     max-height: 0;
-    transition: max-height 2s ease-out;
+    transition: all 0.3s ease-out;
 
     p {
       padding-top: 12px;
       margin: 0;
       opacity: 0;
-      transition: 2s;
+      transition: all 0.3s ease-out;
     }
 
     &.is-opened {
       max-height: 500px;
       overflow: hidden;
-      transition: max-height 2s ease-out;
+      transition: all 0.6s ease-out;
       p {
         opacity: 1;
       }

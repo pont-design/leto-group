@@ -75,108 +75,115 @@ export default function about() {
   };
 
   return (
-    <section className="about">
-      <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          className="about__heading"
-        >
-          <motion.h1
-            variants={startPageAnimationSecond}
-            className="about__heading-text"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <section className="about">
+        <div className="container">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            className="about__heading"
           >
-            Входим в топ-10 <br /> производителей яиц
-          </motion.h1>
-          <div className="about__heading-img-wrapper">
-            <img
-              className="about__heading-img"
-              src={mainImage.src}
-              alt="view"
-            />
-          </div>
-        </motion.div>
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.4 }}
-          variants={startPageAnimation}
-          className="about__eco-products"
-        >
-          <h2 className="about__eco-products-heading">
-            Только экологически чистые и здоровые продукты питания
-          </h2>
-          <p className="caption-1 about__eco-products-caption">
-            Наша главная цель — укрепление позиций компании как ведущего
-            производителя высококачественной брендированной продукции, а также
-            усиления вертикальной интеграции.
-          </p>
-        </motion.div>
-        <StatisticBlock />
-        <div className="about__ideas">
-          <div className="about__ideas-text">
-            {getCompanyList()}
-            <p className="text-1 about__ideas-team">
-              Наша команда имеет высокий уровень компетенции и дальше надо
-              что-то дописать
+            <motion.h1
+              variants={startPageAnimationSecond}
+              className="about__heading-text"
+            >
+              Входим в топ-10 <br /> производителей яиц
+            </motion.h1>
+            <div className="about__heading-img-wrapper">
+              <img
+                className="about__heading-img"
+                src={mainImage.src}
+                alt="view"
+              />
+            </div>
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={startPageAnimation}
+            className="about__eco-products"
+          >
+            <h2 className="about__eco-products-heading">
+              Только экологически чистые и здоровые продукты питания
+            </h2>
+            <p className="caption-1 about__eco-products-caption">
+              Наша главная цель — укрепление позиций компании как ведущего
+              производителя высококачественной брендированной продукции, а также
+              усиления вертикальной интеграции.
             </p>
-            <CustomLink label="О качестве" route="/quality" />
+          </motion.div>
+          <StatisticBlock />
+          <div className="about__ideas">
+            <div className="about__ideas-text">
+              {getCompanyList()}
+              <p className="text-1 about__ideas-team">
+                Наша команда имеет высокий уровень компетенции и дальше надо
+                что-то дописать
+              </p>
+              <CustomLink label="О качестве" route="/quality" />
+            </div>
+            <div className="about__ideas-img">
+              <img src={ideasImage.src} alt="Ideas" />
+            </div>
           </div>
-          <div className="about__ideas-img">
-            <img src={ideasImage.src} alt="Ideas" />
-          </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.4 }}
+            variants={startPageAnimation}
+            className="about__design-factories"
+          >
+            <h2 className="about__design-factories-heading">
+              Проектирование завода
+            </h2>
+            <div className="about__design-factories-text">
+              <p className="text-1">
+                В состав технологического комплекса входит подразделение
+                технологического сервиса в сфере B2B, центр исследований и
+                разработки новых продуктов R&D. Комплекс имеет мощности для
+                реализации продукции сектора B2C
+              </p>
+              <p className="text-1">
+                При проектировании завода, учитывался самый передовой опыт
+                производителей яичных продуктов, который основан на самых высоких
+                требованиях стандартов пищевой безопасности.
+              </p>
+            </div>
+          </motion.div>
         </div>
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.4 }}
-          variants={startPageAnimation}
-          className="about__design-factories"
+          variants={startPageAnimationSecond}
+          className="about__design-factories-slider"
         >
-          <h2 className="about__design-factories-heading">
-            Проектирование завода
-          </h2>
-          <div className="about__design-factories-text">
-            <p className="text-1">
-              В состав технологического комплекса входит подразделение
-              технологического сервиса в сфере B2B, центр исследований и
-              разработки новых продуктов R&D. Комплекс имеет мощности для
-              реализации продукции сектора B2C
-            </p>
-            <p className="text-1">
-              При проектировании завода, учитывался самый передовой опыт
-              производителей яичных продуктов, который основан на самых высоких
-              требованиях стандартов пищевой безопасности.
-            </p>
-          </div>
+          <CustomSlider
+            list={factorySliderContent}
+            swiperWrapperStyle="about__design-factory-swiper-wrapper"
+            swiperItemStyles="about__design-factory-swiper-item"
+            slideImgStyle=""
+            breakpointsObj={factorySliderBreakPoint}
+          />
         </motion.div>
-      </div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={startPageAnimationSecond}
-        className="about__design-factories-slider"
-      >
-        <CustomSlider
-          list={factorySliderContent}
-          swiperWrapperStyle="about__design-factory-swiper-wrapper"
-          swiperItemStyles="about__design-factory-swiper-item"
-          slideImgStyle=""
-          breakpointsObj={factorySliderBreakPoint}
-        />
-      </motion.div>
-      <div className="about__team-slider">
-        <h2 className="about__team-slider-heading container">Команда</h2>
-        <CustomSlider
-          list={teamSliderContent}
-          swiperWrapperStyle="about__team-slider-wrapper"
-          swiperItemStyles="about__team-slider-item"
-          slideImgStyle="about__team-slider-img"
-          breakpointsObj={teamSliderBreakPoint}
-        />
-      </div>
-    </section>
+        <div className="about__team-slider">
+          <h2 className="about__team-slider-heading container">Команда</h2>
+          <CustomSlider
+            list={teamSliderContent}
+            swiperWrapperStyle="about__team-slider-wrapper"
+            swiperItemStyles="about__team-slider-item"
+            slideImgStyle="about__team-slider-img"
+            breakpointsObj={teamSliderBreakPoint}
+          />
+        </div>
+      </section>
+    </motion.div>
   );
 }

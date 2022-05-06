@@ -84,7 +84,7 @@
   }
 
   .menu__btn {
-    z-index: 50;
+    z-index: 90;
     position: relative;
     bottom: 5px;
     display: flex;
@@ -119,7 +119,7 @@
 }
 
 .menu__box {
-  z-index: 100;
+  z-index: 90;
   position: fixed;
   top: 65px;
   width: 538px;
@@ -169,7 +169,7 @@
 }
 
 .menu-box__shadow {
-  z-index: 100;
+  z-index: 90;
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.2);
