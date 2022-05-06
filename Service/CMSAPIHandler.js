@@ -19,7 +19,7 @@ class StrapiHandler {
     }
   }
 
-  translateCategory(str) {
+  translateCategory(str) { //TODO : move function to utils
     let category = '';
     switch (str) {
       case 'white':

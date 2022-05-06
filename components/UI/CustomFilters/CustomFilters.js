@@ -12,12 +12,6 @@ export const CustomFilters = ({
   setFilterValue,
   filteredValue,
 }) => {
-  const factorySliderBreakPoint = {
-    gapxl: 1,
-    gapXs: 16,
-    gapMd: 16,
-    gapXl: 16,
-  };
 
   const filtersElems = filters.map((el) => (
     <CustomDropDown

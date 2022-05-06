@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { StrapiServiceInstance } from '../Service/CMSAPI';
@@ -8,6 +8,8 @@ import { CustomFilters } from '../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';
+import { FiltersValueContext } from "./_app";
+
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -21,14 +23,16 @@ export const getStaticProps = async () => {
 };
 
 export default function Catalog({ items }) {
+  const filtersValueController = useContext(FiltersValueContext);
   const productWordsDeclination = ['продукт', 'продукта', 'продуктов'];
 
+  // console.log(filtersValueController)
   const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
 
-  const [filterValue, setFilterValue] = useState({
-    Категория: '',
-    Консистенция: '',
-  });
+  // const [filterValue, setFilterValue] = useState({
+  //   Категория: '', //TODO : this fields should come from backend
+  //   Консистенция: '',
+  // });
 
   const [inProp, setInProp] = useState(false);
 
@@ -46,23 +50,22 @@ export default function Catalog({ items }) {
 
   const filterProducts = () => {
     const filteredCatalog = [...createdCatalog];
-    const appliedFilters = Object.entries(filterValue);
+    const appliedFilters = Object.entries(filtersValueController.filterValue);
 
     for (let i = 0; i < appliedFilters.length; i++) {
       const filterKey = [appliedFilters[i][0]];
-      if (filterValue[filterKey]) {
+      if (filtersValueController.filterValue[filterKey]) {
         filteredCatalog = filteredCatalog.filter(
-          (el) => el[filterKey] === filterValue[filterKey]
+          (el) => el[filterKey] === filtersValueController.filterValue[filterKey]
         );
       }
     }
     return filteredCatalog;
   };
 
-  const filteredValues = useMemo(
-    () => filterProducts(),
-    [productWordsDeclination, filterValue]
-  );
+  const filteredValues = useMemo(() =>
+    filterProducts(),
+    [productWordsDeclination, filtersValueController.filterValue]);
 
   return (
     <section className="catalog-page container">
@@ -72,18 +75,18 @@ export default function Catalog({ items }) {
           {downloadArrow} Скачать каталог
         </a>
       </div>
-
+      <input onChange={(e) => theme.foreground = e.target.value} />
       <CustomFilters
         productWordsDeclination={productWordsDeclination}
-        filterValue={filterValue}
+        filterValue={filtersValueController.filterValue}
         filteredValue={filteredValues}
-        setFilterValue={setFilterValue}
+        setFilterValue={filtersValueController.setFilterValue}
       />
       <AddChosenFilter
         inProp={inProp}
-        filterValue={filterValue}
+        filterValue={filtersValueController.filterValue}
         setInProp={setInProp}
-        setFilterValue={setFilterValue}
+        setFilterValue={filtersValueController.setFilterValue}
       />
 
       <TransitionGroup className="catalog-page__products-list">
@@ -112,7 +115,7 @@ export default function Catalog({ items }) {
   );
 }
 
-const AddChosenFilter = ({
+const AddChosenFilter = ({ // TODO: separate component
   inProp,
   filterValue,
   setInProp,
