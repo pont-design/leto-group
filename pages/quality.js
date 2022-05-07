@@ -45,7 +45,12 @@ function Quality() {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <section className="container">
         <motion.div
           initial="hidden"
@@ -173,7 +178,7 @@ function Quality() {
           />
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }
 

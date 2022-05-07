@@ -43,7 +43,6 @@
 
   .start-page__about-text {
     grid-column: 1/7;
-    // padding-right: 7.6rem;
   }
 
   .start-page__about-caption {
@@ -286,7 +285,6 @@
   .start-page__production-block {
     margin-top: 20rem;
     row-gap: 4rem;
-    margin-left: 4rem;
 
     .start-page__production-heading {
       margin-bottom: 4rem;
@@ -304,7 +302,7 @@
       display: flex;
       justify-content: center;
       margin-top: 8rem;
-      padding-right: 4rem;
+      padding: 0 4rem;
 
       a {
         width: 100%;
