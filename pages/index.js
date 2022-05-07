@@ -133,9 +133,9 @@ function index({ items }) {
                 </p>
               </div>
               <div className="start-page__number-item">
-                <p className="text-numbers">70 000 000 +</p>
+                <p className="text-numbers">5 000 000 +</p>
                 <p className="text-1 start-page__number-item-desc">
-                  Продаём упаковок в год
+                Производительность яиц в сутки
                 </p>
               </div>
               <div className="start-page__number-item">
