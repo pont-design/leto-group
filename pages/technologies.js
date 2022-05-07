@@ -10,11 +10,11 @@ import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
 import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
 import mainBlockFirst from '../public/images/Technologies/technologies-main-block-first-img.jpg';
 import mainBlockSecond from '../public/images/Technologies/technologies-main-block-second.jpg';
-
 import {
   startPageAnimation,
   startPageAnimationSecond,
 } from '../assets/animations/animations';
+import { CustomAccordionTechnologies } from "../components/UI/customAccordionTechnologies/CustomAccordionTechnologies";
 
 function technologies() {
   const equipment = {
@@ -107,33 +107,11 @@ function technologies() {
           </div>
         </motion.div>
         <div className="technologies__equipment">
-          <h2>{equipment.title}</h2>
-          {equipment.equipment.map((equipmentEl, i) => {
-            return (
-              <div
-                className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
-                  }`}
-                key={equipmentEl.title}
-              >
-                <div className="technologies__equipment_img-wrapper">
-                  <img
-                    className="technologies__equipment_img"
-                    src={mockImage.src}
-                    alt={equipmentEl.title}
-                  />
-                </div>
-
-                <div className="technologies__equipment-description">
-                  <h4 className="equipment-description-title">
-                    {equipmentEl.title}
-                  </h4>
-                  <p className="equipment-description-subtitle text-1">
-                    {equipmentEl.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+          <CustomAccordionTechnologies accordionList={[
+            { title: 'Нормализация уровня рН.', subTitle: 'Автоматическая нормализация уровня pH жидкого яичного белка позволяет производить жидкий яичный белок с заданным уровнем pH', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
+            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
+            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
+            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' }]} />
         </div>
         <StatisticBlock />
         <motion.div

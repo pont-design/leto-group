@@ -1,25 +1,31 @@
 @import './variables.scss';
 
-.accordion-pure-wrapper {
+.accordion-technologies-wrapper {
   gap: 2.8rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin-right: 4.8rem;
   padding-top: 30px;
   padding-bottom: 32px;
   border-top: 1px solid $gray200;
   border-bottom: 1px solid $gray200;
 
-  .accordion-pure__content-wrapper {
-    gap: 2.8rem;
+  .accordion-technologies__content-wrapper {
+    gap: 7rem;
     display: flex;
-    max-width: 80%;
+    justify-content: space-between;
   }
 
-  .accordion-pure__content {
-    width: 100%;
+  .accordion-technologies_img {
+    border-radius: 4px;
+    margin-top: 20px;
+  } 
+
+  .accordion-technologies__image-wrapper {
+    gap: 4.25rem;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    min-width: 50%;
   }
 
   .content {

@@ -17,24 +17,23 @@ export const Footer = () => {
   };
 
   const linksCompany = [
-    { label: 'Продукция', link: 'production' },
-    { label: 'О компании', link: 'about' },
-    { label: 'Качество', link: 'quality' },
-    { label: 'Технология', link: 'technology' },
-    { label: 'Вакансии', link: 'vacancy' },
-    { label: 'Контакты', link: 'contacts' },
+    { label: 'Продукция', link: '/catalog' },
+    { label: 'О компании', link: '/about' },
+    { label: 'Качество', link: '/quality' },
+    { label: 'Технология', link: '/technologies' },
+    { label: 'Контакты', link: '/contacts' },
   ];
 
   const linksMedia = [
     {
       label: 'Вконтакте',
-      link: '#',
+      link: 'https://vk.com',
     },
   ];
 
   const helpCompany = [
-    { label: 'Вакансии', link: 'vacancy' },
-    { label: 'Контакты', link: 'contacts' },
+    { label: 'Вакансии', link: '/vacancy' },
+    { label: 'Контакты', link: '/contacts' },
   ];
 
   const company = { title: 'Компания', list: linksCompany };
@@ -90,7 +89,7 @@ export const Footer = () => {
               </li>
               {media.list.map((link) => (
                 <li className="link-text">
-                  <a href="#" className="footer__vk-logo" link={link.link}>
+                  <a href={link.link} className="footer__vk-logo" link={link.link}>
                     <img className="footer__vk-logo_img" src={vkLogo.src} />
                     <p className="footer-link-content">{link.label}</p>
                   </a>
@@ -118,10 +117,12 @@ export const Footer = () => {
               </li>
             </ul>
             <div className="footer__contacts-list footer__contacts-list_logo">
-              <img
-                className="footer__contacts-list_logo_img"
-                src={logoLeto.src}
-              />
+              <Link href="/">
+                <img
+                  className="footer__contacts-list_logo_img"
+                  src={logoLeto.src}
+                />
+              </Link>
             </div>
           </div>
           <div className="footer__request-wrapper">
