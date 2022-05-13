@@ -69,6 +69,9 @@
   grid-column: 7/13;
   border-radius: 8px;
   overflow: hidden;
+  align-self: start;
+  position: sticky;
+  top: 32px;
 }
 
 .certificates {
