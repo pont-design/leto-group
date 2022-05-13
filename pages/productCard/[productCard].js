@@ -7,6 +7,8 @@ import { SwiperSlide } from 'swiper/react';
 import { StrapiServiceInstance } from '../../Service/CMSAPI';
 import { getGostFromString } from '../../utils/getGostFromString';
 
+import { motion } from 'framer-motion';
+
 import { CustomAccordion } from '../../components/UI/CustomAccordion/CustomAccordion';
 import { CustomButton } from '../../components/UI/customButton/CustomButton';
 import { CustomRadioButton } from '../../components/UI/customRadioButton/CustomRadioButton';
@@ -16,17 +18,23 @@ import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
 import { CustomForm } from '../../components/UI/customForm/CustomForm';
 
 import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
+import { deleteAllSymbolsExpectNumbers } from '../../utils/deleteAllSymbolsExpectNumbers';
 
 export async function getStaticPaths() {
   const paths = await StrapiServiceInstance.getAllIds('productCard');
 
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false,
+  };
 }
 
 export const getStaticProps = async (context) => {
-  const id = context.params;
+  const currentUrl = context.params;
 
-  const currentProduct = await StrapiServiceInstance.getProduct(id.productCard);
+  const currentProduct = await StrapiServiceInstance.getProduct(
+    deleteAllSymbolsExpectNumbers(currentUrl.productCard)
+  );
 
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
     currentProduct.attributes.category
@@ -34,8 +42,8 @@ export const getStaticProps = async (context) => {
 
   const {
     name,
-    document,
     structure,
+    document,
     description,
     worth,
     storage_condition,
@@ -47,12 +55,14 @@ export const getStaticProps = async (context) => {
 
   const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
-  const gost = getGostFromString(document);
+  similarProducts = similarProducts.filter(
+    (similarProduct) => similarProduct.attributes.name !== name
+  );
 
   similarProducts = similarProducts.map((similarProduct) => {
     return {
       id: similarProduct.id,
-      gost: `ГОСТ - 1234`,
+      gost: similarProduct.attributes.document,
       name: similarProduct.attributes.name,
       src: similarProduct.attributes.img.data.attributes.url,
     };
@@ -67,7 +77,7 @@ export const getStaticProps = async (context) => {
       worth,
       storage_condition,
       mediumImageUrl,
-      gost,
+      document,
       similarProducts,
       category,
       consistency,
@@ -79,7 +89,7 @@ export const getStaticProps = async (context) => {
 export default function productCard({
   indicators,
   name,
-  gost,
+  document,
   structure,
   description,
   worth,
@@ -90,7 +100,9 @@ export default function productCard({
   consistency,
 }) {
   const [modalActive, setModalActive] = useState(false);
-  const [voluemValue, setVoluemValue] = useState('');
+  const [volumeValue, setVolumeValue] = useState('');
+
+  similarProducts = similarProducts.slice(0, 3);
 
   function addParametrs() {
     const indicatorsArr = Object.entries(indicators);
@@ -130,7 +142,12 @@ export default function productCard({
   ];
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="product-card-breadcrumbs-container">
         <div className="container">
           <CustomBreadCrumb category={category} consistency={consistency} />
@@ -146,15 +163,13 @@ export default function productCard({
             />
           </div>
           <div className="product-card__text-info">
-            <p className="product-card__gost card-caption">
-              {`ГОСТ - ${gost}`}
-            </p>
+            <p className="product-card__gost card-caption">{document}</p>
             <h5 className="product-card__product-name">{name}</h5>
             <p className="product-card__product-desc text-1">{worth}</p>
             <div className="product-card__voluem-options">
               <p className="caption-2 product-card__voluem-text">Объём</p>
               <CustomRadioButton
-                handleValue={setVoluemValue}
+                handleValue={setVolumeValue}
                 buttonsLabels={['5 л.', '10 л.', '25 л.']}
               />
             </div>
@@ -227,6 +242,6 @@ export default function productCard({
           <CustomForm buttonLabel="Отправить" />
         </CustomModal>
       </section>
-    </>
+    </motion.div>
   );
 }

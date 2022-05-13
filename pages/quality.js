@@ -45,7 +45,12 @@ function Quality() {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
       <section className="container">
         <motion.div
           initial="hidden"
@@ -114,7 +119,7 @@ function Quality() {
             <h2>Многоступенчатый контроль качества </h2>
             <CustomAccordionPure
               accordionList={[
-                { title: '123', content: '321' },
+                { title: '123', content: '321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321321' },
                 { title: '123', content: '321' },
                 { title: '123', content: '321' },
               ]}
@@ -173,7 +178,7 @@ function Quality() {
           />
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }
 

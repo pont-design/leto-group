@@ -66,13 +66,15 @@ export const CustomDropDown = ({
           {arrowImg}
         </div>
       </div>
-      <div
-        className={`drop-down__custom-radio ${classesDropDownCustomRadioButton}`}
-      >
-        <CustomRadioButton
-          buttonsLabels={buttonsLabels}
-          handleValue={handleRadioValue}
-        />
+      <div className="drop-down__custmo-radio-wrapper">
+        <div
+          className={`drop-down__custom-radio ${classesDropDownCustomRadioButton}`}
+        >
+          <CustomRadioButton
+            buttonsLabels={buttonsLabels}
+            handleValue={handleRadioValue}
+          />
+        </div>
       </div>
     </div>
   );
