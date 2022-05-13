@@ -34,6 +34,7 @@ import '../styles/Technologies.scss';
 import '../styles/AboutStyles.scss';
 import '../styles/Сatalog.scss';
 import '../styles/StartPageStyles.scss';
+import '../styles/CustomAccordionTechnologies.scss'
 
 import '../styles/CustomAccordionPure.scss';
 

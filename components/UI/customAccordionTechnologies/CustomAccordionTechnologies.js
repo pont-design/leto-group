@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-// type accordionList = Array<{title : string, content: string}>
+// type accordionList = Array<{title : string, imgSrc: string}>
 
-export const CustomAccordionPure = ({ accordionList }) => {
+export const CustomAccordionTechnologies = ({ accordionList }) => {
 
   const [blockOpenStatus, setBlockOpenStatus] = useState({})
 
@@ -22,11 +22,12 @@ export const CustomAccordionPure = ({ accordionList }) => {
     <div className="accordions-pure-wrapper">
       {accordionList.map((item, index) => (
         <AccordionTab
+          subTitle={item.subTitle}
           index={index}
           title={item.title}
           blockOpenStatus={blockOpenStatus}
           toggle={toggle(index)}
-          content={item.content}
+          imgSrc={item.imgSrc}
         />
       ))
       }
@@ -34,7 +35,7 @@ export const CustomAccordionPure = ({ accordionList }) => {
   )
 }
 
-const AccordionTab = ({ index, title, blockOpenStatus, toggle, content }) => {
+const AccordionTab = ({ index, title, blockOpenStatus, toggle, imgSrc, subTitle }) => {
 
   const arrow = <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M28.127 15H17.627V4.5H15.627V15H5.12695V17H15.627V27.5H17.627V17H28.127V15Z" />
@@ -45,25 +46,29 @@ const AccordionTab = ({ index, title, blockOpenStatus, toggle, content }) => {
     'accordion-tab-numerable__arrow-container accordion-numerable-arrow_close'
 
   return (
-    <div key={index} className="accordion-pure-wrapper">
-      <div className="accordion-pure__content-wrapper">
-        <h4>{String(index + 1).padStart(2, 0)}</h4>
-        <div className="accordion-pure__content">
-          <h4 className="accordion-pure__title">
-            {title}
-          </h4>
-          <div className={blockOpenStatus[`block${index}`]
-            ? 'content is-expanded'
-            : 'content'} >
-            <p className="text-1"> {content} </p>
+    <div key={index} className="accordion-technologies-wrapper">
+      <h4 >{title}</h4>
+      <div>
+        <div className="accordion-technologies__image-wrapper">
+          <div className="accordion-technologies__content">
+            <p className="text-1">
+              {subTitle}
+            </p>
+          </div>
+          <div className={classOfArrow}>
+            <div className="small-arrow-container" onClick={toggle}>
+              {arrow}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={classOfArrow}>
-        <div className="small-arrow-container" onClick={toggle}>
-          {arrow}
+        <div className={blockOpenStatus[`block${index}`]
+          ? 'content is-expanded'
+          : 'content'} >
+          <img className="accordion-technologies_img" src={imgSrc} />
         </div>
       </div>
+
     </div>
   )
 }
+
