@@ -71,7 +71,7 @@
   overflow: hidden;
   align-self: start;
   position: sticky;
-  top: 32px;
+  top: 64px;
 }
 
 .certificates {
@@ -182,6 +182,10 @@
     h2 {
       margin-bottom: 4rem;
     }
+  }
+
+  .quality-steps-img-wrapper {
+    position: static;
   }
 
   .quality-certification-integration {

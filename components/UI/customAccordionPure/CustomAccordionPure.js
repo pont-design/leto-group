@@ -28,6 +28,7 @@ export const CustomAccordionPure = ({ accordionList }) => {
           blockOpenStatus={blockOpenStatus}
           toggle={toggle(index)}
           content={item.content}
+          key={index}
         />
       ))}
     </div>

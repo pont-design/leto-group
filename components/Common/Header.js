@@ -9,10 +9,10 @@ import logoLeto from '../../public/images/header/logoLeto.svg';
 import logoSanovo from '../../public/images/header/logoSanovo.svg';
 
 import { CustomModal } from '../UI/CustomModal/CustomModal';
-import { CustomForm } from '../UI/customForm/CustomForm';
+import { CustomForm } from '../UI/CustomForm/CustomForm';
 
-import { removeFilterSettings } from "../../utils/removeFilterSettings";
-import { FiltersValueContext } from "../../pages/_app";
+import { removeFilterSettings } from '../../utils/removeFilterSettings';
+import { FiltersValueContext } from '../../pages/_app';
 
 export const Header = () => {
   const links = [
@@ -23,17 +23,18 @@ export const Header = () => {
     { label: 'Контакты', link: '/contacts' },
   ];
 
-
-
   const filtersValueController = useContext(FiltersValueContext);
 
-  const deleteCategories = () => { //TODO : this function should be in context
-    filtersValueController.setFilterValue(removeFilterSettings(filtersValueController.filterValue))
-  }
+  const deleteCategories = () => {
+    //TODO : this function should be in context
+    filtersValueController.setFilterValue(
+      removeFilterSettings(filtersValueController.filterValue)
+    );
+  };
 
   const removeFiltersOnLinkClick = (link) => {
-    link === '/catalog' && deleteCategories()
-  } //TODO : this function should be in context
+    link === '/catalog' && deleteCategories();
+  }; //TODO : this function should be in context
 
   const [scrollAbility, setScrollAbility] = useState(true); //TODO: all this logic should be in custom hook
   const [modalActive, setModalActive] = useState(false);
@@ -75,8 +76,13 @@ export const Header = () => {
             <img className="header__sanovo-label" src={logoSanovo.src} />
             <ul className="header__links">
               {links.map((link) => (
-                <li onClick={() => { removeFiltersOnLinkClick(link.link) }}
-                  className="link-text header-link-content" key={link.label}>
+                <li
+                  onClick={() => {
+                    removeFiltersOnLinkClick(link.link);
+                  }}
+                  className="link-text header-link-content"
+                  key={link.label}
+                >
                   <Link href={link.link}>{link.label}</Link>
                 </li>
               ))}
@@ -95,16 +101,19 @@ export const Header = () => {
 
             <CustomLanguageSwitcher />
           </div>
-          <div onChange={() => toggleBurger()} className="hamburger-menu">
+          <div className="hamburger-menu">
             <input
               id="menu__toggle"
               type="checkbox"
               checked={scrollAbility ? false : true}
+              onChange={() => toggleBurger()}
             />
             <label className="menu__btn" htmlFor="menu__toggle">
               <span></span>
             </label>
-            <div onClick={() => toggleBurger()} className="menu-box__shadow">    {/* TODO: to separate view (modal window menu) */}
+            <div onClick={() => toggleBurger()} className="menu-box__shadow">
+              {' '}
+              {/* TODO: to separate view (modal window menu) */}
               <div onClick={(e) => e.stopPropagation()} className="menu__box ">
                 <div className="menu__box-nav">
                   <ul className="menu__box-nav-links">
@@ -114,7 +123,7 @@ export const Header = () => {
                         key={link.label}
                         onClick={() => {
                           toggleBurger();
-                          removeFiltersOnLinkClick(link.link)
+                          removeFiltersOnLinkClick(link.link);
                         }}
                       >
                         <Link href={link.link}>{link.label}</Link>
@@ -125,6 +134,7 @@ export const Header = () => {
                     <CustomOutlinedButton
                       onClick={() => openModal()}
                       label="Оставить заявку"
+                      isButtonSmall={true}
                     />
                     <a className="btn-text-2" href="tel:+78005553535">
                       +7 800 555 35 35

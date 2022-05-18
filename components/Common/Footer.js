@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
 
 import { CustomModal } from '../UI/CustomModal/CustomModal';
-import { CustomForm } from '../UI/customForm/CustomForm';
+import { CustomForm } from '../UI/CustomForm/CustomForm';
 
 import logoLeto from '../../public/images/header/logoLeto.svg';
 import vkLogo from '../../public/images/Footer/VkLogo.svg';
@@ -88,8 +88,12 @@ export const Footer = () => {
                 <h6>{media.title}</h6>
               </li>
               {media.list.map((link) => (
-                <li className="link-text">
-                  <a href={link.link} className="footer__vk-logo" link={link.link}>
+                <li className="link-text" key={link.link}>
+                  <a
+                    href={link.link}
+                    className="footer__vk-logo"
+                    link={link.link}
+                  >
                     <img className="footer__vk-logo_img" src={vkLogo.src} />
                     <p className="footer-link-content">{link.label}</p>
                   </a>

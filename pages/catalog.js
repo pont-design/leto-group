@@ -8,9 +8,9 @@ import { CustomFilters } from '../components/UI/customFilters/CustomFilters';
 import { BaseCard } from '../components/BaseCard/BaseCard';
 
 import Link from 'next/link';
-import { FiltersValueContext } from "./_app";
+import { FiltersValueContext } from './_app';
 import { motion } from 'framer-motion';
-import { translitRuEn } from "../utils/translitGenerator";
+import { translitRuEn } from '../utils/translitGenerator';
 
 export const getStaticProps = async () => {
   const res = await StrapiServiceInstance.getProducts();
@@ -51,16 +51,48 @@ export default function Catalog({ items }) {
       const filterKey = [appliedFilters[i][0]];
       if (filtersValueController.filterValue[filterKey]) {
         filteredCatalog = filteredCatalog.filter(
-          (el) => el[filterKey] === filtersValueController.filterValue[filterKey]
+          (el) =>
+            el[filterKey] === filtersValueController.filterValue[filterKey]
         );
       }
     }
     return filteredCatalog;
   };
 
-  const filteredValues = useMemo(() =>
-    filterProducts(),
-    [productWordsDeclination, filtersValueController.filterValue]);
+  const filteredValues = useMemo(
+    () => filterProducts(),
+    [productWordsDeclination, filtersValueController.filterValue]
+  );
+
+  const catalogContent =
+    filterProducts().length !== 0 ? (
+      <TransitionGroup className="catalog-page__products-list">
+        {filteredValues.map((el) => (
+          <CSSTransition
+            key={el.id}
+            in={inProp}
+            timeout={300}
+            classNames="filter-transition"
+            unmountOnExit
+          >
+            <Link href={`/productCard/${translitRuEn(el.name)}-${el.id}`}>
+              <a>
+                <BaseCard
+                  img={el.image}
+                  name={el.name}
+                  gost={el.gost}
+                  imgStyles="catalog-page__products-item-img"
+                />
+              </a>
+            </Link>
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
+    ) : (
+      <div className="catalog-page__products-not-found">
+        <h2>По вашему запросу ничего не найдено</h2>
+      </div>
+    );
 
   return (
     <motion.div
@@ -89,7 +121,7 @@ export default function Catalog({ items }) {
           setFilterValue={filtersValueController.setFilterValue}
         />
 
-        <TransitionGroup className="catalog-page__products-list">
+        {/* <TransitionGroup className="catalog-page__products-list">
           {filteredValues.map((el) => (
             <CSSTransition
               key={el.id}
@@ -110,13 +142,15 @@ export default function Catalog({ items }) {
               </Link>
             </CSSTransition>
           ))}
-        </TransitionGroup>
+        </TransitionGroup> */}
+        {catalogContent}
       </section>
-    </motion.div >
+    </motion.div>
   );
 }
 
-const AddChosenFilter = ({ // TODO: separate component
+const AddChosenFilter = ({
+  // TODO: separate component
   inProp,
   filterValue,
   setInProp,

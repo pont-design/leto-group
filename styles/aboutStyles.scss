@@ -83,7 +83,7 @@
 
   .about__ideas-item {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: 20px;
     padding: 4.8rem 0;
     border-bottom: 1px solid $gray200;
@@ -222,7 +222,7 @@
 
     .about__ideas {
       margin-top: 20rem;
-      align-items: start;
+      align-items: flex-start;
       row-gap: 6rem;
 
       .about__ideas-text {
@@ -236,7 +236,7 @@
 
       .about__ideas-item {
         display: flex;
-        align-items: start;
+        align-items: flex-start;
         gap: 3rem;
         padding: 4rem 0;
       }
@@ -264,7 +264,7 @@
         grid-column: 1/5;
         grid-row: 2/3;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         gap: 4rem;
       }
     }

@@ -4,9 +4,7 @@ import { motion } from 'framer-motion';
 
 import { CustomForm } from '../components/UI/customForm/customForm';
 
-import {
-  startPageAnimation,
-} from '../assets/animations/animations';
+import { startPageAnimation } from '../assets/animations/animations';
 
 function Contacts() {
   const contactsDepartments = [
@@ -95,7 +93,7 @@ function Contacts() {
           <iframe
             className="map-iframe-wrapper"
             src="https://yandex.ru/map-widget/v1/?um=constructor%3A3c9f7210935d1d610768574acf1c7a0c8c9d247c1ab24aaf271e60590eeeb41f&amp;source=constructor"
-            frameborder="0"
+            frameBorder="0"
           ></iframe>
         </div>
         <div></div>
