@@ -14,7 +14,7 @@ import {
   startPageAnimation,
   startPageAnimationSecond,
 } from '../assets/animations/animations';
-import { CustomAccordionTechnologies } from "../components/UI/customAccordionTechnologies/CustomAccordionTechnologies";
+import { CustomAccordionTechnologies } from '../components/UI/customAccordionTechnologies/CustomAccordionTechnologies';
 
 function technologies() {
   const equipment = {
@@ -93,8 +93,8 @@ function technologies() {
           <div className="quality-productivity-hero-text__description">
             <p className="text-2">
               Оборудование для переработки яиц изготовлено датской компанией
-              SANOVO, которые являются мировым лидером в этой отрасли. В арсенале
-              завода «ЛЕТО» используется самое современное оборудование
+              SANOVO, которые являются мировым лидером в этой отрасли. В
+              арсенале завода «ЛЕТО» используется самое современное оборудование
             </p>
           </div>
           <div className="quality-productivity__sertificates">
@@ -107,11 +107,66 @@ function technologies() {
           </div>
         </motion.div>
         <div className="technologies__equipment">
-          <CustomAccordionTechnologies accordionList={[
-            { title: 'Нормализация уровня рН.', subTitle: 'Автоматическая нормализация уровня pH жидкого яичного белка позволяет производить жидкий яичный белок с заданным уровнем pH', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
-            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
-            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' },
-            { title: '123', subTitle: '123', imgSrc: 'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg' }]} />
+          <CustomAccordionTechnologies
+            accordionList={[
+              {
+                title: 'Нормализация уровня рН.',
+                subTitle:
+                  'Автоматическая нормализация уровня pH жидкого яичного белка позволяет производить жидкий яичный белок с заданным уровнем pH',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Охлаждение сухого яичного желтка.',
+                subTitle:
+                  'Данная система охлаждает яичный продукт перед фасовкой и упаковкой, в результате при хранении продукт не слёживается.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Приготовление специальных и индивидуальных продуктов.',
+                subTitle:
+                  'Система смешивания позволяет производить специальные продукты с добавлением соли и / или сахара по индивидуальным требованиям заказчика.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Сушка для производства порошковых продуктов',
+                subTitle:
+                  'Данная система при помощи распылительной сушки позволяет производить высококачественные порошковые яичные продукты',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Система усиления эффекта пастеризации',
+                subTitle:
+                  'Импульсивная волновая система нагрева для генерации кратковременного скачка температуры с целью усиления эффекта пастеризации.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Станция CIP-мойки модели SANOMAXCIP',
+                subTitle:
+                  'Станция предназначенная для вымывания продукта, промыва и дезинфекции неразборных, труднодоступных мест.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Хранение и ферментация жидкого яичного белка.',
+                subTitle:
+                  'Танк предназначен для временного хранения продукции, а так-же ферментации в безопасных условиях в ходе производства.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+              {
+                title: 'Разбивочно-сепарационная машина.',
+                subTitle:
+                  'Компактная система для разбивания и сепарации пищевого куриного яйца для последующей переработки.',
+                imgSrc:
+                  'https://www.imgonline.com.ua/examples/bee-on-daisy.jpg',
+              },
+            ]}
+          />
         </div>
         <StatisticBlock />
         <motion.div
@@ -123,8 +178,8 @@ function technologies() {
         >
           <div className="technologies__automation_hero">
             <p className="text-3">
-              Весь завод оснащен современной системой автоматизации, что позволяет
-              осуществлять контроль с одного компьютера
+              Весь завод оснащен современной системой автоматизации, что
+              позволяет осуществлять контроль с одного компьютера
             </p>
           </div>
         </motion.div>

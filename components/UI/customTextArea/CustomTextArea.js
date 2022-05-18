@@ -5,6 +5,7 @@ export const CustomTextArea = ({
   placeholder,
   isFullField,
   setCurrentFormData,
+  test,
 }) => {
   const textAreaStyles = `${
     isFullField && 'custom-text-area__full-field'
@@ -17,6 +18,7 @@ export const CustomTextArea = ({
       onChange={(e) => {
         setCurrentFormData(e.target.value, inputName);
       }}
+      {...test(inputName)}
     />
   );
 };

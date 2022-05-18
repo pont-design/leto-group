@@ -29,3 +29,7 @@
   color: $gray900;
   transition: all 0.3s ease-in;
 }
+
+.custom-text-field__error {
+  border: 1px solid red;
+}
