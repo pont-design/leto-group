@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 // type accordionList = Array<{title : string, imgSrc: string}>
 
 export const CustomAccordionTechnologies = ({ accordionList }) => {
-
-  const [blockOpenStatus, setBlockOpenStatus] = useState({})
+  const [blockOpenStatus, setBlockOpenStatus] = useState({});
 
   useEffect(() => {
-    const initialBlockStatuses = {}
+    const initialBlockStatuses = {};
     accordionList.forEach((_, index) => {
-      initialBlockStatuses[`block${index}`] = false
+      initialBlockStatuses[`block${index}`] = false;
     });
-    setBlockOpenStatus(initialBlockStatuses)
-  }, [accordionList])
+    setBlockOpenStatus(initialBlockStatuses);
+  }, [accordionList]);
 
   const toggle = (index) => () => {
-    setBlockOpenStatus({ [`block${index}`]: !blockOpenStatus[`block${index}`] });
-  }
+    setBlockOpenStatus({
+      [`block${index}`]: !blockOpenStatus[`block${index}`],
+    });
+  };
 
   return (
     <div className="accordions-pure-wrapper">
@@ -29,31 +30,49 @@ export const CustomAccordionTechnologies = ({ accordionList }) => {
           toggle={toggle(index)}
           imgSrc={item.imgSrc}
         />
-      ))
-      }
-    </div >
-  )
-}
+      ))}
+    </div>
+  );
+};
 
-const AccordionTab = ({ index, title, blockOpenStatus, toggle, imgSrc, subTitle }) => {
+const AccordionTab = ({
+  index,
+  title,
+  blockOpenStatus,
+  toggle,
+  imgSrc,
+  subTitle,
+}) => {
+  const arrow = (
+    <svg
+      width="33"
+      height="32"
+      viewBox="0 0 33 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M28.127 15H17.627V4.5H15.627V15H5.12695V17H15.627V27.5H17.627V17H28.127V15Z" />
+    </svg>
+  );
 
-  const arrow = <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M28.127 15H17.627V4.5H15.627V15H5.12695V17H15.627V27.5H17.627V17H28.127V15Z" />
-  </svg>
-
-  const classOfArrow = blockOpenStatus[`block${index}`] ?
-    'accordion-tab-numerable__arrow-container accordion-numerable-arrow_open' :
-    'accordion-tab-numerable__arrow-container accordion-numerable-arrow_close'
+  const classOfArrow = blockOpenStatus[`block${index}`]
+    ? 'accordion-tab-numerable__arrow-container accordion-numerable-arrow_open'
+    : 'accordion-tab-numerable__arrow-container accordion-numerable-arrow_close';
 
   return (
     <div key={index} className="accordion-technologies-wrapper">
-      <h4 >{title}</h4>
+      <div className="accordion-technologies__title">
+        <h4 className="accordion-technologies__title-text">{title}</h4>
+        <div className={classOfArrow}>
+          <div className="small-arrow-container" onClick={toggle}>
+            {arrow}
+          </div>
+        </div>
+      </div>
       <div>
         <div className="accordion-technologies__image-wrapper">
           <div className="accordion-technologies__content">
-            <p className="text-1">
-              {subTitle}
-            </p>
+            <p className="text-1">{subTitle}</p>
           </div>
           <div className={classOfArrow}>
             <div className="small-arrow-container" onClick={toggle}>
@@ -61,14 +80,14 @@ const AccordionTab = ({ index, title, blockOpenStatus, toggle, imgSrc, subTitle 
             </div>
           </div>
         </div>
-        <div className={blockOpenStatus[`block${index}`]
-          ? 'content is-expanded'
-          : 'content'} >
+        <div
+          className={
+            blockOpenStatus[`block${index}`] ? 'content is-expanded' : 'content'
+          }
+        >
           <img className="accordion-technologies_img" src={imgSrc} />
         </div>
       </div>
-
     </div>
-  )
-}
-
+  );
+};
