@@ -5,10 +5,10 @@ export const StatisticBlock = () => {
     <div className="technologies-statistic">
       <div className="technologies-sales_small technologies-sales_small_sales">
         <p className="technologies-sales__heading_small text-numbers">
-          70 000 000 +
+          5 000 000 +
         </p>
         <p className="technologies-sales__description_small text-1">
-          Продаём упаковок в год
+          Производительность яиц в сутки
         </p>
       </div>
       <div className="technologies-sales_small technologies-sales_small_inovations">

@@ -21,7 +21,6 @@ export const Footer = () => {
     { label: 'О компании', link: '/about' },
     { label: 'Качество', link: '/quality' },
     { label: 'Технология', link: '/technologies' },
-    { label: 'Контакты', link: '/contacts' },
   ];
 
   const linksMedia = [
@@ -32,7 +31,7 @@ export const Footer = () => {
   ];
 
   const helpCompany = [
-    { label: 'Вакансии', link: '/vacancy' },
+    { label: 'Вакансии', link: '' },
     { label: 'Контакты', link: '/contacts' },
   ];
 
@@ -63,8 +62,13 @@ export const Footer = () => {
               <li className="footer__contacts-list_title">
                 <h6>{help.title}</h6>
               </li>
-              {help.list.map((link) => (
-                <li className="link-text" key={link.link}>
+              {help.list.map((link, idx) => (
+                <li
+                  className={
+                    idx === 0 ? 'link-text link-disabled' : 'link-text'
+                  }
+                  key={link.link}
+                >
                   <Link href={link.link}>
                     <span className="footer-link-content">{link.label}</span>
                   </Link>

@@ -51,8 +51,6 @@ export const getStaticProps = async (context) => {
     other_info,
   } = currentProduct.attributes;
 
-  const indicators = currentProduct.attributes.additional_info;
-
   const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
   similarProducts = similarProducts.filter(
@@ -70,7 +68,6 @@ export const getStaticProps = async (context) => {
 
   return {
     props: {
-      indicators,
       name,
       structure,
       description,
@@ -88,7 +85,6 @@ export const getStaticProps = async (context) => {
 };
 
 export default function productCard({
-  indicators,
   name,
   document,
   structure,
@@ -107,8 +103,6 @@ export default function productCard({
   similarProducts = similarProducts.slice(0, 3);
 
   function addParametrs() {
-    const indicatorsArr = Object.entries(indicators);
-
     return (
       <div className="product-card__parametrs-table">
         {other_info.map((el) => (

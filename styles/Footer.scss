@@ -87,6 +87,11 @@
   cursor: pointer;
 }
 
+.link-disabled {
+  pointer-events: none;
+  color: $gray300;
+}
+
 //MOBILE
 //MOBILE
 //MOBILE

@@ -46,7 +46,7 @@ const AccordionTab = ({
 }) => {
   const arrow = (
     <svg
-      width="33"
+      width="32"
       height="32"
       viewBox="0 0 33 32"
       fill="none"
