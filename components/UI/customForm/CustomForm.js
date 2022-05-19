@@ -22,7 +22,6 @@ export const CustomForm = ({ buttonLabel }) => {
     defaultValues: {
       name: '',
       email: '',
-      interesting: '',
     },
   });
 
@@ -36,7 +35,6 @@ export const CustomForm = ({ buttonLabel }) => {
     reset({
       name: '',
       email: '',
-      interesting: '',
       message: '',
     });
   }, [isSubmitSuccessful]);
@@ -49,7 +47,6 @@ export const CustomForm = ({ buttonLabel }) => {
         subject: 'Заявка с сайта',
         html: `<h1>${formsData.name}</h1>
         <p><strong>Почта:</strong>: ${formsData.email}</p>
-        <p><strong>Интересует:</strong>: ${formsData.interesting}</p>
         <p><strong>Детали:</strong>: ${formsData.message}</p>
         `,
         text: formsData.message,
@@ -87,15 +84,6 @@ export const CustomForm = ({ buttonLabel }) => {
         type="email"
         test={register}
         style={errors.email ? { borderColor: 'red' } : null}
-      />
-      <CustomTextField
-        inputName="interesting"
-        placeholder="Что вас интересует?"
-        isFullField={!!formsData['interesting']}
-        setCurrentFormData={setCurrentFormData}
-        type="text"
-        test={register}
-        style={errors.interesting ? { borderColor: 'red' } : null}
       />
       <CustomTextArea
         inputName="message"
