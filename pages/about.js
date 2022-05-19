@@ -105,8 +105,9 @@ export default function about() {
             <div className="about__ideas-text">
               {getCompanyList()}
               <p className="text-1 about__ideas-team">
-                Наша команда имеет высокий уровень компетенции и дальше надо
-                что-то дописать
+                Высокий уровень компетенции Команды «Лето Групп» позволяет
+                выстраивать по международным стандартам технологии и бизнес
+                процессы
               </p>
               <CustomLink label="О качестве" route="/quality" />
             </div>

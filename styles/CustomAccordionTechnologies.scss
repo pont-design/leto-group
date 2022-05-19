@@ -123,5 +123,14 @@
         }
       }
     }
+
+    .accordion-tab-numerable__arrow-container {
+      .small-arrow-container {
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
   }
 }
