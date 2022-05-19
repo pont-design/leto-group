@@ -8,7 +8,7 @@ export const StatisticBlock = () => {
           5 000 000 +
         </p>
         <p className="technologies-sales__description_small text-1">
-        Производительность яиц в сутки
+          Производительность яиц в сутки
         </p>
       </div>
       <div className="technologies-sales_small technologies-sales_small_inovations">

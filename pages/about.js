@@ -6,9 +6,11 @@ import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mainImage from '../public/images/AboutPage/about-main.jpg';
 import ideasImage from '../public/images/AboutPage/about-ideas-img.jpg';
-import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
-
-import mockAboutFactorySlider from '../public/images/ProductCard/mockBaseCard.jpg';
+import sliderImgOne from '../public/images/AboutPage/about-slider-1.jpg';
+import sliderImgTwo from '../public/images/AboutPage/about-slider-2.jpg';
+import sliderImgThree from '../public/images/AboutPage/about-slider-3.jpg';
+import sliderImgFour from '../public/images/AboutPage/about-slider-4.jpg';
+import sliderImgFife from '../public/images/AboutPage/about-slider-5.jpg';
 
 import {
   startPageAnimation,
@@ -26,38 +28,17 @@ export default function about() {
   );
 
   const factorySliderContent = [
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-  ];
-
-  const teamSliderContent = [
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
-    { imgSrc: mockAboutFactorySlider.src, description },
+    { imgSrc: sliderImgOne.src },
+    { imgSrc: sliderImgTwo.src },
+    { imgSrc: sliderImgThree.src },
+    { imgSrc: sliderImgFour.src },
+    { imgSrc: sliderImgFife.src },
   ];
 
   const factorySliderBreakPoint = {
     gapxl: 40,
     slidesPerViewXl: 1.5,
     slidesPerViewMd: 1.5,
-    slidesPerViewXs: 1.1,
-  };
-
-  const teamSliderBreakPoint = {
-    gapxl: 24,
-    slidesPerViewXl: 3.5,
-    slidesPerViewMd: 2.5,
     slidesPerViewXs: 1.1,
   };
 
@@ -124,8 +105,9 @@ export default function about() {
             <div className="about__ideas-text">
               {getCompanyList()}
               <p className="text-1 about__ideas-team">
-                Наша команда имеет высокий уровень компетенции и дальше надо
-                что-то дописать
+                Высокий уровень компетенции Команды «Лето Групп» позволяет
+                выстраивать по международным стандартам технологии и бизнес
+                процессы
               </p>
               <CustomLink label="О качестве" route="/quality" />
             </div>
@@ -152,8 +134,8 @@ export default function about() {
               </p>
               <p className="text-1">
                 При проектировании завода, учитывался самый передовой опыт
-                производителей яичных продуктов, который основан на самых высоких
-                требованиях стандартов пищевой безопасности.
+                производителей яичных продуктов, который основан на самых
+                высоких требованиях стандартов пищевой безопасности.
               </p>
             </div>
           </motion.div>
@@ -173,16 +155,6 @@ export default function about() {
             breakpointsObj={factorySliderBreakPoint}
           />
         </motion.div>
-        <div className="about__team-slider">
-          <h2 className="about__team-slider-heading container">Команда</h2>
-          <CustomSlider
-            list={teamSliderContent}
-            swiperWrapperStyle="about__team-slider-wrapper"
-            swiperItemStyles="about__team-slider-item"
-            slideImgStyle="about__team-slider-img"
-            breakpointsObj={teamSliderBreakPoint}
-          />
-        </div>
       </section>
     </motion.div>
   );

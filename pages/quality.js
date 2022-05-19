@@ -7,6 +7,9 @@ import { CustomLink } from '../components/UI/CustomLink/customLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import goldOne from '../public/images/QualityPage/gold1.jpg';
+import goldTwo from '../public/images/QualityPage/gold2.jpg';
+import grand from '../public/images/QualityPage/grand.jpg';
 import mainImg from '../public/images/QualityPage/quality-main-img.jpg';
 import controlImg from '../public/images/QualityPage/quality-control-img.jpg';
 
@@ -41,6 +44,7 @@ function Quality() {
     gapxl: 24,
     slidesPerViewXl: 4.2,
     slidesPerViewMd: 3.2,
+    slidesPerViewSmall: 2.2,
     slidesPerViewXs: 1.2,
   };
 
@@ -84,19 +88,19 @@ function Quality() {
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldTwo.src}
                 />
               </div>
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={grand.src}
                 />
               </div>
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldOne.src}
                 />
               </div>
             </div>
@@ -119,9 +123,41 @@ function Quality() {
             <h2>Многоступенчатый контроль качества </h2>
             <CustomAccordionPure
               accordionList={[
-                { title: '123', content: '321' },
-                { title: '123', content: '321' },
-                { title: '123', content: '321' },
+                {
+                  title: 'Дезбарьер для автотранспорта',
+                  content:
+                    'Профессиональная дезинфекция колес автотранспорта помогает устранить вероятность перевозки патогенов.',
+                },
+                {
+                  title: 'Дезинцекция куриного яйца',
+                  content:
+                    'Поставляются только куриные яйца прошедшие обеззараживание и удаление микробиологических загрязнений в т.ч. сальмонелл. Дополнительная обработка яиц ультрафиолетовым излучением на нашем производстве перед поступлением в разбивочно-серарационную машину.',
+                },
+                {
+                  title: 'Пастеризация',
+                  content:
+                    'Пастеризация наших продуктов на нескольких этапах позволяет обеспечить полную дезинфекцию конечного продукта.',
+                },
+                {
+                  title: 'Ферментация',
+                  content:
+                    'За счёт ферментации готовых продуктов, конечный продукт сохраняется дольше без потери полезных свойств. Нет необходимости добавлять консерванты.',
+                },
+                {
+                  title: 'Собственная аккредитованная лаборатория',
+                  content:
+                    'Наша собственная аккредитованная лаборатория позволяет постоянно проверять наши продукты на соответствие ГОСТу, физико-химические свойства и т.д.',
+                },
+                {
+                  title: 'Стерильность и чистота',
+                  content:
+                    'Благодаря современному и технологичному оборудованию SANOVO, а именно CIP-мойке SANOMAXCIP осуществляется промыв и дезинфекция труднодоступных и неразборных мест.',
+                },
+                {
+                  title: 'Упаковка',
+                  content:
+                    'Упаковка готового яичного продукта во влагонепроницаемую и не пропускающую свет упаковку, чтобы сухой продукт не увлажнялся и не прогоркал.',
+                },
               ]}
             />
           </div>

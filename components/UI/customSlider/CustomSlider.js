@@ -23,6 +23,12 @@ export const CustomSlider = ({
             slidesPerView: breakpointsObj.slidesPerViewXs,
             spaceBetween: 20,
           },
+          540: {
+            slidesPerView: breakpointsObj.slidesPerViewSmall
+              ? breakpointsObj.slidesPerViewSmall
+              : breakpointsObj.slidesPerViewXs,
+            spaceBetween: 20,
+          },
           768: {
             slidesPerView: breakpointsObj.slidesPerViewMd,
             spaceBetween: 20,

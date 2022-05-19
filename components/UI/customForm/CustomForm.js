@@ -1,30 +1,55 @@
+import React, { useState, useEffect } from 'react';
+
 import axios from 'axios';
-import React, { useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+
 import { StrapiServiceInstance } from '../../../Service/CMSAPI';
+
 import { CustomButton } from '../customButton/CustomButton';
 import { CustomTextArea } from '../customTextArea/CustomTextArea';
 import { CustomTextField } from '../customTextField/CustomTextField';
 
 export const CustomForm = ({ buttonLabel }) => {
   const [formsData, setFormsData] = useState({});
+  const [buttonIndicator, setButtonIndicator] = useState(false);
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    sendEmail(formsData);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      email: '',
+    },
+  });
+
+  const submitForm = () => {
+    sendEmail();
+    setButtonIndicator(true);
+    setTimeout(() => setButtonIndicator(false), 3000);
   };
 
-  const sendEmail = (form) => {
+  useEffect(() => {
+    reset({
+      name: '',
+      email: '',
+      message: '',
+    });
+  }, [isSubmitSuccessful]);
+
+  const sendEmail = () => {
     axios
       .post(`${StrapiServiceInstance.baseURL}/api/email`, {
         to: `${StrapiServiceInstance._sendAddress}`,
         from: 'leto-group',
         subject: 'Заявка с сайта',
-        html: `<h1>${form.name}</h1>
-        <p><strong>Почта:</strong>: ${form['email']}</p>
-        <p><strong>Интересует:</strong>: ${form.interesting}</p>
-        <p><strong>Детали:</strong>: ${form.message}</p>
+        html: `<h1>${formsData.name}</h1>
+        <p><strong>Почта:</strong>: ${formsData.email}</p>
+        <p><strong>Детали:</strong>: ${formsData.message}</p>
         `,
-        text: form.message,
+        text: formsData.message,
       })
       .catch((error) => {
         console.log(error);
@@ -32,17 +57,24 @@ export const CustomForm = ({ buttonLabel }) => {
   };
 
   const setCurrentFormData = (value, inputName) => {
-    setFormsData({ ...formsData, [inputName]: value });
+    setFormsData({
+      ...formsData,
+      [inputName]: value,
+    });
   };
 
+  const buttonText = buttonIndicator ? 'Заявка отправлена' : buttonLabel;
+
   return (
-    <form className="custom-form-wrapper">
+    <form className="custom-form-wrapper" onSubmit={handleSubmit(submitForm)}>
       <CustomTextField
         inputName="name"
         placeholder="Ваше имя"
         isFullField={!!formsData['name']}
         setCurrentFormData={setCurrentFormData}
         type="text"
+        test={register}
+        style={errors.name ? { borderColor: 'red' } : null}
       />
       <CustomTextField
         inputName="email"
@@ -50,26 +82,21 @@ export const CustomForm = ({ buttonLabel }) => {
         isFullField={!!formsData['email']}
         setCurrentFormData={setCurrentFormData}
         type="email"
-      />
-      <CustomTextField
-        inputName="interesting"
-        placeholder="Что вас интересует?"
-        isFullField={!!formsData['interesting']}
-        setCurrentFormData={setCurrentFormData}
-        type="text"
+        test={register}
+        style={errors.email ? { borderColor: 'red' } : null}
       />
       <CustomTextArea
         inputName="message"
         placeholder="Ваш сообщение"
         isFullField={!!formsData['message']}
         setCurrentFormData={setCurrentFormData}
+        test={register}
       />
       <CustomButton
         styles="form-button btn-text"
-        label={buttonLabel}
-        onClick={(e) => {
-          submitForm(e);
-        }}
+        label={buttonText}
+        type="sumbit"
+        style={buttonIndicator ? { backgroundColor: '#FF6600' } : null}
       />
     </form>
   );

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CustomOutlinedButton } from '../UI/CustomOutlinedButton/CustomOutlinedButton';
 
 import { CustomModal } from '../UI/CustomModal/CustomModal';
-import { CustomForm } from '../UI/customForm/CustomForm';
+import { CustomForm } from '../UI/CustomForm/CustomForm';
 
 import logoLeto from '../../public/images/header/logoLeto.svg';
 import vkLogo from '../../public/images/Footer/VkLogo.svg';
@@ -17,24 +17,22 @@ export const Footer = () => {
   };
 
   const linksCompany = [
-    { label: 'Продукция', link: 'production' },
-    { label: 'О компании', link: 'about' },
-    { label: 'Качество', link: 'quality' },
-    { label: 'Технология', link: 'technology' },
-    { label: 'Вакансии', link: 'vacancy' },
-    { label: 'Контакты', link: 'contacts' },
+    { label: 'Продукция', link: '/catalog' },
+    { label: 'О компании', link: '/about' },
+    { label: 'Качество', link: '/quality' },
+    { label: 'Технология', link: '/technologies' },
   ];
 
   const linksMedia = [
     {
       label: 'Вконтакте',
-      link: '#',
+      link: 'https://vk.com',
     },
   ];
 
   const helpCompany = [
-    { label: 'Вакансии', link: 'vacancy' },
-    { label: 'Контакты', link: 'contacts' },
+    { label: 'Вакансии', link: '' },
+    { label: 'Контакты', link: '/contacts' },
   ];
 
   const company = { title: 'Компания', list: linksCompany };
@@ -64,8 +62,13 @@ export const Footer = () => {
               <li className="footer__contacts-list_title">
                 <h6>{help.title}</h6>
               </li>
-              {help.list.map((link) => (
-                <li className="link-text" key={link.link}>
+              {help.list.map((link, idx) => (
+                <li
+                  className={
+                    idx === 0 ? 'link-text link-disabled' : 'link-text'
+                  }
+                  key={link.link}
+                >
                   <Link href={link.link}>
                     <span className="footer-link-content">{link.label}</span>
                   </Link>
@@ -89,8 +92,12 @@ export const Footer = () => {
                 <h6>{media.title}</h6>
               </li>
               {media.list.map((link) => (
-                <li className="link-text">
-                  <a href="#" className="footer__vk-logo" link={link.link}>
+                <li className="link-text" key={link.link}>
+                  <a
+                    href={link.link}
+                    className="footer__vk-logo"
+                    link={link.link}
+                  >
                     <img className="footer__vk-logo_img" src={vkLogo.src} />
                     <p className="footer-link-content">{link.label}</p>
                   </a>
@@ -118,10 +125,12 @@ export const Footer = () => {
               </li>
             </ul>
             <div className="footer__contacts-list footer__contacts-list_logo">
-              <img
-                className="footer__contacts-list_logo_img"
-                src={logoLeto.src}
-              />
+              <Link href="/">
+                <img
+                  className="footer__contacts-list_logo_img"
+                  src={logoLeto.src}
+                />
+              </Link>
             </div>
           </div>
           <div className="footer__request-wrapper">

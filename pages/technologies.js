@@ -3,18 +3,27 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import { StatisticBlock } from '../components/StatisticBlock/StatisticBlock';
-
-import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
-import logoSanovo from '../public/images/Header/logoSanovo.svg';
-import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
-import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
-import mainBlockFirst from '../public/images/Technologies/technologies-main-block-first-img.jpg';
-import mainBlockSecond from '../public/images/Technologies/technologies-main-block-second.jpg';
+import { CustomAccordionTechnologies } from '../components/UI/customAccordionTechnologies/CustomAccordionTechnologies';
 
 import {
   startPageAnimation,
   startPageAnimationSecond,
 } from '../assets/animations/animations';
+
+import logoSanovo from '../public/images/Header/logoSanovo.svg';
+import atexSertificate from '../public/images/Technologies/AtexSertificate.svg';
+import ISOCertificate from '../public/images/Technologies/ISOCertificate.svg';
+import mainBlockFirst from '../public/images/Technologies/technologies-main-block-first-img.jpg';
+import mainBlockSecond from '../public/images/Technologies/technologies-main-block-second.jpg';
+import technologiesFirst from '../public/images/Technologies/tech-accordion-1.jpg';
+import technologiesSecond from '../public/images/Technologies/tech-accordion-2.jpg';
+import technologiesThird from '../public/images/Technologies/tech-accordion-3.jpg';
+import technologiesFourth from '../public/images/Technologies/tech-accordion-4.jpg';
+import technologiesFifth from '../public/images/Technologies/tech-accordion-5.jpg';
+import technologiesSixth from '../public/images/Technologies/tech-accordion-6.jpg';
+import technologiesSeventh from '../public/images/Technologies/tech-accordion-7.jpg';
+import technologiesEigth from '../public/images/Technologies/tech-accordion-8.jpg';
+import technologiesFactoryImg from '../public/images/Technologies/technologies-factory-img.jpg';
 
 function technologies() {
   const equipment = {
@@ -93,8 +102,8 @@ function technologies() {
           <div className="quality-productivity-hero-text__description">
             <p className="text-2">
               Оборудование для переработки яиц изготовлено датской компанией
-              SANOVO, которые являются мировым лидером в этой отрасли. В арсенале
-              завода «ЛЕТО» используется самое современное оборудование
+              SANOVO, которые являются мировым лидером в этой отрасли. В
+              арсенале завода «ЛЕТО» используется самое современное оборудование
             </p>
           </div>
           <div className="quality-productivity__sertificates">
@@ -107,33 +116,58 @@ function technologies() {
           </div>
         </motion.div>
         <div className="technologies__equipment">
-          <h2>{equipment.title}</h2>
-          {equipment.equipment.map((equipmentEl, i) => {
-            return (
-              <div
-                className={`technologies__equipment-wrapper ${i === 0 && 'technologies__equipment-wrapper_first-elem'
-                  }`}
-                key={equipmentEl.title}
-              >
-                <div className="technologies__equipment_img-wrapper">
-                  <img
-                    className="technologies__equipment_img"
-                    src={mockImage.src}
-                    alt={equipmentEl.title}
-                  />
-                </div>
-
-                <div className="technologies__equipment-description">
-                  <h4 className="equipment-description-title">
-                    {equipmentEl.title}
-                  </h4>
-                  <p className="equipment-description-subtitle text-1">
-                    {equipmentEl.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+          <CustomAccordionTechnologies
+            accordionList={[
+              {
+                title: 'Нормализация уровня рН.',
+                subTitle:
+                  'Автоматическая нормализация уровня pH жидкого яичного белка позволяет производить жидкий яичный белок с заданным уровнем pH',
+                imgSrc: technologiesFirst.src,
+              },
+              {
+                title: 'Охлаждение сухого яичного желтка.',
+                subTitle:
+                  'Данная система охлаждает яичный продукт перед фасовкой и упаковкой, в результате при хранении продукт не слёживается.',
+                imgSrc: technologiesSecond.src,
+              },
+              {
+                title: 'Приготовление специальных и индивидуальных продуктов.',
+                subTitle:
+                  'Система смешивания позволяет производить специальные продукты с добавлением соли и / или сахара по индивидуальным требованиям заказчика.',
+                imgSrc: technologiesThird.src,
+              },
+              {
+                title: 'Сушка для производства порошковых продуктов',
+                subTitle:
+                  'Данная система при помощи распылительной сушки позволяет производить высококачественные порошковые яичные продукты',
+                imgSrc: technologiesFourth.src,
+              },
+              {
+                title: 'Система усиления эффекта пастеризации',
+                subTitle:
+                  'Импульсивная волновая система нагрева для генерации кратковременного скачка температуры с целью усиления эффекта пастеризации.',
+                imgSrc: technologiesFifth.src,
+              },
+              {
+                title: 'Станция CIP-мойки модели SANOMAXCIP',
+                subTitle:
+                  'Станция предназначенная для вымывания продукта, промыва и дезинфекции неразборных, труднодоступных мест.',
+                imgSrc: technologiesSixth.src,
+              },
+              {
+                title: 'Хранение и ферментация жидкого яичного белка.',
+                subTitle:
+                  'Танк предназначен для временного хранения продукции, а так-же ферментации в безопасных условиях в ходе производства.',
+                imgSrc: technologiesSeventh.src,
+              },
+              {
+                title: 'Разбивочно-сепарационная машина.',
+                subTitle:
+                  'Компактная система для разбивания и сепарации пищевого куриного яйца для последующей переработки.',
+                imgSrc: technologiesEigth.src,
+              },
+            ]}
+          />
         </div>
         <StatisticBlock />
         <motion.div
@@ -145,8 +179,8 @@ function technologies() {
         >
           <div className="technologies__automation_hero">
             <p className="text-3">
-              Весь завод оснащен современной системой автоматизации, что позволяет
-              осуществлять контроль с одного компьютера
+              Весь завод оснащен современной системой автоматизации, что
+              позволяет осуществлять контроль с одного компьютера
             </p>
           </div>
         </motion.div>
@@ -156,23 +190,7 @@ function technologies() {
           viewport={{ once: true, amount: 0.4 }}
           className="technologies-advantages-wrapper"
         >
-          {advantages.map((advantage, i) => {
-            return (
-              <motion.div
-                custom={i}
-                variants={startPageAnimation}
-                key={advantage}
-                className="technologies-advantage"
-              >
-                <div className="technologies-advantage_text">
-                  <h6 className="text-1">{advantage}</h6>
-                </div>
-                <p className="technologies-advantage_subtitle">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-              </motion.div>
-            );
-          })}
+          <img src={technologiesFactoryImg.src} alt="technologies factory" />
         </motion.div>
       </section>
     </motion.div>

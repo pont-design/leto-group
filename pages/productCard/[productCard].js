@@ -14,24 +14,26 @@ import { CustomRadioButton } from '../../components/UI/CustomRadioButton/CustomR
 import { BaseCard } from '../../components/BaseCard/BaseCard';
 import { CustomSlider } from '../../components/UI/customSlider/CustomSlider';
 import { CustomModal } from '../../components/UI/CustomModal/CustomModal';
-import { CustomForm } from '../../components/UI/customForm/CustomForm';
+import { CustomForm } from '../../components/UI/CustomForm/CustomForm';
 
 import { CustomBreadCrumb } from '../../components/Breadcrumbs/CustomBreadCrumb';
-import { deleteAllSymbolsExpectNumbers } from "../../utils/deleteAllSymbolsExpectNumbers";
+import { deleteAllSymbolsExpectNumbers } from '../../utils/deleteAllSymbolsExpectNumbers';
 
 export async function getStaticPaths() {
   const paths = await StrapiServiceInstance.getAllIds('productCard');
 
   return {
-    paths, fallback: false
+    paths,
+    fallback: false,
   };
 }
 
 export const getStaticProps = async (context) => {
-
   const currentUrl = context.params;
 
-  const currentProduct = await StrapiServiceInstance.getProduct(deleteAllSymbolsExpectNumbers(currentUrl.productCard));
+  const currentProduct = await StrapiServiceInstance.getProduct(
+    deleteAllSymbolsExpectNumbers(currentUrl.productCard)
+  );
 
   let similarProducts = await StrapiServiceInstance.getSimilarProducts(
     currentProduct.attributes.category
@@ -46,13 +48,14 @@ export const getStaticProps = async (context) => {
     storage_condition,
     category,
     consistency,
+    other_info,
   } = currentProduct.attributes;
-
-  const indicators = currentProduct.attributes.additional_info;
 
   const mediumImageUrl = currentProduct.attributes.img.data.attributes.url;
 
-  similarProducts = similarProducts.filter(similarProduct => similarProduct.attributes.name !== name)
+  similarProducts = similarProducts.filter(
+    (similarProduct) => similarProduct.attributes.name !== name
+  );
 
   similarProducts = similarProducts.map((similarProduct) => {
     return {
@@ -61,12 +64,10 @@ export const getStaticProps = async (context) => {
       name: similarProduct.attributes.name,
       src: similarProduct.attributes.img.data.attributes.url,
     };
-
   });
 
   return {
     props: {
-      indicators,
       name,
       structure,
       description,
@@ -77,13 +78,13 @@ export const getStaticProps = async (context) => {
       similarProducts,
       category,
       consistency,
+      other_info,
     },
     revalidate: StrapiServiceInstance.timeToRebuild,
   };
 };
 
 export default function productCard({
-  indicators,
   name,
   document,
   structure,
@@ -94,21 +95,20 @@ export default function productCard({
   similarProducts,
   category,
   consistency,
+  other_info,
 }) {
   const [modalActive, setModalActive] = useState(false);
   const [volumeValue, setVolumeValue] = useState('');
 
-  similarProducts = similarProducts.slice(0, 3)
+  similarProducts = similarProducts.slice(0, 3);
 
   function addParametrs() {
-    const indicatorsArr = Object.entries(indicators);
-
     return (
       <div className="product-card__parametrs-table">
-        {indicatorsArr.map((el) => (
-          <div className="product-card__parametrs-item">
-            <p className="product-card__parametr-name text-1">{el[0]}</p>
-            <p className="product-card__parametr-desc text-1">{el[1]}</p>
+        {other_info.map((el) => (
+          <div className="product-card__parametrs-item" key={el.name}>
+            <p className="product-card__parametr-name text-1">{el.name}</p>
+            <p className="product-card__parametr-desc text-1">{el.value}</p>
           </div>
         ))}
       </div>
@@ -132,7 +132,7 @@ export default function productCard({
       desc: description,
     },
     {
-      title: 'Упаковка',
+      title: 'Хранение',
       desc: storage_condition,
     },
   ];
@@ -159,9 +159,7 @@ export default function productCard({
             />
           </div>
           <div className="product-card__text-info">
-            <p className="product-card__gost card-caption">
-              {document}
-            </p>
+            <p className="product-card__gost card-caption">{document}</p>
             <h5 className="product-card__product-name">{name}</h5>
             <p className="product-card__product-desc text-1">{worth}</p>
             <div className="product-card__voluem-options">
@@ -188,7 +186,7 @@ export default function productCard({
         </div>
 
         <div className="product-card__similar">
-          <h3>Может такое возьмёте?</h3>
+          <h3>Похожие продукты</h3>
           <div className="product-card__similar-list">
             {similarProducts.map((el) => {
               return (
@@ -240,6 +238,6 @@ export default function productCard({
           <CustomForm buttonLabel="Отправить" />
         </CustomModal>
       </section>
-    </motion.div >
+    </motion.div>
   );
 }

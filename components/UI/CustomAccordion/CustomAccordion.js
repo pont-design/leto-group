@@ -31,6 +31,7 @@ export const CustomAccordion = ({ accordionList }) => {
           blockOpenStatus={blockOpenStatus}
           toggle={toggle(index + 1)}
           content={item.desc}
+          key={index}
         />
       ))}
     </div>
