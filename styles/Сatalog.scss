@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    height: 50px;
+    height: 36px;
 
     .catalog-page__chosen-filter {
       display: flex;
@@ -55,6 +55,14 @@
       border-radius: 8px;
       overflow: hidden;
     }
+  }
+
+  .catalog-page__products-not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 32px;
   }
 }
 
