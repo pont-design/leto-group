@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+.custom-outlined-button_small {
+  padding: 1.1rem 1.6rem;
+}
+
+.custom-outlined-button {
+  border: 1px solid $green;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    border: 1px solid $orange;
+  }
+}
+
+.custom-outlined-button_large {
+  padding: 1.9rem 7.3rem;
+}

@@ -1,0 +1,35 @@
+@import './variables.scss';
+
+.custom-text-field {
+  height: 56px;
+  border-radius: 4px;
+  width: 100%;
+  padding: 16px;
+  color: $gray500;
+  border: 1px solid $gray300;
+}
+
+.custom-text-field__text {
+  font-size: 20px;
+}
+
+.custom-text-field:hover {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-field:active {
+  color: $gray900;
+  border: 1px solid $gray600;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-field__full-field {
+  color: $gray900;
+  transition: all 0.3s ease-in;
+}
+
+.custom-text-field__error {
+  border: 1px solid red;
+}

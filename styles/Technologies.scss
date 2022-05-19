@@ -1,0 +1,258 @@
+@import './variables.scss';
+
+.technologies__hero {
+  padding-top: 8.4rem;
+  padding-bottom: 10rem;
+  border-bottom: 1px solid $gray200;
+}
+
+.technologies__hero-img {
+  margin-top: 4rem;
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: repeat(12, 1fr);
+
+  img {
+    &:nth-child(1) {
+      grid-column: 1 / 8;
+    }
+
+    &:nth-child(2) {
+      grid-column: 8 / 13;
+    }
+  }
+}
+
+.technologies__hero-img_img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  max-height: 45.2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.technologies__quality-productivity {
+  gap: 2rem;
+  margin-top: 4.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto auto;
+}
+
+.quality-productivity-logo {
+  grid-column: 1 /2;
+}
+
+.quality-productivity-hero-text {
+  grid-column: 1 /2;
+  grid-row-start: 2;
+}
+
+.quality-productivity-hero-text__description {
+  grid-column: 2 /3;
+  grid-row-start: 2;
+}
+
+.quality-productivity__sertificates {
+  margin-top: 3.2rem;
+  grid-column: 2 / 3;
+  grid-row-start: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.4rem;
+
+  div {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+}
+
+.technologies__equipment {
+  margin-top: 16.4rem;
+  margin-bottom: 12.6rem;
+}
+
+.technologies__equipment-wrapper {
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+  border-top: 1px solid $gray200;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.technologies__equipment-wrapper_first-elem {
+  border-top: none;
+}
+
+.technologies__equipment_img-wrapper {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.technologies__equipment_img {
+  max-height: 24.8rem;
+  object-fit: cover;
+  width: calc(466 / 721 * 100%);
+}
+
+.technologies__equipment-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.equipment-description-title {
+  color: $gray900;
+}
+
+.equipment-description-subtitle {
+  margin-top: 1.2rem;
+  color: $gray400;
+}
+
+.technologies__automation {
+  width: 100%;
+  margin-bottom: 6.4rem;
+}
+
+.technologies__automation_hero {
+  max-width: calc(1124 / 1496 * 100%);
+  margin-top: 19.6rem;
+
+  p {
+    font-size: clamp(28px, 3vw, 48px);
+  }
+}
+
+.technologies-advantages-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 27.2rem;
+}
+
+.technologies-advantage {
+  max-width: 31.2rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid $gray200;
+}
+
+.technologies-advantage_text {
+  min-height: 11rem;
+}
+
+.technologies-advantage_subtitle {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: 2.4rem;
+  line-height: 2.88rem;
+}
+
+.quality-productivity-logo__sanovo-logo {
+  max-width: 132px;
+}
+
+// MOBILE
+// MOBILE
+// MOBILE
+@media (max-width: 768px) {
+  .technologies__hero {
+    padding: 12rem 0;
+  }
+
+  .technologies__hero-img {
+    width: 100%;
+    display: block;
+    img {
+      &:nth-child(1) {
+        width: 100%;
+      }
+
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  .technologies__hero-img_img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    max-height: 85rem;
+  }
+
+  .technologies__quality-productivity {
+    display: block;
+    margin-top: 8rem;
+  }
+
+  .quality-productivity-hero-text {
+    margin-top: 2rem;
+  }
+
+  .quality-productivity-hero-text__description {
+    margin-top: 4rem;
+  }
+
+  .quality-productivity__sertificates {
+    margin-top: 6rem;
+    column-gap: 4rem;
+  }
+
+  .technologies__equipment {
+    margin-top: 20rem;
+  }
+
+  .technologies__equipment-wrapper {
+    padding: 0;
+    display: block;
+    border-top: none;
+    margin-bottom: 8rem;
+  }
+
+  .technologies__equipment-wrapper_first-elem {
+    margin-top: 4rem;
+  }
+
+  .technologies__equipment_img {
+    width: 100%;
+    max-height: 46rem;
+  }
+
+  .technologies__equipment-description {
+    margin-top: 3rem;
+  }
+
+  .equipment-description-subtitle {
+    margin-top: 1rem;
+  }
+
+  .technologies__automation_hero {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20rem;
+    padding-bottom: 8rem;
+  }
+
+  .technologies-advantages-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .technologies-advantage {
+    max-width: none;
+    padding-top: 12rem;
+    padding-bottom: 4rem;
+  }
+
+  .technologies-advantage_text {
+    margin-bottom: 6rem;
+  }
+
+  .technologies-advantage_subtitle {
+    font-family: 'nunito_sanssemibold', sans-serif;
+    font-size: 4rem;
+    line-height: 120%;
+  }
+}

@@ -1,0 +1,244 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: 'nunito_sansbold';
+  src: url('../public/fonts/NunitoSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'nunito_sansregular';
+  src: url('../public/fonts/NunitoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nunito_sanssemibold';
+  src: url('../public/fonts/NunitoSans-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+html,
+body {
+  font-size: 10px;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 4px;
+  }
+}
+
+.h0 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(36px, 6vw, 96px);
+  line-height: 70%;
+  color: #131313;
+}
+
+h1 {
+  font-family: 'nunito_sansbold', sans-serif;
+  font-size: clamp(32px, 4vw, 64px);
+  line-height: 100%;
+  color: $gray900;
+}
+
+h2 {
+  font-family: 'nunito_sansbold', sans-serif;
+  font-size: clamp(28px, 3vw, 48px);
+  line-height: 120%;
+  color: $gray900;
+}
+
+h3 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(36px, 3vw, 48px);
+  line-height: 120%;
+  color: $gray900;
+}
+
+h4 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(24px, 2.25vw, 36px);
+  line-height: 120%;
+  color: $gray900;
+}
+
+h5 {
+  font-family: 'nunito_sansbold', sans-serif;
+  font-size: clamp(20px, 2vw, 32px);
+  line-height: 120%;
+  color: $gray900;
+}
+
+h6 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: 120%;
+  color: $gray900;
+}
+
+.text-1 {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(14px, 1.25vw, 20px);
+  line-height: 150%;
+  color: $gray700;
+}
+
+.text-2 {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: 150%;
+  color: $gray900;
+}
+
+.text-3 {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: 120%;
+}
+
+.text-4 {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(24px, 2.5vw, 40px);
+  line-height: 130%;
+  color: $gray900;
+}
+
+.caption-1 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: 150%;
+  color: $gray900;
+}
+
+.caption-2 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 150%;
+  color: $gray900;
+}
+
+.btn-text {
+  font-family: 'nunito_sansbold', sans-serif;
+  font-size: 2rem;
+  line-height: 120%;
+}
+
+.btn-text-2 {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: 1.8rem;
+  line-height: 120%;
+}
+
+.btn-link {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: 2.4rem;
+  line-height: 120%;
+}
+
+.link-text {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: 1.6rem;
+  line-height: 140%;
+}
+
+.card-caption {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 120%;
+  color: $gray500;
+}
+
+.tag-text {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: 2rem;
+  line-height: 120%;
+  color: $gray900;
+}
+
+.card-accard {
+  font-family: 'nunito_sansregular', sans-serif;
+  font-size: clamp(20px, 1.75vw, 28px);
+  line-height: 120%;
+}
+
+.text-numbers {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(40px, 4.5vw, 72px);
+  line-height: 110%;
+  color: $green;
+}
+
+.text-numbers-big {
+  font-family: 'nunito_sanssemibold', sans-serif;
+  font-size: clamp(40px, 9vw, 144px);
+  line-height: 136%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+button,
+button:active,
+button:focus {
+  outline: none;
+}
+
+input:focus-visible {
+  outline: none !important;
+}
+
+textarea:focus-visible {
+  outline: none !important;
+}
+
+@media (max-width: 768px) {
+  .btn-text {
+    font-size: 5rem;
+  }
+
+  .btn-text-2 {
+    font-size: 4.5rem;
+  }
+
+  .btn-link {
+    font-size: 5rem;
+  }
+
+  .link-text {
+    font-size: 3.5rem;
+  }
+
+  .tag-text {
+    font-size: 5rem;
+  }
+
+  .container {
+    padding: 0 4rem;
+  }
+}

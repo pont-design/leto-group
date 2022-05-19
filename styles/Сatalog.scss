@@ -1,0 +1,128 @@
+@import './variables.scss';
+
+.catalog-page {
+  margin-top: 64px;
+
+  .catalog-page__heading {
+    margin-bottom: 7.2rem;
+  }
+
+  .catalog-page__download-link {
+    margin-top: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    color: $green;
+    cursor: pointer;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &:hover .catalog-page__download-arrow {
+      fill: $orange;
+    }
+  }
+
+  .catalog-page__download-arrow {
+    fill: $green;
+  }
+
+  .catalog-page__chosen-filters-list {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 36px;
+
+    .catalog-page__chosen-filter {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid $green;
+      cursor: pointer;
+    }
+  }
+
+  .catalog-page__products-list {
+    margin-top: 3.2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+
+    .catalog-page__products-item-img {
+      border-radius: 8px;
+      overflow: hidden;
+    }
+  }
+
+  .catalog-page__products-not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    margin-top: 32px;
+
+    .catalog-page__heading {
+      padding-bottom: 8rem;
+      margin-bottom: 0;
+      border-bottom: 1px solid $gray200;
+    }
+
+    .catalog-page__download-link {
+      margin-top: 4rem;
+    }
+
+    .catalog-page__chosen-filters-list {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid $gray200;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .catalog-page__chosen-filter {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        border-radius: 20px;
+        border: 1px solid $green;
+        cursor: pointer;
+      }
+    }
+
+    .catalog-page__products-list {
+      margin-top: 8rem;
+      grid-template-columns: 1fr;
+      gap: 8rem;
+    }
+  }
+}
+
+.filter-transition-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.filter-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.filter-transition-exit {
+  opacity: 1;
+}
+
+.filter-transition-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

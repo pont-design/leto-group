@@ -1,0 +1,80 @@
+@import './variables.scss';
+
+.filters-container {
+  padding: 16px 0;
+  border-top: 1px solid $gray200;
+  border-bottom: 1px solid $gray200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-container__filters {
+  gap: 16px;
+  align-items: center;
+  display: flex;
+  padding: 0 16px;
+}
+
+.filter-container__amount {
+  margin-left: 16px;
+  color: $gray400;
+}
+
+.filter-container-swiper-quality {
+  box-sizing: border-box;
+
+  .test1 {
+    position: relative;
+    align-items: flex-start;
+    display: flex;
+    gap: 16px;
+  }
+}
+
+//MOBILE
+//MOBILE
+//MOBILE
+@media (max-width: 768px) {
+  .filter-container__amount {
+    display: none;
+  }
+
+  .filters-container {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    margin-bottom: calc(-300px + 44px);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    border-top: none;
+    border-bottom: none;
+
+    .test2 {
+      .test3 {
+        height: 300px;
+        margin-bottom: calc(-300px + 44px);
+        overflow-x: scroll;
+
+        .filter-container__filters {
+          align-items: center;
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .filter-container__amount {
+    margin-left: 16px;
+    color: $gray400;
+  }
+
+  .filter-container-swiper-quality {
+    .test1 {
+      align-items: flex-start;
+      display: flex;
+      gap: 16px;
+    }
+  }
+}

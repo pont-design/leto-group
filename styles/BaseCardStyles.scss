@@ -1,0 +1,29 @@
+@import './variables.scss';
+
+.base-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.base-card__img {
+  width: 100%;
+  background-color: $gray50;
+}
+
+.base-card__text {
+  margin-top: 2rem;
+}
+
+.base-card__name {
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .base-card__text {
+    margin-top: 4rem;
+  }
+
+  .base-card__name {
+    margin-top: 0;
+  }
+}
