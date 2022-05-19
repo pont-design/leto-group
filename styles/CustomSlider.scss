@@ -1,5 +1,5 @@
 .swiper {
-  padding-right: calc((100vw - 1440px) / 2) !important;
+  padding-right: calc((100vw - 1400px) / 2) !important;
 }
 
 .slider-slide-img {
@@ -15,6 +15,10 @@
 }
 
 @media (max-width: 1400px) {
+  .swiper {
+    padding-right: 40px !important;
+  }
+
   .custom-swiper-wrapper {
     margin-left: 0;
   }
@@ -25,7 +29,7 @@
 //MOBILE
 @media (max-width: 768px) {
   .swiper {
-    padding-right: 4rem;
+    padding-right: 16px !important;
   }
 
   .custom-swiper-wrapper {

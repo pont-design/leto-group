@@ -17,7 +17,7 @@ export const CustomLink = ({ label, route }) => {
   return (
     <Link href={route}>
       <a>
-        <div className="d-flex custom-link">
+        <div className="custom-link">
           <span className="btn-link custom-link__text">{label}</span>
           {arrow}
         </div>

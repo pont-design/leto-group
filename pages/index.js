@@ -5,16 +5,23 @@ import { motion } from 'framer-motion';
 import { SwiperSlide } from 'swiper/react';
 
 import { StrapiServiceInstance } from '../Service/CMSAPI';
+import { StrapiHandlerInstance } from '../Service/CMSAPIHandler';
+import { translitRuEn } from '../utils/translitGenerator';
 
 import { CustomLink } from '../components/UI/customLink/CustomLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 import { CustomButton } from '../components/UI/customButton/CustomButton';
 import { BaseCard } from '../components/BaseCard/BaseCard';
 
-import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import goldOne from '../public/images/QualityPage/gold1.jpg';
+import goldTwo from '../public/images/QualityPage/gold2.jpg';
+import grand from '../public/images/QualityPage/grand.jpg';
 import mainImg from '../public/images/StartPage/start-page-main-img.jpg';
 import numbersImg from '../public/images/StartPage/start-page-numbers-img.jpg';
 import sliderFirstImg from '../public/images/StartPage/start-page-slider-img1.jpg';
+import sliderSecondImg from '../public/images/StartPage/start-page-slider-img2.jpg';
+import sliderThirdImg from '../public/images/StartPage/start-page-slider-img3.jpg';
+import sliderFourthImg from '../public/images/StartPage/start-page-slider-img4.jpg';
 import qualitativeProduction from '../public/images/StartPage/start-page-qualitative-product.jpg';
 
 import {
@@ -35,13 +42,7 @@ export const getStaticProps = async () => {
 
 function index({ items }) {
   const catalogLink = '/catalog';
-
-  function getGost(str) {
-    if (str) {
-      const gost = str.split(' ');
-      return `${gost[0]} ${gost[1]}`;
-    }
-  }
+  const createdCatalog = StrapiHandlerInstance.handleCatalog(items);
 
   const productionSliderBreakPoint = {
     gapxl: 24,
@@ -52,13 +53,9 @@ function index({ items }) {
 
   const factorySliderContent = [
     { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
-    { imgSrc: sliderFirstImg.src },
+    { imgSrc: sliderSecondImg.src },
+    { imgSrc: sliderThirdImg.src },
+    { imgSrc: sliderFourthImg.src },
   ];
 
   const factorySliderBreakPoint = {
@@ -128,8 +125,8 @@ function index({ items }) {
               <div className="start-page__number-item">
                 <p className="text-2">
                   При проектировании завода, учитывался самый передовой опыт
-                  европейских производителей яичных продуктов. Который основан на
-                  самых высоких требованиях пищевой безопасности.
+                  европейских производителей яичных продуктов. Который основан
+                  на самых высоких требованиях пищевой безопасности.
                 </p>
               </div>
               <div className="start-page__number-item">
@@ -160,19 +157,21 @@ function index({ items }) {
           variants={startPageAnimationSecond}
           className="start-page__production-block"
         >
-          <h2 className="start-page__production-heading container">Продукция</h2>
+          <h2 className="start-page__production-heading container">
+            Продукция
+          </h2>
           <CustomSlider
             breakpointsObj={productionSliderBreakPoint}
             swiperWrapperStyle="start-page__production-slider"
           >
-            {items.map((el) => (
+            {createdCatalog.map((el) => (
               <SwiperSlide key={el.id}>
-                <Link href={`/productCard/${el.id}`}>
+                <Link href={`/productCard/${translitRuEn(el.name)}-${el.id}`}>
                   <a>
                     <BaseCard
-                      img={`${StrapiServiceInstance.baseURL}${el.attributes.img.data.attributes.formats.medium.url}`}
-                      name={el.attributes.name}
-                      gost={el.attributes.document}
+                      img={el.image}
+                      name={el.name}
+                      gost={el.gost}
                       imgStyles="start-page__production-slider-item-img"
                     />
                   </a>
@@ -204,15 +203,15 @@ function index({ items }) {
               <div className="start-page__certification__imgs">
                 <img
                   className="start-page__certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldTwo.src}
                 />
                 <img
                   className="start-page__certification__imgs_img"
-                  src={mockImage.src}
+                  src={grand.src}
                 />
                 <img
                   className="start-page__certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldOne.src}
                 />
               </div>
             </div>

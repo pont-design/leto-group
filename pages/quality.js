@@ -7,6 +7,9 @@ import { CustomLink } from '../components/UI/CustomLink/customLink';
 import { CustomSlider } from '../components/UI/customSlider/CustomSlider';
 
 import mockImage from '../public/images/ProductCard/mockBaseCard.jpg';
+import goldOne from '../public/images/QualityPage/gold1.jpg';
+import goldTwo from '../public/images/QualityPage/gold2.jpg';
+import grand from '../public/images/QualityPage/grand.jpg';
 import mainImg from '../public/images/QualityPage/quality-main-img.jpg';
 import controlImg from '../public/images/QualityPage/quality-control-img.jpg';
 
@@ -41,6 +44,7 @@ function Quality() {
     gapxl: 24,
     slidesPerViewXl: 4.2,
     slidesPerViewMd: 3.2,
+    slidesPerViewSmall: 2.2,
     slidesPerViewXs: 1.2,
   };
 
@@ -84,19 +88,19 @@ function Quality() {
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldTwo.src}
                 />
               </div>
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={grand.src}
                 />
               </div>
               <div className="quality-certification__img-container">
                 <img
                   className="quality-certification__imgs_img"
-                  src={mockImage.src}
+                  src={goldOne.src}
                 />
               </div>
             </div>

@@ -23,6 +23,7 @@ export const CustomAccordionTechnologies = ({ accordionList }) => {
     <div className="accordions-pure-wrapper">
       {accordionList.map((item, index) => (
         <AccordionTab
+          key={index}
           subTitle={item.subTitle}
           index={index}
           title={item.title}
