@@ -56,6 +56,10 @@
 
 .quality-steps-wrapper {
   margin-top: 16.8rem;
+
+  .quality-steps__accordion {
+    padding-right: 52px;
+  }
 }
 
 .quality-steps-description {
@@ -175,7 +179,15 @@
   .quality-steps-wrapper {
     display: flex;
     flex-direction: column-reverse;
-    gap: 32px;
+    gap: 0;
+
+    .quality-steps__accordion {
+      padding-right: 0;
+    }
+
+    .quality-steps-img-wrapper {
+      margin-bottom: 32px;
+    }
   }
 
   .quality-steps-description {

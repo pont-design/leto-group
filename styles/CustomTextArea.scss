@@ -8,6 +8,14 @@
   width: 100%;
   color: $gray500;
   border: 1px solid $gray300;
+
+  &:focus {
+    outline: none !important;
+  }
+
+  &:focus-visible {
+    outline: none !important;
+  }
 }
 
 .custom-text-area__text {

@@ -9,7 +9,7 @@ import { CustomButton } from '../customButton/CustomButton';
 import { CustomTextArea } from '../customTextArea/CustomTextArea';
 import { CustomTextField } from '../customTextField/CustomTextField';
 
-export const CustomForm = ({ buttonLabel }) => {
+export const CustomForm = ({ buttonLabel, active, setActive }) => {
   const [formsData, setFormsData] = useState({});
   const [buttonIndicator, setButtonIndicator] = useState(false);
 
@@ -25,9 +25,10 @@ export const CustomForm = ({ buttonLabel }) => {
     },
   });
 
-  const submitForm = () => {
-    sendEmail();
+  const submitForm = (data) => {
+    sendEmail(data);
     setButtonIndicator(true);
+    setActive && setActive(false);
     setTimeout(() => setButtonIndicator(false), 3000);
   };
 
@@ -39,17 +40,17 @@ export const CustomForm = ({ buttonLabel }) => {
     });
   }, [isSubmitSuccessful]);
 
-  const sendEmail = () => {
+  const sendEmail = (data) => {
     axios
       .post(`${StrapiServiceInstance.baseURL}/api/email`, {
         to: `${StrapiServiceInstance._sendAddress}`,
         from: 'leto-group',
         subject: 'Заявка с сайта',
-        html: `<h1>${formsData.name}</h1>
-        <p><strong>Почта:</strong>: ${formsData.email}</p>
-        <p><strong>Детали:</strong>: ${formsData.message}</p>
+        html: `<h1>${data.name}</h1>
+        <p><strong>Почта:</strong>: ${data.email}</p>
+        <p><strong>Детали:</strong>: ${data.message}</p>
         `,
-        text: formsData.message,
+        text: data.message,
       })
       .catch((error) => {
         console.log(error);
