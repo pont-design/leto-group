@@ -206,38 +206,36 @@ export default function productCard({
               );
             })}
           </div>
-          <div className="product-card__similar-slider">
-            <CustomSlider
-              swiperWrapperStyle=""
-              swiperItemStyles=""
-              slideImgStyle=""
-              breakpointsObj={similarSliderBreakPoint}
-            >
-              {similarProducts.map((el) => (
-                <SwiperSlide key={el.id}>
-                  <Link href={`/productCard/${el.id}`}>
-                    <a>
-                      <BaseCard
-                        img={`${StrapiServiceInstance.baseURL}${el.src}`}
-                        name={el.name}
-                        gost={el.gost}
-                        imgStyles="product-card__similar-item-img"
-                      />
-                    </a>
-                  </Link>
-                </SwiperSlide>
-              ))}
-            </CustomSlider>
-          </div>
         </div>
-        <CustomModal active={modalActive} setActive={setModalActive}>
-          <h2>Оставьте заявку</h2>
-          <p className="text-1">
-            В ближайщее время наш менеджер свяжется с Вами
-          </p>
-          <CustomForm buttonLabel="Отправить" />
-        </CustomModal>
       </section>
+      <div className="product-card__similar-slider">
+        <CustomSlider
+          swiperWrapperStyle=""
+          swiperItemStyles=""
+          slideImgStyle=""
+          breakpointsObj={similarSliderBreakPoint}
+        >
+          {similarProducts.map((el) => (
+            <SwiperSlide key={el.id}>
+              <Link href={`/productCard/${el.id}`}>
+                <a>
+                  <BaseCard
+                    img={`${StrapiServiceInstance.baseURL}${el.src}`}
+                    name={el.name}
+                    gost={el.gost}
+                    imgStyles="product-card__similar-item-img"
+                  />
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </CustomSlider>
+      </div>
+      <CustomModal active={modalActive} setActive={setModalActive}>
+        <h2>Оставьте заявку</h2>
+        <p className="text-1">В ближайщее время наш менеджер свяжется с Вами</p>
+        <CustomForm buttonLabel="Отправить" setActive={setModalActive} />
+      </CustomModal>
     </motion.div>
   );
 }
