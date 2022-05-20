@@ -150,7 +150,7 @@ export const Header = () => {
       <CustomModal active={modalActive} setActive={setModalActive}>
         <h2>Оставьте заявку</h2>
         <p className="text-1">В ближайщее время наш менеджер свяжется с Вами</p>
-        <CustomForm buttonLabel="Отправить" />
+        <CustomForm setActive={setModalActive} buttonLabel="Отправить" />
       </CustomModal>
     </div>
   );

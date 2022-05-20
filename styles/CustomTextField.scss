@@ -7,6 +7,14 @@
   padding: 16px;
   color: $gray500;
   border: 1px solid $gray300;
+
+  &:focus {
+    outline: none !important;
+  }
+
+  &:focus-visible {
+    outline: none !important;
+  }
 }
 
 .custom-text-field__text {
